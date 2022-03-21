@@ -1,13 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+
 import Layout from './hocs/Layout';
 import Home from './components/Home';
 import Blog from './components/Blog';
 import BlogDetail from './components/BlogDetail';
 import Category from './components/Category';
 
+console.log(process.env)
+
 const App = () => (
-    <BrowserRouter>
+    <HashRouter>
         <Layout>
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -16,7 +19,8 @@ const App = () => (
                 <Route path="/category/:id" element={<Category />} />
             </Routes>
         </Layout>
-    </BrowserRouter>
+    </HashRouter>
+    
 );
 
 export default App;
