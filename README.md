@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Visualize the project by visiting [2bytesgoat.github.io](https://2bytesgoat.github.io).
 
 ## Dependencies
 
@@ -8,6 +8,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm install gh-pages --save-dev
 npm install react-router-dom --save
 npm install axios --save
+```
+
+## Deploying
+
+```
+npm run deploy
 ```
 
 ## Available Scripts
