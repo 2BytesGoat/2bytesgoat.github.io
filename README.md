@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dependencies
+
+```
+npm install gh-pages --save-dev
+npm install react-router-dom --save
+npm install axios --save
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
