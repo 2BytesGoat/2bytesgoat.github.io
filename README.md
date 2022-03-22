@@ -1,13 +1,11 @@
 # Getting Started with Create React App
 
-Visualize the project by visiting [2bytesgoat.github.io](https://2bytesgoat.github.io).
+See the project by visiting [2bytesgoat.github.io](https://2bytesgoat.github.io).
 
 ## Dependencies
 
 ```
-npm install gh-pages --save-dev
-npm install react-router-dom --save
-npm install axios --save
+npm install
 ```
 
 ## Deploying
