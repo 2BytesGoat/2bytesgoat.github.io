@@ -1,19 +1,22 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Search, Accordion } from 'semantic-ui-react';
+import { Search } from 'semantic-ui-react';
 
 const navbar = () => (
     <div className='container py-3 mb-4'>
         <div className="row">
-            <div className="d-flex justify-content-center col-xs-6 col-sm-4">
-                <i aria-hidden="true" class="github big icon"></i>
-                <i aria-hidden="true" class="linkedin big icon"></i>
-                <i aria-hidden="true" class="patreon big icon"></i>
+            <div className="d-flex justify-content-start col-xs-6 col-sm-4">
+                <a class="link-dark" href="https://github.com/2BytesGoat">
+                    <i aria-hidden="true" class="github big icon" />
+                </a>
+                <a class="link-dark" href="https://www.patreon.com/2bytesgoat">
+                    <i aria-hidden="true" class="patreon big icon"></i>
+                </a>
             </div>
             <div className="d-flex justify-content-center col-xs-6 col-sm-4">
-                <Link className="navbar-brand" to='/'>2BytesGoat</Link>    
+                <Link className="navbar-brand" to='/'><h1>2BytesGoat</h1></Link>    
             </div>
-            <div className="d-flex justify-content-center col-xs-6 col-sm-4">
+            <div className="d-flex justify-content-end col-xs-6 col-sm-4 flex-wrap">
                 <Search placeholder={"Search..."} />
             </div>
         </div>
@@ -28,7 +31,13 @@ const navbar = () => (
                         <NavLink className="nav-link" exact to='/blog'>Blog</NavLink>
                     </li>
                     <li className="nav-item px-4">
+                        <NavLink className="nav-link" exact to='/projects'>Projects</NavLink>
+                    </li>
+                    <li className="nav-item px-4">
                         <NavLink className="nav-link" exact to='/about'>About</NavLink>
+                    </li>
+                    <li className="nav-item px-4">
+                        <NavLink className="nav-link" exact to='/contact'>Contact</NavLink>
                     </li>
                 </ul>
                 </div>
@@ -38,10 +47,3 @@ const navbar = () => (
 );
 
 export default navbar;
-
-
-
-
-    // <li className="nav-item dropdown">
-    //     <NavLink className="nav-link px-2 link-secondary" exact to='/blog'>Blog</NavLink>
-    // </li>
