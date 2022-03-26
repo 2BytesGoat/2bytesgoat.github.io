@@ -40,7 +40,7 @@ const BlogDetail = () => {
 
 
     return (
-        <div className='container mt-3'>
+        <div className='container-sm'>
             <h1 className='display-2'>{blog.title}</h1>
             <h2 className='text-muted mt-3'>Category: {capitalizeFirstLetter(blog.category)}</h2>
             <h5 className="mb-1 text-muted">{year} {month} {date}</h5>

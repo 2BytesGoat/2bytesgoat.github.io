@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Dropdown } from 'semantic-ui-react'
 
 const CategoryLinks = () => {
     const [categories, setCategories] =  useState([]);
@@ -21,15 +22,26 @@ const CategoryLinks = () => {
        
     categories.map(category => {
         return categoryLinks.push(
-            <Link className="p-2 text-muted" to={`/category/${category}`} key={category}>{category}</Link>
+            <Dropdown.Item><Link className="p-2 text-muted" to={`/category/${category}`} key={category}>{category}</Link></Dropdown.Item>
         );
     });
 
     return (
-        <div className="nav-scroller py-1 mb-2">
-            <nav className="nav d-flex">
-                {categoryLinks}
-            </nav>
+        <div className="p-4 p-md-0 mb-2 text-white rounded">
+            <Dropdown
+                text='Filter'
+                icon='filter'
+                floating
+                labeled
+                button
+                className='icon'
+            >
+                <Dropdown.Menu>
+                    <Dropdown.Header icon='tags' content='Filter by tag' />
+                    <Dropdown.Divider />
+                        {categoryLinks}
+                </Dropdown.Menu>
+            </Dropdown>
         </div>
         );
 };
