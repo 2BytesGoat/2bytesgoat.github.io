@@ -1,87 +1,82 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-import BlogTooltip from './BlogTooltip'
-import CategoryLinks from './CategoryLinks';
+import BlogTooltip from "./BlogTooltip";
+import CategoryLinks from "./CategoryLinks";
+
+import loading from "../media/Pacman.gif";
 
 const Blog = () => {
-    const [blogs, setBlogs] = useState([]);
-    const [featuredBlog, setFeaturedBlog] = useState([]);
+  const [blogs, setBlogs] = useState([]);
+  const [featuredBlog, setFeaturedBlog] = useState([]);
+  const [isPending, setIsPending] = useState(true);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/featured`);
-                setFeaturedBlog(res.data[0]);
-            }
-            catch (err) {
-            }
-        }
-        fetchData();
-    }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/blog/featured`
+        );
+        setFeaturedBlog(res.data[0]);
+      } catch (err) {}
+    };
+    fetchData();
+  }, []);
 
-    useEffect(() => {
-        const fetchBlogs = async () => {
-            try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/`);
-                setBlogs(res.data);
-            }
-            catch (err) {
-
-            }
-        }
-
-        fetchBlogs();
-    }, []);
-
-    const getBlogs = () => {
-        let list = [];
-        let result = [];
-        
-        blogs.map(blogPost => {
-            return list.push(
-                <BlogTooltip id={blogPost.slug}></BlogTooltip>
-            );
-        });
-
-        for (let i = 0; i < list.length; i += 2) {
-            result.push(
-                <div key={i} className='row mb-2'>
-                    <div className='col-md-6'>
-                        {list[i]}
-                    </div>
-                    <div className='col-md-6'>
-                        {list[i+1] ? list[i+1] : null}
-                    </div>
-                </div>
-            )
-        }
-
-        return result;
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/blog/`
+        );
+        setBlogs(res.data);
+        setIsPending(false);
+      } catch (err) {}
     };
 
-    return (
-        <div className='container'>
-            <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-                <div className="col-md-6 px-0">
-                    <h1 className="display-4 font-italic">{featuredBlog.title}</h1>
-                    <p className="lead my-3">{featuredBlog.excerpt}</p>
-                    <p className="lead mb-0">
-                    <Link to={`/blog/${featuredBlog.slug}`} className="text-white font-weight-bold">
-                        Continue reading...
-                    </Link>
-                    </p>
-                </div>
-            </div>
+    fetchBlogs();
+  }, []);
 
-            <CategoryLinks />
-            
-            <div className="row mb-2">
-                {getBlogs()}
-            </div>
+  return (
+    <div>
+      {isPending && (
+        <div className="container">
+          <img src={loading} alt="loading..." className="mx-auto d-block" />
+          <h2 className="text-center">Loading...</h2>
         </div>
-    );
+      )}
+      {!isPending && (
+        <div className="container">
+          <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+            <div className="col-md-6 px-0">
+              <h1 className="display-4 font-italic">{featuredBlog.title}</h1>
+              <p className="lead my-3">{featuredBlog.excerpt}</p>
+              <p className="lead mb-0">
+                <Link
+                  to={`/blog/${featuredBlog.slug}`}
+                  className="text-white font-weight-bold"
+                >
+                  Continue reading...
+                </Link>
+              </p>
+            </div>
+          </div>
+          <CategoryLinks />
+          <div className="row mb-2">
+            {blogs.map((blogPost) => (
+              <div className="col-md-6">
+                <BlogTooltip
+                  id={blogPost.slug}
+                  key={blogPost.slug}
+                ></BlogTooltip>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Blog;
