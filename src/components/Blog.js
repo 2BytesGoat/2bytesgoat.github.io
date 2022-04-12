@@ -9,6 +9,7 @@ import loading from "../media/Pacman.gif";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [featuredBlog, setFeaturedBlog] = useState([]);
   const [isPending, setIsPending] = useState(true);
 
@@ -31,12 +32,18 @@ const Blog = () => {
           `${process.env.REACT_APP_API_URL}/api/blog/`
         );
         setBlogs(res.data);
+        setFilteredBlogs(res.data);
         setIsPending(false);
       } catch (err) {}
     };
 
     fetchBlogs();
   }, []);
+
+  const handleFilterCategories = (categoryName) => {
+    const allBlogs = blogs.filter((blog) => blog.category === categoryName);
+    setFilteredBlogs(allBlogs);
+  };
 
   return (
     <div>
@@ -62,9 +69,9 @@ const Blog = () => {
               </p>
             </div>
           </div>
-          <CategoryLinks />
+          <CategoryLinks onFilter={handleFilterCategories} />
           <div className="row mb-2">
-            {blogs.map((blogPost) => (
+            {filteredBlogs.map((blogPost) => (
               <div className="col-md-6">
                 <BlogTooltip
                   id={blogPost.slug}
