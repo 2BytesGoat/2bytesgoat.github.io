@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Dropdown } from "semantic-ui-react";
+import { Dropdown, Button } from "semantic-ui-react";
 
 const CategoryLinks = (props) => {
   const [categories, setCategories] = useState([]);
@@ -39,6 +39,7 @@ const CategoryLinks = (props) => {
             ))}
         </Dropdown.Menu>
       </Dropdown>
+      <Button onClick={() => props.onFilter(null)}>Remove Filter</Button>
     </div>
   );
 };

@@ -41,8 +41,14 @@ const Blog = () => {
   }, []);
 
   const handleFilterCategories = (categoryName) => {
-    const allBlogs = blogs.filter((blog) => blog.category === categoryName);
-    setFilteredBlogs(allBlogs);
+    if (!categoryName) {
+      setFilteredBlogs(blogs);
+    } else {
+      const filteredBlogs = blogs.filter(
+        (blog) => blog.category === categoryName
+      );
+      setFilteredBlogs(filteredBlogs);
+    }
   };
 
   return (
