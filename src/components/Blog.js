@@ -78,11 +78,8 @@ const Blog = () => {
           <CategoryLinks onFilter={handleFilterCategories} />
           <div className="row mb-2">
             {filteredBlogs.map((blogPost) => (
-              <div className="col-md-6">
-                <BlogTooltip
-                  id={blogPost.slug}
-                  key={blogPost.slug}
-                ></BlogTooltip>
+              <div key={blogPost.slug} className="col-md-6">
+                <BlogTooltip id={blogPost.slug}></BlogTooltip>
               </div>
             ))}
           </div>

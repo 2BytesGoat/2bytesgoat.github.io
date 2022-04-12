@@ -49,6 +49,7 @@ const CategoryLinks = (props) => {
           {categories &&
             categories.map((category) => (
               <Dropdown.Item
+                key={category}
                 onClick={() => {
                   handleFilterChange(category);
                 }}
