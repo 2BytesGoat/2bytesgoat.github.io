@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import BlogTooltip from "./BlogTooltip";
 import CategoryLinks from "./CategoryLinks";
 
-import loading from "../media/Pacman.gif";
+import loading from "../media/loading_animation.gif";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
