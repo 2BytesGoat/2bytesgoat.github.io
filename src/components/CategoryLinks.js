@@ -6,6 +6,7 @@ import { Dropdown, Button } from "semantic-ui-react";
 const CategoryLinks = (props) => {
   const [categories, setCategories] = useState([]);
   const [isCategorySelected, setIsCategorySelected] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Filter");
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -19,12 +20,23 @@ const CategoryLinks = (props) => {
     fetchCategories();
   }, []);
 
-  const getRemoveFilterBtnActivity = isCategorySelected ? "active" : "disabled";
+  const getRemoveFilterBtnActivity = isCategorySelected ? "" : "disabled";
+
+  const handleFilterChange = (category) => {
+    props.onFilter(category);
+    if (category) {
+      setIsCategorySelected(true);
+      setSelectedCategory(category);
+    } else {
+      setIsCategorySelected(false);
+      setSelectedCategory("Filter");
+    }
+  };
 
   return (
     <div className="p-4 p-md-0 mb-2 text-white rounded">
       <Dropdown
-        text="Filter"
+        text={selectedCategory}
         icon="filter"
         floating
         labeled
@@ -38,8 +50,7 @@ const CategoryLinks = (props) => {
             categories.map((category) => (
               <Dropdown.Item
                 onClick={() => {
-                  props.onFilter(category);
-                  setIsCategorySelected(true);
+                  handleFilterChange(category);
                 }}
               >
                 {category}
@@ -49,8 +60,7 @@ const CategoryLinks = (props) => {
       </Dropdown>
       <Button
         onClick={() => {
-          props.onFilter(null);
-          setIsCategorySelected(false);
+          handleFilterChange(null);
         }}
         className={getRemoveFilterBtnActivity}
       >
