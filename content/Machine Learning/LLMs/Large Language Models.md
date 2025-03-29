@@ -4,14 +4,22 @@ Large Language Models (or LLMs for short) are [[Machine Learning Models]] that:
 * are made out of a large number of parameters 
 
 ![[donald-trump-billions.gif]]
-
-# How
-
-
 # Why
-Nowadays Large Language Models 
+LLMs exist because humans use language as their primary communication medium. Thus there is a lot of information that stored as text. Information so vast and sparse that no one person can remember or go through. 
 
-# More
+In come LLMs with their capacity of storing complex mapping between words, that humans can now use to: 
+* efficiently automate tasks
+* navigate unstructured data
+* or even have a chat with
+# How
+Broadly speaking, LLMs are [[optimized]] to remember the words and word relationships based on the text they see during the [[training phase]]. The more often they see words together, the stronger the bound between them is. And the more parameters the models have, the more complex relationships they can remember.
+
+> [!Warning] Disclaimer
+> This is a oversimplification of the complexities that go into training a generic Large Language Model. 
+>
+> Also, the training process itself is different based on the type of LLM.
+
+# Types
 And they come in different shapes and sizes depending on their purpose:
 * **[[Generative Models]]** - are models that generate new text based on input prompts
 	* Example: GPT (Generative Pre-trained Transformer), Llama, Claude
