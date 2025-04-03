@@ -1,6 +1,8 @@
 @use "../../styles/variables.scss" as *;
 @use "./explorer.scss";
 
+$fullPageWidth: $pageWidth + 2 * $sidePanelWidth;
+
 .left,
 .right {
   display: grid !important;

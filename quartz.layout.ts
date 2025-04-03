@@ -5,12 +5,6 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [
-    Component.MobileOnly(
-      Component.ExplorerBurger({
-        folderDefaultState: "open",
-        folderClickBehavior: "link",
-      }),
-    ),
     Component.MobileOnly(Component.Spacer()),
     Component.MobileOnly(Component.PageTitle()),
     Component.Search(),
@@ -27,21 +21,27 @@ export const sharedPageComponents: SharedLayout = {
 
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.Breadcrumbs(),
+    Component.ConditionalRender({
+      component: Component.Breadcrumbs(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
     Component.ArticleTitle(),
     Component.ContentMeta({ showReadingTime: false }),
     Component.TagList(),
   ],
   left: [
-    Component.DesktopOnly(Component.PageTitle()),
-    Component.DesktopOnly(
-      Component.ExplorerBurger({
-        folderClickBehavior: "link",
-        folderDefaultState: "collapsed",
-        useSavedState: true,
-        title: "",
-      }),
-    ),
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+    Component.Explorer(),
   ],
   right: [
     Component.DesktopOnly(Component.Graph()),
@@ -51,7 +51,20 @@ export const defaultContentPageLayout: PageLayout = {
 }
 
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: defaultContentPageLayout.beforeBody,
-  left: defaultContentPageLayout.left,
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+    Component.Explorer(),
+  ],
   right: [],
 }
