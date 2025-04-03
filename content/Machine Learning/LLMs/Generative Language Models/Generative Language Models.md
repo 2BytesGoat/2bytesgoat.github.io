@@ -61,10 +61,11 @@ Because GLMs are so versatile and easy to use, it also means that maybe they do 
 
 > [!Info] Example
 > Say you want to buy a laptop. When looking for a laptop there're a lot of options you may look for:
-> * good battery - so it will last longer
-> * good screen - so you'll see the image clearer 
-> * good hardware - so you can play games or learn machine learning
-> * good form-factor - so you can actually carry it with you
+> * **good battery** - so it will last longer
+> * **good screen** - so you'll see the image clearer 
+> * **good hardware** - so you can play games or learn machine learning
+> * **good form-factor** - so you can actually carry it with you
+> 
 > And the more thing you want your laptop to do, the more expensive it's going to get to buy it.
 >
 > So if a laptop is more expensive than a tablet because it has more features, some Generative Models are more costly than other LLMs because they require more hardware and are harder to train.
