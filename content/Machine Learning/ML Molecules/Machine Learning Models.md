@@ -15,9 +15,9 @@ Similar to how in this blog I'm trying to structure all information I gathered f
 Let me clarify that, humans don't design the actual Machine Learning Models. They build [[Machine Learning Algorithms]] that learn from examples and produce a Machine Learning Model that describes the solution.
 
 > [!info] Here's an Example
-> Imagine you're the Machine Learning Algorithm and know nothing about baking cakes. Then I give you all the ingredients that are needed to bake a cake and the final product. 
+> Imagine **you're the Machine Learning Algorithm** and know nothing about baking cakes. Then I give you a bunch of ingredients and the cake you must bake. 
 > 
 > Your job is to come up with the recipe of how to bake the cake, that then can be followed by anyone given similar ingredients (maybe different ingredient brands).
 > 
-> The recipe in this case is the Machine Learning Model.
+> **The cake recipe is the Machine Learning Model.**
 
