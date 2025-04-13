@@ -1,3 +1,0 @@
-* [**Chess**](./Gamedev/Godot-4.x/Chess) - Me trying to understand how to build a chess game, but overcomplicating myself. It still haunts me. I'll make it work one day.
-* [**Chess Card Game**]("./Gamedev/Godot-4/Chess-Card-Game") - A distant dream of building a chess game with playing cards. Once I learn how to build a basic chess game.
-* [**Pixelize 3D**]("./Gamedev/Godot-4/Pixelize3D") - A somewhat working project where you render 3D models as sprites, to use in 2D games.

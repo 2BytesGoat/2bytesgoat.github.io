@@ -1,2 +1,0 @@
-* [**Environments**](./Machine-Learning/Environments) - Custom made Godot Environments that you can use to learn Machine Learning on.
-* [**ML-Theory**](./Machine-Learning/ML-Theory) - A place where I try to make boring Machine Learning theory a bit less boring.
