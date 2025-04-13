@@ -1,2 +1,0 @@
-* [**Godot 3**](./Gamedev/Godot-3) - old Godot prototype. Keeping it here just to remember where I started from.
-* [**Godot 4**](./Gamedev/Godot-4) - less old Godot prototypes that I may come back to at some point. Maybe.

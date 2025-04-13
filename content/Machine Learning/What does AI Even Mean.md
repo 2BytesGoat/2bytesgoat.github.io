@@ -1,7 +1,7 @@
 ---
 tags:
   - intro-to-ai
-draft: true
+draft: false
 date: 2024-10-14
 ---
 I feel **A**rtificial **I**ntelligence has become a somewhat diluted term, especially since tools like ChatGPT became popular. As startups try to capitalise on the hype and AI becomes part of our lives, it’s more important than ever to understand what AI truly is and **how AI works**.

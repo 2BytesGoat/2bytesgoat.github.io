@@ -18,9 +18,9 @@
 
 **In 2023** I posted my first [YouTube video](https://www.youtube.com/watch?v=p94uxrhymNo) in which I'm presenting how I trained a ML model to play Mario Kart. It's not much, but it's honest work.
 
-## ⌨️ Re-designed a 10 000+ line codebase
+## ⌨️ Re-designed a HUGE codebase
 
-**In 2022** me and a colleague had the task to re-write a giant Java [monolith application](https://en.wikipedia.org/wiki/Monolithic_application) into Python microservices. My colleague knew Java, I knew Python and we made it 4 times faster, made the app easier to scale and upgrade, and reduced monthly costs from 2000$ to around 100$. Did I mention we did it in less than 5 months? 
+**In 2022** me and a colleague had the task to re-write a huge Java [monolith application](https://en.wikipedia.org/wiki/Monolithic_application) into Python microservices. My colleague knew Java, I knew Python and we made it 4 times faster, made the app easier to scale and upgrade, and reduced monthly costs from 2000$ to around 100$. Did I mention we did it in less than 5 months? 
 
 ## 📬 My first blogpost
 
