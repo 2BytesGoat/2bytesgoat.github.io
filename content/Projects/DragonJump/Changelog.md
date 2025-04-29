@@ -1,3 +1,16 @@
+~ There's also a [Discord channel](https://discord.gg/FsKQPupcVs) ~
+
+#### **2025-04-28 - Learderboard improvements and Steam update**
+I crunched this release like hell, my brain still hurts. But it was totally worth it. Now the leaderboard is a bit more stable (though not perfect - yet). The UI is a bit more cohesive, the level editor works and now there's mention of the [Discord channel](https://discord.gg/FsKQPupcVs). 
+
+I can't wait to work on the next updates, cuz I have some funky ideas in the oven. 
+
+Here's a list of the most interesting things I've worked on, as per ChatGPT:
+- **New Community Button:** Join our Discord easily from the main menu!
+- **Level Reworks:** Early levels rebalanced (especially 1-11, 1-12) + a new tutorial level for the Spiderman move.
+- **Leaderboard Improvements:** Added info about score syncing delays and clearer unsynced score warnings.
+- **Level Editor Upgrades:** Create, edit, and manage custom levels with a new level editor scene and menu.
+- **Better Stability:** Improved sync between local and server saves + bug fixes and security upgrades.
 
 #### **2025-04-21 – We have working leaderboards babyyy**
 So the bane of this project has always been: How to make leaderboards actually work. And mainly cuz I'm a choosing beggar, cuz I want to use Steam's free leaderboards, but like a lot and for everything. Aaaany way ... that's out of the way. I've also had a productive weekend and did a lot of updates on the rest of the game refactor. I think I'm past the half way point and after the map editor is ready (again) we'll have the game back on Steam.
