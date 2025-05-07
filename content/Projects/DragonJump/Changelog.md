@@ -1,5 +1,16 @@
 ~ There's also a [Discord channel](https://discord.gg/FsKQPupcVs) ~
 
+#### **2025-05-05 - Polishing the game**
+This week was all about polishing the game. I've flexed my "designer" brain trying to make the game feel better and look better.
+
+Here's a list of the most interesting things I've added:
+- 2 new levels + updated final level
+- New bounce pad mechanic
+- Improved leaderboard & ghost replays
+- Music, sound effects & poof visuals added
+- Editor and UI polish
+- Minor bug fixes and performance tweaks
+
 #### **2025-04-28 - Learderboard improvements and Steam update**
 I crunched this release like hell, my brain still hurts. But it was totally worth it. Now the leaderboard is a bit more stable (though not perfect - yet). The UI is a bit more cohesive, the level editor works and now there's mention of the [Discord channel](https://discord.gg/FsKQPupcVs). 
 
