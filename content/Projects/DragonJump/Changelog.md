@@ -1,5 +1,15 @@
 ~ There's also a [Discord channel](https://discord.gg/FsKQPupcVs) ~
 
+#### **2025-05-12 - More game polish + AI integration**
+It was a kinda hectic week. Got caught up with work, but fortunately had some time to add some more polish to the game. Also started working on the AI training integration.
+
+Here's a summary:
+- Early AI training interface added
+- Basic multi-agent training (experimental)
+- Improved level previews (zoomed out)
+- More level balancing and polish
+- Added “boing” text for bounce pads
+
 #### **2025-05-05 - Polishing the game**
 This week was all about polishing the game. I've flexed my "designer" brain trying to make the game feel better and look better.
 
