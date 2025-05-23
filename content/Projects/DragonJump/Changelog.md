@@ -1,5 +1,13 @@
 ~ There's also a [Discord channel](https://discord.gg/FsKQPupcVs) ~
 
+#### **2025-05-19 - Progress on AI integration**
+This week, I focused on streamlining the connection between the game and the AI brain running in Python. I also updated the Steam build, so players can now access a version of the game that fully supports AI training.
+
+Here's a summary:
+- **Improved audio system**: Fixed music looping, refined sound effects playback, added music volume controls, and moved SFX handling into the music manager.
+- **Enhanced input features**: Fixed key remapping issues.
+- **Progress on AI features**: Implemented and refined multi-agent training support, including server connection and dynamic step configuration.
+
 #### **2025-05-12 - More game polish + AI integration**
 It was a kinda hectic week. Got caught up with work, but fortunately had some time to add some more polish to the game. Also started working on the AI training integration.
 
