@@ -12,6 +12,14 @@ Get ready for a wild ride through the pixelated pastures of gaming and the futur
 
 Behold our digital menagerie of gaming and AI creations! These projects aren't your average pixels and algorithms; they're the result of wild ideas, sleepless nights, and perhaps a few too many cups of coffee.
 
+## 🐲 Dragon Jump: Welcome to the plAIground
+![image alt <](env-dj-demo.gif)  
+
+Dragon Jump is a one-button precision platformer, in the likes of Super Meat Boy or Geometry Dash. The game has you play as a orange dragon that jumps it's way towards the exit. There are multiple obstacles to avoid and power-ups to help you conquer the levels.
+
+The game is also designed as a plAIground because you can connect to the game and control it by designing your own AI in Python.
+
+[[How to DragonJump#👉Read More]]
 ## 🏂 Slopes of Fury: HEITS Apuseni Cup Edition
 
 ![image alt >](d694b0.gif)
