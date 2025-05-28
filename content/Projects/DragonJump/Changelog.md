@@ -1,5 +1,13 @@
 ~ There's also a [Discord channel](https://discord.gg/FsKQPupcVs) ~
 
+#### **2025-05-26 - Recording data and setup guides**
+Trying to focus a bit on the reason for which this game was made: a platform to train your AIs on. So for the following period I'll deprioritize development of levels and mechanics and make it easier for you to train AIs on the game. 
+
+Here's a summary:
+* **Demo recordings**: Added support to capture states and actions from your gameplay, so you can train an agent using supervised learning
+* **Recording frames**: It's boring to only look at numbers, so I also made it such that recordings also capture the frames from the game (downscaled ofc)
+* **Writing some tutorials**: I've created a README for how to connect using a random agent and also added some explanations on [[How to DragonJump]]
+
 #### **2025-05-19 - Progress on AI integration**
 This week, I focused on streamlining the connection between the game and the AI brain running in Python. I also updated the Steam build, so players can now access a version of the game that fully supports AI training.
 
