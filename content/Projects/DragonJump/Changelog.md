@@ -1,5 +1,13 @@
 ~ There's also a [Discord channel](https://discord.gg/FsKQPupcVs) ~
 
+#### **2025-06-02 - Making it easier to train AIs on the game**
+Been focusing on code that nobody will see 😆 This week was all about **Demo Recording Enhancements** and **Developer Tools**.
+
+Here's a summary:
+- Added support to **save gameplay frames** alongside action/state logs (for better training visuals)
+- Fixed bugs in **demo recording logic** and removed **unused variables** for cleaner, more stable logs
+- Enabled **Python integration** to directly start the game via code
+- Built a **Python processing script** to easily load and work with recorded gameplay data**
 #### **2025-05-26 - Recording data and setup guides**
 Trying to focus a bit on the reason for which this game was made: a platform to train your AIs on. So for the following period I'll deprioritize development of levels and mechanics and make it easier for you to train AIs on the game. 
 
