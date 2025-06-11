@@ -9,7 +9,7 @@ In the mean time, I made a script that patches your local python environment wit
 - Open Dragon Jump and type `path` inside the developer console (open pressing tilda button `~`). That will give you the path to your executable that you'll need later,
 - Pull the latest version of the [PLaiGROUND repo](https://github.com/2BytesGoat/PLaiGROUND),
 - Make sure you have a .venv created (if you use Docker you can skip the next step),
-- (Optional) Run the patch script located at `PLaiGROUND\patches\patch_libraries.py`,
+- (Optional) Change directory to be inside /patches and run the patch script located at `PLaiGROUND\patches\patch_libraries.py`
 - Inside the `scripts\00_random_agent.py` set the `--env_path` value to be the path you copied instead of `None`
 
 Hope that works for you. If you have questions, you can ping me on the [Discord channel](https://discord.gg/FsKQPupcVs)
