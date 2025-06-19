@@ -1,5 +1,4 @@
 ## Why would you need it?
-
 Baseline RAG works by taking a private dataset -> you create chunks using embeddings -> you store those chunks in a vector database. Once the information is chunked you perform nearest neighbor search based on a query -> and you use the result of the search to augment the context window. 
 
 - vector DB is limited when you scale your knowledge base
