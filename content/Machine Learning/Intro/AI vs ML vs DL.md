@@ -16,7 +16,7 @@ date: 2026-03-15
 
 **M**achine **L**earning (**ML**) is a subset of AI, which refers to algorithms that are able to "learn" from data and build functions that simulate intelligence. The more "good" examples you give to ML algorithms, the better they should behave.
 
-**D**eep **L**earning (**DL**) is a subset of ML, that focuses more on multi-layer neural networks that are able to build very complex functions and require larger amount of data.
+**D**eep **L**earning (**DL**) is a subset of ML, that focuses more on multi-layer neural networks. This type of ML is able to build very complex functions and require larger amounts of data.
 ![image ><](AI_machine_learning_deep_learning.png)
 source: [The Blog of Daniel J Hand](https://danieljhand.com/the-relationship-between-artificial-intelligence-ai-machine-learning-ml-and-deep-learning-dl.html)
 # About AI
@@ -27,10 +27,10 @@ However, AI algorithms are used in many other ways:
 - **discovering patterns** - [recommender systems](https://en.wikipedia.org/wiki/Recommender_system) that find you new products you may like
 - **security** - old school facial recognition using [Haar Cascades](https://en.wikipedia.org/wiki/Haar-like_feature)
 
-> [!info] You don't need to learn or remember these examples
-> You **don't need** to learn or remember these examples. I just wanted to show you that there are more AI algorithms out there and to flex my useless knowledge.
+> [!info] You **don't need** to learn or remember these examples
+> I just wanted to show you that there are more AI algorithms out there and to flex my useless knowledge.
 
-In the past, primarily due to hardware constraints, developers needed to use simpler AI algorithms and had to **manually extract and build features** from the data. In Pong, for example, if you wanted the paddle to follow the ball, you’d have to mathematically compute the ball's trajectory yourself and program the AI to move toward the ball's destination. You provided the "intelligence" via math - the computer just executed the instructions.
+In the past, primarily due to hardware constraints, developers needed to use simpler AI algorithms and had to **manually extract and build features** from their data. In Pong, for example, if you wanted the paddle to follow the ball, you’d have to mathematically compute the ball's trajectory yourself and program the AI to move toward the ball's destination. You provided the "intelligence" via math - the computer just executed the instructions.
 
 # About ML
 As time passed, humans developed better hardware, which enabled us to build algorithms that **gobble more compute power** and resources, but reduced the overall time we spend tweaking the systems.
@@ -48,4 +48,14 @@ For instance, in the game Pong, instead of us needing to know what's the formula
 Given enough examples, the ML algorithm will build a function that "knows": _When the paddle is here and the ball is there, I should press down._
 
 # About DL
-Now this is where things become spicy and where we delve into the black box magic. 
+Now this is where things become spicy and where we delve into the **black box magic**. 
+
+Machine Learning offers us algorithms that are fairly straight forward to interpret. You have a **Decision Tree**, you know it's branches are if-else statements and you can follow the information flow and even adjust it's parameters manually. 
+
+But these algorithms cannot capture complex relationships and non-linear relationships out of the box. In other words: you cannot do autonomous driving or build Google Translate simply through decision trees. I mean you could, but maybe not in a lifetime. 
+
+**Deep Learning is ML on steroids**. In standard ML, you needed to act as a translator - explaining how the world works in a language the computer would understand (features). You define a neural network, shove in your data and let it train.
+
+And there you go. Your very own blackbox math function that models your data.
+
+The main advantage is that you don't have to manually create **features** to describe your data. The disadvantage: you'll need more data, that needs to be both diverse and clean. Meaning that if you want your AI to generalise, you'll need to expose it to various examples of what it means to "do good", while also not including examples that "contradict each other".

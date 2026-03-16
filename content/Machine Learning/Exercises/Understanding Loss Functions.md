@@ -15,7 +15,7 @@ date: 2024-09-03
 Quests are here to provide some purpose for having to read through the theory. Read the quest and figure out how the information below can help you complete it.
 
 > [!warning] The Quest for the Wakewine
->Read the post to figure out what Error Functions are to find your way to the nearest _café_.
+>Read the post to figure out what Error Functions are. You'll use error functions to find your way to the nearest _café_.
 > 
 > - Understand Mean Squared Error
 > - Understand Mean Absolute Error 

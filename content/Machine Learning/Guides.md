@@ -33,8 +33,8 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 **Topics**
 - What's a perceptron - linear regression and the basis of Deep Learning
 - What are activation functions - nonlinearity to describe complex functions
-- What are losses and optimizers - the things that make DL algorithms learn
-- Running a single-layer network - familiarizing yourselves with Pytorch 
+- What are losses and optimisers - the things that make DL algorithms learn
+- Running a single-layer network - familiarising yourselves with Pytorch 
 **Optional Homework**
 * Experimenting with parameters - try out different number of neurons
 
