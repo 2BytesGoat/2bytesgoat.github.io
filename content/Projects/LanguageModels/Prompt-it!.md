@@ -1,8 +1,6 @@
 In this blogpost I'll go over `Prompt-it!` - a password guessing game where you trick a LLM into divulging your password. 
 
 ![img](https://raw.githubusercontent.com/GianiStatie/ai-prompting-game/refs/heads/main/docs/preview.gif)
-
-**[👉Try Prompt-It! for FREE](https://gianistatie.github.io/ai-prompting-game)**
 # What is it
 **Prompt-it!** is an enhanced version of the [Gandalf](https://gandalf.lakera.ai/baseline) - the password guessing game. In **Prompt-it!** the player needs to prompt a Large Language Model to make it reveal it's secret password. 
 
