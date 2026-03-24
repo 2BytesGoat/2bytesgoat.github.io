@@ -5,7 +5,7 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 ### **Session 1** - What's Machine Learning
 **Topics**
 -  [[AI vs ML vs DL]] - understand the difference between these acronyms
-- Types of AI - what tasks can AI solve
+- [[Types of AI]] - what tasks can AI solve and when to use each
 - Setup Dragon Jump - setting up your Dragon Jump environment 
 - Running a random agent - once the environment is setup we run an AI that only does random inputs
 **Optional Homework**
