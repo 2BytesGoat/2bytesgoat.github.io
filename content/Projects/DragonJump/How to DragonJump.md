@@ -9,30 +9,40 @@ date: 2024-10-14
 
 **Dragon Jump** is a 2D one-button precision platformer, inspired by games like _Super Meat Boy_ and _Geometry Dash_. But this isn't just a game—it's an educational playground where you can learn how to build an AI from scratch.
 <br>
-<center>Download Dragon Jump for Free <a href="https://store.steampowered.com/app/2471710/Dragon_Jump/">on Steam </a> </center>
+<center>Download Dragon Jump for Free on <a href="https://store.steampowered.com/app/2471710/Dragon_Jump/"> Steam</a> OR <a href="[https://store.steampowered.com/app/2471710/Dragon_Jump/](https://2bytesgoat.itch.io/dragon-jump)"> Itch.io</a> </center>
 <br>
 In this blog post, I'll show you how to connect a basic AI "brain" that takes random actions to the game, and begin to explore how the AI looks at the game world. Later on, we'll move from simple techniques like if-else logic and decision trees to more advanced approaches like genetic algorithms, neural networks, and reinforcement learning.
 
+## Before You Start
+This page focuses on Dragon Jump specific setup and explains what data the game sends to your AI.
+
+For full environment setup (Python/Poetry or Docker), please use the official [PLaiGROUND setup guide](https://github.com/2BytesGoat/PLaiGROUND/tree/main).
+
+> [!info] Scope of this guide
+> This guide covers Dragon Jump integration only. It does not repeat dependency installation, virtual environment setup, Docker setup, or general troubleshooting from PLaiGROUND docs.
+
 ## Enabling the AI Mode in the Game
 
-First things first: you’ll need access to the _Dragon Jump_ open playtest. Just head to the [Steam page](https://store.steampowered.com/app/2471710/Dragon_Jump/), click **Request Access**, and you’ll be granted immediate entry to the game.
+> [!warning] Disclaimer
+> Local setup currently supports Windows and Linux. If you're on MacOS, please use the Docker setup from the PLaiGROUND documentation.
 
-Once installed, feel free to explore—hover over the levels, try a few runs, and get a feel for the gameplay. When you're ready to start experimenting with AI, it's time to turn the game into a training **environment** for your AI **brain**.
+### Itch.io version
+Head over to the [Itch.io](https://2bytesgoat.itch.io/dragon-jump) page and get yourself an executable that runs on your OS. Make sure to remember where you saved your executable, cuz you'll need it later.
 
-To do this, press the `~` (tilde) key on your keyboard to open the Developer Console, then type:
-```bash
-learning on
-```
+### Steam version
+If you want to get _Dragon Jump_ on **Steam**, you'll need to join the open playtest. Just head to the [Steam page](https://store.steampowered.com/app/2471710/Dragon_Jump/), click **Request Access**, and you’ll be granted immediate entry to the game.
 
-You can close the console by pressing either `Escape` or `~` again.
+Once installed, feel free to explore - hover over the levels, try a few runs, and get a feel for the gameplay. When you're ready to start experimenting with AI, it's time to turn the game into a training **environment** for your AI **brain**.
 
-![img ><](env-dj-aisettings.png)
-Now, when you select a level, you’ll notice a new tab in the menu labeled **AI Settings**. This is where you can connect your AI brain and configure how many Dragons it should control simultaneously.
+To do this, you'll need to locate the **path to your executable**. Use this path to overwrite the default location for the **environment** executable inside the **[.config](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/.config)** file.
+
+>[!tip] Disclaimer
+>If you find anything in this setup confusing, drop on by our [Discord Channel](https://discord.gg/7DE7bhUMp6) and give us your feedback on how we can make things better.
 
 ## Setting Up the AI Brain
-I’ve put together a short guide [on GitHub](https://github.com/2BytesGoat/PLaiGROUND) that walks you through setting up the Python project where your AI logic will live. You can either set it up to run directly on your PC or use a Docker container for a more consistent environment (I recommend the Docker one, especially helpful if you want to avoid hardware-related issues).
+I’ve put together a short guide [on GitHub](https://github.com/2BytesGoat/PLaiGROUND) that walks you through setting up the Python project where your AI logic will live. You can either set it up to run directly on your PC or use a Docker container for a more consistent environment (I recommend Docker, especially if you want to avoid hardware-related issues).
 
-The guide might look a bit daunting, but once you’ve gone through it, you’ll should find it pretty straightforward. Some of the information in the guide overlaps what's written in this blog post, but that's just to make sure nothing gets missed.
+The guide might look a bit daunting, but once you’ve gone through it, you should find it pretty straightforward. This blog post won't duplicate setup details from that guide, so we can keep both docs easier to maintain.
 
 ## How the Game Communicates with Your AI
 The game and your AI brain talk to each other using [TCP sockets](https://en.wikipedia.org/wiki/Network_socket). Here's how it works: 
@@ -48,34 +58,36 @@ When building your AI, you’ll be making decisions based on what the game sends
 This is the core data your AI will use to decide what to do next.
 
 The game sends over a chunk of data called `"obs"` (short for _observation_), which includes:
-- **32 directional RayCasts** (the green lines you’ll see in the game). Each one tells you:
-    - If it hit something
-    - How far away that thing is
-    - What type of object it hit (wall, platform, spike, etc.)
-    
-- **Other helpful values:**
-    - Distance to the exit (normalized X and Y)
-    - Direction to the exit (also normalized X and Y)
-    - The Dragon’s current velocity (normalized X and Y)
+- **Grid data** - 49 pixels - each one denoting the type of object your character sees    
+- **Extra features** - 8 values - containing:
+    - Facing direction (normalized X and Y)
+    - Character velocity (also normalized X and Y)
+    - Whether you're on the floor (boolean value)
+    - Whether you're on a wall (boolean value)
+    - Jump peak percentage (single normalized value) 
+	    - tells you how close you are to your jump apex
+	- Has powerup (boolean value)
 
-There’s also a compressed version of the game screen called `"obs_2d"`—useful if you want to build a computer vision-based AI.
-
-![drawing](env-dj-sensors.png)
+![drawing](game_info_1.png)
 ### The Info
 This is extra data mainly for **debugging** and testing your AI. Don’t rely on this for actual training or competition—it might not always be available.
 
 Here’s what you’ll find:
 - `global_position` – the Dragon’s location in the game world
 - `facing_direction` – whether the Dragon is looking left or right
-- `state_name` – tells you what the Dragon is doing: Idle, Running, Jumping, Falling, Walled, etc.
-- `game_time` – how much in-game time has passed since the level started
+- `state` – tells you what the Dragon is doing: Idle, Running, Jumping, Falling, Walled, etc.
+- `tile_names` – a lookup table for the Grid data values
 ### The Reward
 This is only used when training AIs that learn over time (like ones using **genetic algorithms** or **reinforcement learning**). The reward helps the AI figure out whether it made a good move or not.
 
 Here’s how it works:
 - **-0.01** points for every frame spent in the level (to encourage faster completion)
-- **-10** points if the Dragon hits an obstacle and resets
+- **+0.01** points for every frame it gets closer to the exit
+- **+0.1** points for getting a personal best on getting closer to the exit
 - **+100** points for reaching the exit gate
+
+> [!tip] Fun fact
+> We're calculating the progress of the character towards the goal by using [Flow Fields](https://www.redblobgames.com/blog/2024-04-27-flow-field-pathfinding/). That way we take into account walls and we're able to support all states the character may be in.
 
 Keep in mind: **rewards are only available during training**—they won’t be there when your AI is competing against others.
 
@@ -84,9 +96,9 @@ Keep in mind: **rewards are only available during training**—they won’t be t
 In Dragon Jump you control the Dragon by pressing the **SPACE BAR**. That means that the action space is a Discrete Action Space where the action is either **Jump** (1) or **Don't Jump** (0).
 
 You can decide whether to jump or not based on a lot of factors, such as: 
-* how close a object is to the dragon based on the sensors
-* how close the dragon is to the door
-* whether the color of the next 20 pixels from the dragon are green or gray
+* if there's an object that the dragon can jump over based on the grid data
+* whether the dragon is currently on a wall or on the floor
+* it it's close to the exit and it's facing the right direction
 
 ## Deeper Dive into the Python Code
 
