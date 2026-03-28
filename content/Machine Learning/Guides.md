@@ -6,10 +6,10 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 **Topics**
 -  [[AI vs ML vs DL]] - understand the difference between these acronyms
 - [[Types of AI]] - what tasks can AI solve and when to use each
-- Setup Dragon Jump - setting up your Dragon Jump environment 
-- Running a random agent - once the environment is setup we run an AI that only does random inputs
+- [Setup Dragon Jump](https://github.com/2BytesGoat/PLaiGROUND) - setting up your Dragon Jump environment 
+- [Running a random agent](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/00_random_agent.py) - once the environment is setup we run an AI that only does random inputs
 **Optional Homework**
-* Building an If-Else agent - read the documentation on what the signals do and try to make an AI that can finish the first level only using if-else statements
+* [Building an If-Else agent](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/01_if_else_agent.py) - read the documentation on what the signals do and try to make an AI that can finish the first level only using if-else statements
 ### **Session 2** - Imitation Learning
 **Topics**
 * Supervised Learning - what is it and how we do it
