@@ -1,5 +1,6 @@
 ---
-tags: []
+tags:
+  - ai-practice
 draft: false
 date: 2024-09-03
 ---
