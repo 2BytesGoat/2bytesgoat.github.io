@@ -16,7 +16,7 @@ A nerd is an AI that overfitted while the slacker represents an AI that underfit
 
 The model **memorized the training set** - quirks, noise, weird one-offs - instead of learning something that generalizes.
 
-Classic smell: **training looks amazing, test / validation looks sad.** It “knows” the examples you showed it and gets lost on anything new.
+Classic smell: **training looks amazing BUT test / validation looks sad.** It “knows” the examples you showed it and gets lost on anything new.
 
 > *“I can recite last year’s exam. Ask me a new question and I’m toast.”*
 
