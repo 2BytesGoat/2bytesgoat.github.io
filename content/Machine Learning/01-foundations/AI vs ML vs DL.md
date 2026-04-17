@@ -27,7 +27,9 @@ However, AI algorithms are used in many other ways:
 - **discovering patterns** - [recommender systems](https://en.wikipedia.org/wiki/Recommender_system) that find you new products you may like
 - **security** - old school facial recognition using [Haar Cascades](https://en.wikipedia.org/wiki/Haar-like_feature)
 
-> [!info] You **don't need** to learn or remember these examples
+> [!info] Tip 
+> You **don't need** to learn or remember these examples
+> 
 > I just wanted to show you that there are more AI algorithms out there and to flex my useless knowledge.
 
 In the past, primarily due to hardware constraints, developers needed to use simpler AI algorithms and had to **manually extract and build features** from their data. In Pong, for example, if you wanted the paddle to follow the ball, you’d have to mathematically compute the ball's trajectory yourself and program the AI to move toward the ball's destination. You provided the "intelligence" via math - the computer just executed the instructions.

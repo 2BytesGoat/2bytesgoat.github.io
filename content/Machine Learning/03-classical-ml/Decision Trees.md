@@ -36,6 +36,9 @@ Then the Decision Tree will:
 2. evaluate how well each condition splits your data
 3. choose the condition that produces the best separation
 4. repeat steps 1-3 until you're happy with the results
+
+When you run the model, you just walk the if/else chain from the top until you hit a leaf. Whatever that leaf says is your answer.
+
 # Classification vs Regression Trees
 
 ## Classification Tree
@@ -50,6 +53,11 @@ Use this when your output is a number:
 - energy consumption
 - delivery time
 
+> [!warning] Important
+> For regression, a leaf’s prediction is usually the average of the **example numbers** it saw during training.
+> 
+> **For example:** Say in your training data, three houses that landed on the same leaf sold for 200k, 220k, and 240k. A new house that lands there gets a guess around **220k** — the average of those sale prices.
+
 # What makes a "good split"
 
 At each step, the algorithm tries a bunch of possible splits and picks the one that separates outcomes best.
@@ -61,7 +69,7 @@ For classification, you'll usually hear terms like:
 For regression, you'll usually hear:
 - mean squared error reduction
 
-I'm not going to throw in any complicated formulas here, but if you want to dive deeper into the topics, I can't recommend enough [StatQuest](https://www.youtube.com/@statquest). Precisely:
+I'm not going to throw in any complicated formulas here. Buuut ... if you want to dive deeper, I can't recommend enough [StatQuest](https://www.youtube.com/@statquest):
 - The series on Decision and Classification Trees - [YouTube - Part 1](https://www.youtube.com/watch?v=_L39rN6gz7Y) and [YouTube - Part 2](https://www.youtube.com/watch?v=wpNl-JwwplA)
 - Regression Trees, Clearly Explained - [YouTube](https://www.youtube.com/watch?v=g9c66TUylZ4)
 
@@ -77,6 +85,7 @@ I'm not going to throw in any complicated formulas here, but if you want to dive
 - They can overfit if you let them grow too deep.
 - Small data changes can produce a different tree (they're kinda unstable).
 - A single tree can get outperformed by stronger ensemble methods.
+- Trees care about order on numbers. If you slap `0, 1, 2` on categories that aren't really ordered, it might still act like there's a trend. One-hot (or whatever your stack likes for real categoricals) saves you the headache.
 
 That's why people often move to Random Forests or Gradient Boosted Trees later - same idea, just many trees working together.
 
@@ -94,6 +103,8 @@ If training performance is great but validation drops, your tree is probably ove
 
 # Quick starter code (scikit-learn)
 
+If one label shows up way more than the others, `class_weight="balanced"` is worth a shot — otherwise the tree can get away with always voting the common one.
+
 ```python
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
@@ -106,6 +117,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 model = DecisionTreeClassifier(
     max_depth=4,
     min_samples_leaf=10,
+    # class_weight="balanced",  # uncomment if classes are imbalanced
 )
 
 model.fit(X_train, y_train)
@@ -115,25 +127,13 @@ print(f"Accuracy: {accuracy:.2f}")
 
 # Tiny example
 
-In your [[How to DragonJump]] setup, the tree predicts what action to take at each frame.
+In your [[How to DragonJump|Dragon Jump]] setup, each frame you feed the tree a **`state`** vector and it guesses an **`action`**. 
 
-Features:
-- `state` (one observation vector per frame)
+That state vector is **57 inputs** total: 
+- **7×7** game grid flattened (49 numbers) 
+- plus **8** small extras (direction, velocity, floor/wall flags, progress to peak, power-up) 
 
-Target:
-- `action` (the move to execute)
-
-What's inside `state`:
-- a flattened frame grid (`7 x 7` -> `49` values)
-- plus `8` extra signals:
-  - `dir_x`, `dir_y`
-  - `vel_x`, `vel_y`
-  - `on_floor`, `on_wall`
-  - `perc_to_peak`, `has_powerup`
-
-So each training sample has `57` input features in total (`49 + 8`). In the usual layout, indices `0 … 48` are a **row-major** flatten of `grid[row][col]` (`row = i // 7`, `col = i % 7`); indices `49 … 56` are the eight signals in the order above (`dir_x` … `has_powerup`). Then sklearn’s `feature_k` lines up with those names (same convention as in [PLaiGROUND](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/01_if_else_agent.py) examples that index `grid[row, col]`).
-
-A concrete example (same structure as a sklearn `plot_tree` export on DragonJump-style data). At each node, `value` is `[count for action_0, count for action_1]`. **True** / **False** are the usual left / right branches from `plot_tree`.
+Below is an example of an AI using decision trees: each box is a question, **True** / **False** is left / right, and the `[a, b]` counts are how many training samples landed there for each action.
 
 ```mermaid
 flowchart TD
