@@ -69,6 +69,16 @@ The game sends over a chunk of data called `"obs"` (short for _observation_), wh
 	- Has powerup (boolean value)
 
 ![drawing](game_info_1.png)
+
+In practice, you can think of `"obs"` as one feature vector per frame:
+- 49 grid values + 8 extra features = **57 total input features**
+- this 57-value vector is exactly what you usually feed as **X** when training a model (Decision Tree, NN, etc.)
+- your label (**y**) depends on what you're learning (for example: jump / don't jump)
+
+Two practical notes:
+- most values are already normalized or boolean, which makes them easy to use directly as model inputs
+- keep your model inputs limited to `"obs"` for fair training; `info` is mostly for debugging and may not always be available
+
 ### The Info
 This is extra data mainly for **debugging** and testing your AI. Don’t rely on this for actual training or competition—it might not always be available.
 

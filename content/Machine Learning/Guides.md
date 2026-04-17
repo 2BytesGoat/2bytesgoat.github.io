@@ -5,11 +5,11 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 ### **Session 1** - What's Machine Learning
 **Topics**
 -  [[AI vs ML vs DL]] - understand the difference between these acronyms
-- [[Picking the right AI]] - what tasks can AI solve and when to use each
-- [Setup Dragon Jump](https://github.com/2BytesGoat/PLaiGROUND) - setting up your Dragon Jump environment 
-- [Running a random agent](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/00_random_agent.py) - once the environment is setup we run an AI that only does random inputs
+- [[Types of AI]] - what tasks can AI solve and when to use each
+- Setup Dragon Jump - setting up your Dragon Jump environment 
+- Running a random agent - once the environment is setup we run an AI that only does random inputs
 **Optional Homework**
-* [Building an If-Else agent](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/01_if_else_agent.py) - read the documentation on what the signals do and try to make an AI that can finish the first level only using if-else statements
+* Building an If-Else agent - read the documentation on what the signals do and try to make an AI that can finish the first level only using if-else statements
 ### **Session 2** - Imitation Learning
 **Topics**
 * Supervised Learning - what is it and how we do it
@@ -19,8 +19,17 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 * Training decision trees - how to train decision trees using scikit-learn
 **Optional Homework**
 * Explore decision trees - record more data and train more models to see if you can improve the AI
+### **Session 3** - Wisdom of Crowds
+**Topics**
+* Random Forests - how do they compare to decision trees
+* Feature engineering - how to make AIs borrow your wisdom (i.e. distance to nearest spike)
+* Comparing results - metrics that enable you to choose the best performer
+* Training random forests - how to train a random forest using scikit-learn
+* Matplotlib basics - how to visualize results using matplotlib
+**Optional Homework**
+- Compare approaches - see which AI behaves better and after how many examples
 # **Phase 2** - Neural Networks
-### **Session 3** - Intro to Deep Learning
+### **Session 4** - Intro to Deep Learning
 **Topics**
 - What's a perceptron - linear regression and the basis of Deep Learning
 - What are activation functions - nonlinearity to describe complex functions
@@ -29,7 +38,7 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 **Optional Homework**
 * Experimenting with parameters - try out different number of neurons
 
-### **Session 4 - Adding temporal information**
+### **Session 5** - Adding temporal information
 **Topics**
 * Adding hidden layers - multilayer perceptron and why activations matter
 * The problem of single-frame states - will it learn better with temporal data
