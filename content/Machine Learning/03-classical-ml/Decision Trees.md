@@ -13,9 +13,9 @@ It's basically an algorithm that generates nested `if-else` statements based on 
 They're also the thing your friends will use to make fun of you when you tell them you're doing Machine Learning. 
 ## Why you should care
 
-Well... if you want to make an AI using `if-else` statements (say for [DragonJump](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/01_if_else_agent.py)), getting the desired behaviour means tweaking conditions manually. And that takes time and effort. 
+Well... if you want to make an AI using `if-else` statements (say for [DragonJump](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/01_if_else_agent.py)), getting the desired behavior means tweaking conditions manually. And that takes time and effort. 
 
-Instead, you could capture a few examples of the behaviour you want and feed them to a Decision Tree. Its goal is to do the mapping for you.
+Instead, you could capture a few examples of the behavior you want and feed them to a Decision Tree. Its goal is to do the mapping for you.
 # How they work
 
 Imagine you want to build an AI that helps you decide whether you should take an umbrella. 
@@ -66,38 +66,6 @@ The intuition is enough:
 
 > A good split makes each child group more "pure" than the parent.
 
-# Tiny example
-
-In your DragonJump setup, the tree predicts what action to take at each frame.
-
-Features:
-- `state` (one observation vector per frame)
-
-Target:
-- `action` (the move to execute)
-
-What's inside `state`:
-- a flattened frame grid (`7 x 7` -> `49` values)
-- plus `8` extra signals:
-  - `dir_x`, `dir_y`
-  - `vel_x`, `vel_y`
-  - `on_floor`, `on_wall`
-  - `perc_to_peak`, `has_powerup`
-
-So each training sample has `57` input features in total (`49 + 8`).
-
-A possible tree:
-```mermaid
-flowchart TD
-    A{grid_2_3 is wall?}
-    A -- yes --> B[action = 0]
-    A -- no --> C{on_wall == 1?}
-    C -- yes --> D[action = 1]
-    C -- no --> E[action = 0]
-```
-
-Not perfect. Still super useful, and you can inspect exactly why it picked each action.
-
 # Why trees are awesome
 
 - **Interpretability**: you can inspect the actual logic.
@@ -145,6 +113,66 @@ model.fit(X_train, y_train)
 accuracy = model.score(X_test, y_test)
 print(f"Accuracy: {accuracy:.2f}")
 ```
+
+# Tiny example
+
+In your [[How to DragonJump]] setup, the tree predicts what action to take at each frame.
+
+Features:
+- `state` (one observation vector per frame)
+
+Target:
+- `action` (the move to execute)
+
+What's inside `state`:
+- a flattened frame grid (`7 x 7` -> `49` values)
+- plus `8` extra signals:
+  - `dir_x`, `dir_y`
+  - `vel_x`, `vel_y`
+  - `on_floor`, `on_wall`
+  - `perc_to_peak`, `has_powerup`
+
+So each training sample has `57` input features in total (`49 + 8`). In the usual layout, indices `0 … 48` are a **row-major** flatten of `grid[row][col]` (`row = i // 7`, `col = i % 7`); indices `49 … 56` are the eight signals in the order above (`dir_x` … `has_powerup`). Then sklearn’s `feature_k` lines up with those names (same convention as in [PLaiGROUND](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/01_if_else_agent.py) examples that index `grid[row, col]`).
+
+A concrete example (same structure as a sklearn `plot_tree` export on DragonJump-style data). At each node, `value` is `[count for action_0, count for action_1]`. **True** / **False** are the usual left / right branches from `plot_tree`.
+
+```mermaid
+flowchart TD
+    R{"perc_to_peak <= 0.162<br/>gini 0.487 · samples 240 · [139, 101]<br/>class action_0"}
+    L1L{"grid[3][0] <= 0.5<br/>gini 0.402 · samples 183 · [132, 51]<br/>class action_0"}
+    L1R{"dir_y <= -0.923<br/>gini 0.215 · samples 57 · [7, 50]<br/>class action_1"}
+    L2LL{"grid[3][6] <= 0.5<br/>gini 0.358 · samples 167 · [128, 39]<br/>class action_0"}
+    L2LR{"dir_y <= -0.85<br/>gini 0.375 · samples 16 · [4, 12]<br/>class action_1"}
+    L2RL{"grid[6][0] <= 0.5<br/>gini 0.5 · samples 12 · [6, 6]<br/>class action_0"}
+    L2RR{"grid[5][4] <= 0.5<br/>gini 0.043 · samples 45 · [1, 44]<br/>class action_1"}
+
+    F1["Leaf · gini 0.275 · n=140<br/>[117, 23] → action_0"]
+    F2["Leaf · gini 0.483 · n=27<br/>[11, 16] → action_1"]
+    F3["Leaf · gini 0.0 · n=3<br/>[3, 0] → action_0"]
+    F4["Leaf · gini 0.142 · n=13<br/>[1, 12] → action_1"]
+    F5["Leaf · gini 0.49 · n=7<br/>[4, 3] → action_0"]
+    F6["Leaf · gini 0.48 · n=5<br/>[2, 3] → action_1"]
+    F7["Leaf · gini 0.0 · n=41<br/>[0, 41] → action_1"]
+    F8["Leaf · gini 0.375 · n=4<br/>[1, 3] → action_1"]
+
+    R -->|True| L1L
+    R -->|False| L1R
+    L1L -->|True| L2LL
+    L1L -->|False| L2LR
+    L1R -->|True| L2RL
+    L1R -->|False| L2RR
+    L2LL -->|True| F1
+    L2LL -->|False| F2
+    L2LR -->|True| F3
+    L2LR -->|False| F4
+    L2RL -->|True| F5
+    L2RL -->|False| F6
+    L2RR -->|True| F7
+    L2RR -->|False| F8
+```
+
+Not perfect. Still super useful, and you can inspect exactly why it picked each action.
+
 
 # TL;DR
 

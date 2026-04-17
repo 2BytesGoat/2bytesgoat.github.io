@@ -4,12 +4,8 @@ import * as Component from "./quartz/components"
 /** Example of a valid layout for mobile, allowing burger menu */
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [
-    Component.MobileOnly(Component.Spacer()),
-    Component.MobileOnly(Component.PageTitle()),
-    Component.Search(),
-    Component.Darkmode(),
-  ],
+  // Search + dark mode live in the left sidebar only (desktop + mobile) to avoid duplicates.
+  header: [],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",

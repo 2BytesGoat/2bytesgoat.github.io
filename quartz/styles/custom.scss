@@ -1,8 +1,36 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 $small: 500px;
 
 // put your custom CSS here!
+
+// Inline `code` (backticks): base.scss uses color: --dark and background: --lightgray.
+// In this theme's dark palette those are magenta on teal, which is hard to read; body text
+// uses --darkgray. Match the surrounding text and use a soft chip instead.
+:not(pre) > code {
+  color: inherit;
+  background: var(--highlight);
+  border: 1px solid color-mix(in srgb, var(--gray) 25%, transparent);
+}
+
+@media all and ($mobile) {
+  // Explorer drawer: narrower than full viewport (readable floor, ~33vw target, hard cap).
+  .explorer > .explorer-content,
+  .mobile-only.explorer #explorer-content:not(.collapsed) {
+    width: min(max(14rem, 33vw), 85vw) !important;
+    max-width: min(max(14rem, 33vw), 85vw) !important;
+    border-right: 1px solid color-mix(in srgb, var(--gray) 40%, var(--lightgray));
+    box-shadow: 6px 0 28px -6px rgb(0 0 0 / 0.18);
+  }
+
+  :root[saved-theme="dark"] .explorer > .explorer-content,
+  :root[saved-theme="dark"] .mobile-only.explorer #explorer-content:not(.collapsed) {
+    border-right-color: color-mix(in srgb, var(--secondary) 35%, var(--lightgray));
+    box-shadow: 6px 0 32px -4px rgb(0 0 0 / 0.55);
+  }
+}
+
 img[alt$=">"] {
     float: right;
     width: 300px;
