@@ -11,7 +11,7 @@ date: 2024-10-14
 <br>
 <center>Download Dragon Jump for Free on <a href="https://store.steampowered.com/app/2471710/Dragon_Jump/"> Steam</a> OR <a href="[https://store.steampowered.com/app/2471710/Dragon_Jump/](https://2bytesgoat.itch.io/dragon-jump)"> Itch.io</a> </center>
 <br>
-In this blog post, I'll show you how to connect a basic AI "brain" that takes random actions to the game, and begin to explore how the AI looks at the game world. Later on, we'll move from simple techniques like if-else logic and decision trees to more advanced approaches like genetic algorithms, neural networks, and reinforcement learning.
+In this blog post, I'll show you how to connect a basic AI "brain" that takes random actions to the game, and begin to explore how the AI looks at the game world. Later on, we'll move from simple techniques like if-else logic and [[Decision Tree|decision trees]] to more advanced approaches like genetic algorithms, neural networks, and reinforcement learning.
 
 ## Before You Start
 This page focuses on Dragon Jump specific setup and explains what data the game sends to your AI.
@@ -72,7 +72,7 @@ The game sends over a chunk of data called `"obs"` (short for _observation_), wh
 
 In practice, you can think of `"obs"` as one feature vector per frame:
 - 49 grid values + 8 extra features = **57 total input features**
-- this 57-value vector is exactly what you usually feed as **X** when training a model (Decision Tree, NN, etc.)
+- this 57-value vector is exactly what you usually feed as **X** when training a model ([[Decision Tree]], NN, etc.)
 - your label (**y**) depends on what you're learning (for example: jump / don't jump)
 
 Two practical notes:

@@ -32,4 +32,4 @@ You’ll usually see **meh scores everywhere** - training and test both look “
 
 ## Quick sanity check
 
-If you only stare at training metrics, you’re grading the model on the answers it already saw. Peek at **held-out data** (validation / test) too - that’s where underfitting vs overfitting actually shows up.
+If you only stare at training metrics, you’re grading the model on the answers it already saw. Peek at **held-out data** ([[Train vs Test vs Validation|validation / test]]) too - that’s where underfitting vs overfitting actually shows up.

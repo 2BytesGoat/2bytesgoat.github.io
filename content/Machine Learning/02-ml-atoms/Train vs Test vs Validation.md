@@ -20,7 +20,7 @@ This is the **homework** - the examples the algorithm actually learns from (`fit
 
 This is the **practice exam** you use **while you're still building**.
 
-You peek at it to pick hyperparameters (learning rate, `max_depth`, how long to train, which architecture wins). You also use it to notice [[Overfitting and Underfitting]] early - train great, validation meh is a classic smell.
+You peek at it to pick hyperparameters (learning rate, `max_depth` on a [[Decision Tree]], how long to train, which architecture wins). You also use it to notice [[Overfitting and Underfitting]] early - train great, validation meh is a classic smell.
 
 **Rule of thumb:** anything you change *because* you looked at validation counts as "using" it. If you loop on that feedback forever, you can still **overfit the validation set** in spirit - it stops being a fresh perspective.
 

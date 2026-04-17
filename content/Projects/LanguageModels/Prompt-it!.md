@@ -1,4 +1,4 @@
-In this blogpost I'll go over `Prompt-it!` - a password guessing game where you trick a LLM into divulging your password. 
+In this blogpost I'll go over `Prompt-it!` - a password guessing game where you trick a LLM into divulging your password. (New to how LLMs sit under the AI umbrella? [[AI vs ML vs DL]] is the short tour.) 
 
 ![img](https://raw.githubusercontent.com/GianiStatie/ai-prompting-game/refs/heads/main/docs/preview.gif)
 # What is it

@@ -25,3 +25,5 @@ You have access to a simulator and know exactly when your model does "good" or "
 > [!example] 
 > Your AI is trapped in the movie [**Groundhog Day**](https://en.wikipedia.org/wiki/Groundhog_Day_(film)). It keeps repeating the same day over and over until it gets the correct sequence of events. In the mean time the AI learns the environment so well that it starts speed running certain interactions.
 
+This sits next to questions about data and problem type — see [[Picking the right AI]] and [[Data Types for AI]] when you’re picking an approach.
+

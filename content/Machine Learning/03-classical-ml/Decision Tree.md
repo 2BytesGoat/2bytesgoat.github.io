@@ -84,7 +84,7 @@ Buuut ... if you want to dive deeper, I can't recommend enough [StatQuest](https
 
 # Where they struggle
 
-- They can overfit if you let them grow too deep.
+- They can [[Overfitting and Underfitting|overfit]] if you let them grow too deep.
 - Small data changes can produce a different tree (they're kinda unstable).
 - A single tree can get outperformed by stronger ensemble methods.
 - Trees care about order on numbers. If you slap `0, 1, 2` on categories that aren't really ordered, it might still act like there's a trend. One-hot (or whatever your stack likes for real categoricals) saves you the headache.
@@ -101,7 +101,7 @@ Common control knobs:
 - `min_samples_leaf` - minimum samples in each final leaf
 - `max_leaf_nodes` - limits total number of leaves
 
-If training performance is great but validation drops, your tree is probably overfitting.
+If training performance is great but [[Train vs Test vs Validation|validation]] drops, your tree is probably [[Overfitting and Underfitting|overfitting]].
 
 # Quick starter code (scikit-learn)
 

@@ -33,7 +33,7 @@ These are:
 These are good for when you want your computer to **explore** a map of possibilities.
 ## 3. Pattern-Finders (ML and Deep Learning)
 These are:
-- Decision Trees - if-else statements that you don't design by hand
+- [[Decision Tree|Decision Trees]] - if-else statements that you don't design by hand
 - Support Vector Machines
 - Neural Networks
 These are good when you have access to data and you want the algorithm to build the logic around it.

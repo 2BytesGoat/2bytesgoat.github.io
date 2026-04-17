@@ -12,7 +12,7 @@ date: 2026-03-15
 |**ML (Classic)**|Features (Distance, Speed)|Medium| Moderate        |
 |**DL (Neural)**|Raw Data (Pixels/Coords)|Low (Architecture)| Very High       
 
-**A**rtificial **I**ntelligence (**AI**) is an umbrella term, which refers to the ability of a program to simulate intelligence.  Depending on the application, AI logic can vary from simple if-else statements to more complex algorithms like [utility functions](https://en.wikipedia.org/wiki/Utility_system) or [[neural networks]].
+**A**rtificial **I**ntelligence (**AI**) is an umbrella term, which refers to the ability of a program to simulate intelligence.  Depending on the application, AI logic can vary from simple if-else statements to more complex algorithms like [utility functions](https://en.wikipedia.org/wiki/Utility_system) or [[AI vs ML vs DL#About DL|neural networks]].
 
 **M**achine **L**earning (**ML**) is a subset of AI, which refers to algorithms that are able to "learn" from data and build functions that simulate intelligence. The more "good" examples you give to ML algorithms, the better they should behave.
 
@@ -52,7 +52,7 @@ Given enough examples, the ML algorithm will build a function that "knows": _Whe
 # About DL
 Now this is where things become spicy and where we delve into the **black box magic**. 
 
-Machine Learning offers us algorithms that are fairly straight forward to interpret. You have a **Decision Tree**, you know it's branches are if-else statements and you can follow the information flow and even adjust it's parameters manually. 
+Machine Learning offers us algorithms that are fairly straight forward to interpret. You have a [[Decision Tree]], you know it's branches are if-else statements and you can follow the information flow and even adjust it's parameters manually. 
 
 But these algorithms cannot capture complex relationships and non-linear relationships out of the box. In other words: you cannot do autonomous driving or build Google Translate simply through decision trees. I mean you could, but maybe not in a lifetime. 
 

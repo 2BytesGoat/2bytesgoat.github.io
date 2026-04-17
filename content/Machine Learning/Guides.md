@@ -4,17 +4,17 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 ## **Phase 1** - Rules and Data (the basics)
 ### **Session 1** - What's Machine Learning
 **Topics**
--  [[AI vs ML vs DL]] - understand the difference between these acronyms
-- [[Types of AI]] - what tasks can AI solve and when to use each
-- Setup Dragon Jump - setting up your Dragon Jump environment 
+- [[AI vs ML vs DL]] - understand the difference between these acronyms
+- [[Picking the right AI]] - what tasks can AI solve and when to use each
+- Setup [[How to DragonJump|Dragon Jump]] - setting up your Dragon Jump environment 
 - Running a random agent - once the environment is setup we run an AI that only does random inputs
 **Optional Homework**
 * Building an If-Else agent - read the documentation on what the signals do and try to make an AI that can finish the first level only using if-else statements
 ### **Session 2** - Imitation Learning
 **Topics**
-* Supervised Learning - what is it and how we do it
-* Decision Trees - how do they work
-* Overfitting - what is it and how to catch it
+* [[Learning Paradigms|Supervised Learning]] - what is it and how we do it
+* [[Decision Tree|Decision Trees]] - how do they work
+* [[Overfitting and Underfitting|Overfitting]] - what is it and how to catch it
 * Recording gameplay from Dragon Jump - how to record and read gameplay
 * Training decision trees - how to train decision trees using scikit-learn
 **Optional Homework**
@@ -33,7 +33,7 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 **Topics**
 - What's a perceptron - linear regression and the basis of Deep Learning
 - What are activation functions - nonlinearity to describe complex functions
-- What are losses and optimisers - the things that make DL algorithms learn
+- What are [[Understanding Loss Functions|losses]] and optimisers - the things that make DL algorithms learn
 - Running a single-layer network - familiarising yourselves with Pytorch 
 **Optional Homework**
 * Experimenting with parameters - try out different number of neurons
