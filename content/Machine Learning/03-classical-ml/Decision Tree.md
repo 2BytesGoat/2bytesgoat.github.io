@@ -56,7 +56,7 @@ Use this when your output is a number:
 > [!warning] Important
 > For regression, a leaf’s prediction is usually the average of the **example numbers** it saw during training.
 > 
-> **For example:** Say in your training data, three houses that landed on the same leaf sold for 200k, 220k, and 240k. A new house that lands there gets a guess around **220k** — the average of those sale prices.
+> **For example:** Say in your training data, three houses that landed on the same leaf sold for 200k, 220k, and 240k. A new house that lands there gets a guess around **220k** - the average of those sale prices.
 
 # What makes a "good split"
 
@@ -69,7 +69,9 @@ For classification, you'll usually hear terms like:
 For regression, you'll usually hear:
 - mean squared error reduction
 
-I'm not going to throw in any complicated formulas here. Buuut ... if you want to dive deeper, I can't recommend enough [StatQuest](https://www.youtube.com/@statquest):
+I'm not going to throw in any complicated formulas here. 
+
+Buuut ... if you want to dive deeper, I can't recommend enough [StatQuest](https://www.youtube.com/@statquest):
 - The series on Decision and Classification Trees - [YouTube - Part 1](https://www.youtube.com/watch?v=_L39rN6gz7Y) and [YouTube - Part 2](https://www.youtube.com/watch?v=wpNl-JwwplA)
 - Regression Trees, Clearly Explained - [YouTube](https://www.youtube.com/watch?v=g9c66TUylZ4)
 
@@ -103,7 +105,7 @@ If training performance is great but validation drops, your tree is probably ove
 
 # Quick starter code (scikit-learn)
 
-If one label shows up way more than the others, `class_weight="balanced"` is worth a shot — otherwise the tree can get away with always voting the common one.
+If one label shows up way more than the others, `class_weight="balanced"` is worth a shot - otherwise the tree can get away with always voting the common one.
 
 ```python
 from sklearn.tree import DecisionTreeClassifier

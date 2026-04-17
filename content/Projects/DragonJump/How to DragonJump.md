@@ -7,7 +7,7 @@ date: 2024-10-14
 
 ![img ><](env-dj-demo.gif)
 
-**Dragon Jump** is a 2D one-button precision platformer, inspired by games like _Super Meat Boy_ and _Geometry Dash_. But this isn't just a game—it's an educational playground where you can learn how to build an AI from scratch.
+**Dragon Jump** is a 2D one-button precision platformer, inspired by games like _Super Meat Boy_ and _Geometry Dash_. But this isn't just a game-it's an educational playground where you can learn how to build an AI from scratch.
 <br>
 <center>Download Dragon Jump for Free on <a href="https://store.steampowered.com/app/2471710/Dragon_Jump/"> Steam</a> OR <a href="[https://store.steampowered.com/app/2471710/Dragon_Jump/](https://2bytesgoat.itch.io/dragon-jump)"> Itch.io</a> </center>
 <br>
@@ -80,7 +80,7 @@ Two practical notes:
 - keep your model inputs limited to `"obs"` for fair training; `info` is mostly for debugging and may not always be available
 
 ### The Info
-This is extra data mainly for **debugging** and testing your AI. Don’t rely on this for actual training or competition—it might not always be available.
+This is extra data mainly for **debugging** and testing your AI. Don’t rely on this for actual training or competition-it might not always be available.
 
 Here’s what you’ll find:
 - `global_position` – the Dragon’s location in the game world
@@ -99,7 +99,7 @@ Here’s how it works:
 > [!tip] Fun fact
 > We're calculating the progress of the character towards the goal by using [Flow Fields](https://www.redblobgames.com/blog/2024-04-27-flow-field-pathfinding/). That way we take into account walls and we're able to support all states the character may be in.
 
-Keep in mind: **rewards are only available during training**—they won’t be there when your AI is competing against others.
+Keep in mind: **rewards are only available during training**-they won’t be there when your AI is competing against others.
 
 ## About Actions
 
