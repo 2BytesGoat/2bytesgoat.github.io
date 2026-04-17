@@ -258,21 +258,32 @@ document.addEventListener("prenav", async () => {
   sessionStorage.setItem("explorerScrollTop", explorer.scrollTop.toString())
 })
 
+/** Keep in sync with `quartz/styles/variables.scss` → breakpoints.mobile */
+const mobileLayoutQuery = window.matchMedia("(max-width: 800px)")
+
+function collapseMobileExplorerDrawer() {
+  if (!mobileLayoutQuery.matches) return
+
+  for (const explorer of document.getElementsByClassName("explorer")) {
+    const mobileExplorer = explorer.querySelector(".mobile-explorer")
+    if (!mobileExplorer) continue
+
+    mobileExplorer.classList.remove("hide-until-loaded")
+    explorer.classList.add("collapsed")
+    explorer.setAttribute("aria-expanded", "false")
+  }
+}
+
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const currentSlug = e.detail.url
   await setupExplorer(currentSlug)
+  collapseMobileExplorerDrawer()
+})
 
-  // if mobile hamburger is visible, collapse by default
-  for (const explorer of document.getElementsByClassName("explorer")) {
-    const mobileExplorer = explorer.querySelector(".mobile-explorer")
-    if (!mobileExplorer) return
-
-    if (mobileExplorer.checkVisibility()) {
-      explorer.classList.add("collapsed")
-      explorer.setAttribute("aria-expanded", "false")
-    }
-
-    mobileExplorer.classList.remove("hide-until-loaded")
+// BFCache restore does not re-run `nav`; close the drawer so it is not stuck open.
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    collapseMobileExplorerDrawer()
   }
 })
 

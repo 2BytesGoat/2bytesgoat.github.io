@@ -8,6 +8,8 @@ Get ready for a wild ride through the pixelated pastures of gaming and the futur
 
 ![bla](cover.319716f2fa88924cd7fb.gif)
 
+If you’re here for the hands-on **ML crash course**, jump to [[Guides]].
+
 # The Projects
 
 Behold our digital menagerie of gaming and AI creations! These projects aren't your average pixels and algorithms; they're the result of wild ideas, sleepless nights, and perhaps a few too many cups of coffee.

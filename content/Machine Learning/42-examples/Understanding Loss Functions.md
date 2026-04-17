@@ -1,5 +1,6 @@
 ---
-tags: []
+tags:
+  - ai-practice
 draft: false
 date: 2024-09-03
 ---
@@ -110,3 +111,5 @@ Now imagine you ask Roger for feedback on every step you take. Each time, he say
 Instead, you could take several steps, gather all the feedback, and **average** (or take the **mean**) of what Roger told you. This helps you get a clearer idea of the general direction to take.
 
 In machine learning, using the mean helps smooth out noisy signals and keeps the model from reacting too wildly to small changes. 
+
+For how this fits the bigger picture (supervision, data, when to use classic ML vs deep learning), skim [[Learning Paradigms]] and [[AI vs ML vs DL]].
