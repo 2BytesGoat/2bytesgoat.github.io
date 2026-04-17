@@ -61,10 +61,9 @@ For classification, you'll usually hear terms like:
 For regression, you'll usually hear:
 - mean squared error reduction
 
-You don't need to memorise formulas on day one.  
-The intuition is enough:
-
-> A good split makes each child group more "pure" than the parent.
+I'm not going to throw in any complicated formulas here, but if you want to dive deeper into the topics, I can't recommend enough [StatQuest](https://www.youtube.com/@statquest). Precisely:
+- The series on Decision and Classification Trees - [YouTube - Part 1](https://www.youtube.com/watch?v=_L39rN6gz7Y) and [YouTube - Part 2](https://www.youtube.com/watch?v=wpNl-JwwplA)
+- Regression Trees, Clearly Explained - [YouTube](https://www.youtube.com/watch?v=g9c66TUylZ4)
 
 # Why trees are awesome
 
@@ -83,10 +82,10 @@ That's why people often move to Random Forests or Gradient Boosted Trees later -
 
 # Anti-overfitting knobs (the important ones)
 
-When a tree memorises training data, it looks smart in training and goofy in production.
+When a tree memorizes training data, it looks smart in training and goofy in production.
 
 Common control knobs:
-- `max_depth` - limits tree depth
+- `max_depth` - limits the number of branches a tree can have
 - `min_samples_split` - minimum samples to create a new split
 - `min_samples_leaf` - minimum samples in each final leaf
 - `max_leaf_nodes` - limits total number of leaves
