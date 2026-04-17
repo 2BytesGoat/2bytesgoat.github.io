@@ -10,6 +10,18 @@
 
 # Things I'm proud about
 
+## 🕹️ My First DIY Arcade
+
+**In 2026** I also built a freaking arcade machine that we ended up presenting at a huge conference in Cluj.
+
+## 🐕 G-Retriever with NVIDIA
+
+**In 2026** I implemented a custom version of the [G-Retriever](https://arxiv.org/abs/2402.07630) approach on [QIAGEN's](https://www.qiagen.com/) data, in collaboration with [NVIDIA](https://www.nvidia.com/) and [Neo4j](https://neo4j.com/). 
+
+## 🦇 Co-founding TAGAP
+
+**In 2025** I chose to become a co-founder of [TAGAP](https://tagap.ro/) (*Asociația Transilvană pentru Gaming și Proiecte Artistice*), an NGO in Cluj-Napoca focused on gaming and creative projects. My main role has been organising game development meetups and helping the gamedev community in Cluj come together.
+
 ## 👾 Publishing my first game
 
 **In 2024** I actually finished a game which was then later used to promote the [HEITS Apuseni Ski Cup](https://apusenicup.ro/). You ca actually play the game in the browser, by accessing [this link](https://2bytesgoat.itch.io/apuseni-cup).
