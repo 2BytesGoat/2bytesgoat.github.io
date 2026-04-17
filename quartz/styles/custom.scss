@@ -5,6 +5,64 @@ $small: 500px;
 
 // put your custom CSS here!
 
+// Theme toggle: moon in light mode, sun in dark mode (stock Quartz is the reverse).
+// Overrides `quartz/components/styles/darkmode.scss` without editing that file.
+:root[saved-theme="dark"] .darkmode {
+  & > .dayIcon {
+    display: inline;
+  }
+  & > .nightIcon {
+    display: none;
+  }
+}
+
+:root .darkmode {
+  & > .dayIcon {
+    display: none;
+  }
+  & > .nightIcon {
+    display: inline;
+  }
+}
+
+// Links: internal (same site / SPA) vs external (opens in new tab when openLinksInNewTab is on).
+// Quartz adds `.internal` and `.external` in `plugins/transformers/links.ts`.
+a {
+  &.internal {
+    // Slightly clearer “stays on this site” chip vs body links.
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--secondary) 45%, transparent);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      border-bottom-color: color-mix(in srgb, var(--tertiary) 55%, transparent);
+    }
+  }
+
+  &.external {
+    // “Leaves the site” — underline + box icon (already injected) + new-tab behavior from config.
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, var(--secondary) 55%, transparent);
+    background: none;
+    padding: 0;
+    border-radius: 0;
+
+    &:hover {
+      text-decoration-color: var(--tertiary);
+    }
+  }
+
+  &.external .external-icon {
+    vertical-align: -0.12em;
+    opacity: 0.92;
+  }
+}
+
 // Inline `code` (backticks): base.scss uses color: --dark and background: --lightgray.
 // In this theme's dark palette those are magenta on teal, which is hard to read; body text
 // uses --darkgray. Match the surrounding text and use a soft chip instead.
