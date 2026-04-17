@@ -38,7 +38,9 @@ If you keep "fixing" the model until the test score looks good, the test set is 
 - **Validation** → tune and sanity-check while you work  
 - **Split a test set and leave it alone** → one clean score when you're ready to be honest  
 
-> [!info] Tiny split ratios
-> People often do something like 70% train / 15% val / 15% test, or 80/10/10 - depends how much data you have and how noisy your metric is. With almost no data, you lean on cross-validation instead of pretending a tiny test slice is sacred.
+> [!info] Tip
+> Use tiny split ratios - like 70% train / 15% val / 15% test, or 80/10/10
+>
+> Depends how much data you have and how noisy your metric is. With almost no data, you lean on cross-validation instead of pretending a tiny test slice is sacred.
 
 If you only remember one thing: **training is for learning, validation is for choosing, test is for reporting** - don't let those roles blur.
