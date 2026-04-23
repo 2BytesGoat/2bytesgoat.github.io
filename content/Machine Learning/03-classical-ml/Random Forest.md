@@ -80,3 +80,6 @@ model.fit(X_train, y_train)
 accuracy = model.score(X_test, y_test)
 print(f"Accuracy: {accuracy:.2f}")
 ```
+
+# Additional Resources
+- StatQuest: Random Forests - [YouTube Part1](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ), [YouTube Part2](https://www.youtube.com/watch?v=sQ870aTKqiM)
