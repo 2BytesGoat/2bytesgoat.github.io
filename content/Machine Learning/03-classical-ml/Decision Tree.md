@@ -2,42 +2,49 @@
 tags:
   - classical-ml
 draft: false
-date: 2026-04-17
+date: 2026-04-23
 ---
-# What are Decision Trees
+# What is it
 
-It's basically an algorithm that generates nested `if-else` statements based on the data you give it. So instead of you hand-writing rules, the algorithm learns them from examples.
+It's basically an algorithm that generates nested `if-else` statements based on the data you give it. So instead of you having to do hand-written rules, you plug them into this algorithm and it makes them from examples.
 
-> *How hard can Machine Learning be ... you're basically making just some if-else statements* 
-
-They're also the thing your friends will use to make fun of you when you tell them you're doing Machine Learning. 
-## Why you should care
-
-Well... if you want to make an AI using `if-else` statements (say for [DragonJump](https://github.com/2BytesGoat/PLaiGROUND/blob/main/scripts/01_if_else_agent.py)), getting the desired behavior means tweaking conditions manually. And that takes time and effort. 
-
-Instead, you could capture a few examples of the behavior you want and feed them to a Decision Tree. Its goal is to do the mapping for you.
+> **How hard can Machine Learning be?** *said that Mr. Bean-looking friend while watching you do if-else statements with extra steps* 
 # How they work
 
-Imagine you want to build an AI that helps you decide whether you should take an umbrella. 
+Imagine you want to build an AI that helps you decide whether you should take an umbrella. First, you'll need to define what information you have access to and what actions you can take.
+
+Your features (things that help you take the decision) can be:
+- humidity 
+- chance of rain
+- wind
 
 The action (sometimes called prediction **target** or simply **y**) is: 
 - take 
 - don't take
 
-And your features (things that help you take the decision) can be:
-- humidity 
-- chance of rain
-- wind
+Then, you'll then keep a journal of weather conditions and whether you took or left your umbrella.
 
-You'll then keep a journal of weather conditions and whether you took or left your umbrella.
-
-Then the Decision Tree will:
+Finally, you pug the information from your journal into the decision tree. It will then:
 1. build multiple conditions for each feature
-2. evaluate how well each condition splits your data
-3. choose the condition that produces the best separation
-4. repeat steps 1-3 until you're happy with the results
+2. check which condition is able to best classify your data
+3. if the classification is not satisfactory, add another condition on top
 
-When you run the model, you just walk the if/else chain from the top until you hit a leaf. Whatever that leaf says is your answer.
+Once it's done, you'll be able to go through the chain of `if-else` statements to determine if you should take your umbrella or not.
+
+# What makes a "good split"
+
+At each step, the algorithm tries a bunch of possible splits and picks the one that separates outcomes best.
+
+For classification, you'll usually hear terms like:
+- Gini impurity
+- entropy / information gain
+
+For regression, you'll usually hear:
+- mean squared error reduction
+
+If you want to dive deeper, check out [StatQuest](https://www.youtube.com/@statquest):
+- The series on Decision and Classification Trees - [YouTube - Part 1](https://www.youtube.com/watch?v=_L39rN6gz7Y) and [YouTube - Part 2](https://www.youtube.com/watch?v=wpNl-JwwplA)
+- Regression Trees, Clearly Explained - [YouTube](https://www.youtube.com/watch?v=g9c66TUylZ4)
 
 # Classification vs Regression Trees
 
@@ -58,36 +65,19 @@ Use this when your output is a number:
 > 
 > **For example:** Say in your training data, three houses that landed on the same leaf sold for 200k, 220k, and 240k. A new house that lands there gets a guess around **220k** - the average of those sale prices.
 
-# What makes a "good split"
-
-At each step, the algorithm tries a bunch of possible splits and picks the one that separates outcomes best.
-
-For classification, you'll usually hear terms like:
-- Gini impurity
-- entropy / information gain
-
-For regression, you'll usually hear:
-- mean squared error reduction
-
-I'm not going to throw in any complicated formulas here. 
-
-Buuut ... if you want to dive deeper, I can't recommend enough [StatQuest](https://www.youtube.com/@statquest):
-- The series on Decision and Classification Trees - [YouTube - Part 1](https://www.youtube.com/watch?v=_L39rN6gz7Y) and [YouTube - Part 2](https://www.youtube.com/watch?v=wpNl-JwwplA)
-- Regression Trees, Clearly Explained - [YouTube](https://www.youtube.com/watch?v=g9c66TUylZ4)
-
 # Why trees are awesome
 
 - **Interpretability**: you can inspect the actual logic.
 - **Low prep overhead**: often works without heavy feature scaling.
-- **Non-linear behavior**: can model decision boundaries that linear models miss.
+- **Non-linear behaviour**: can model decision boundaries that linear models miss.
 - **Fast baseline**: gives you a quality reference quickly.
 
 # Where they struggle
 
-- They can [[Overfitting and Underfitting|overfit]] if you let them grow too deep.
+- They can **[[Overfitting and Underfitting|overfit]]** if you let them grow too deep.
 - Small data changes can produce a different tree (they're kinda unstable).
 - A single tree can get outperformed by stronger ensemble methods.
-- Trees care about order on numbers. If you slap `0, 1, 2` on categories that aren't really ordered, it might still act like there's a trend. One-hot (or whatever your stack likes for real categoricals) saves you the headache.
+- Trees care about order on numbers. If you slap `0, 1, 2` on categories that aren't really ordered, it might still act like there's a trend. One-hot (or whatever your stack likes for real categorical) saves you the headache.
 
 That's why people often move to Random Forests or Gradient Boosted Trees later - same idea, just many trees working together.
 
@@ -174,12 +164,3 @@ flowchart TD
 
 Not perfect. Still super useful, and you can inspect exactly why it picked each action.
 
-
-# TL;DR
-
-Decision Trees are:
-- the easiest bridge from rules to machine learning
-- interpretable and practical for tabular problems
-- excellent first models, especially for debugging your data and assumptions
-
-Use them early. Learn from them. Then decide if you need something fancier.
