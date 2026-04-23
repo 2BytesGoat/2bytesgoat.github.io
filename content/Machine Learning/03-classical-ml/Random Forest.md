@@ -22,7 +22,7 @@ flowchart LR
     C --> C4[More robust on new data]
 ```
 
-# How does it work
+# How it works
 A random forest is a bunch of decision trees that vote on the correct answer. The catch? No two trees are the same. 
 
 You randomly debuff (inhibit) your decision trees by:

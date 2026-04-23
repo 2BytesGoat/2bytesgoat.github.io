@@ -9,7 +9,7 @@ date: 2026-04-23
 It's basically an algorithm that generates nested `if-else` statements based on the data you give it. So instead of you having to do hand-written rules, you plug them into this algorithm and it makes them from examples.
 
 > **How hard can Machine Learning be?** *said that Mr. Bean-looking friend while watching you do if-else statements with extra steps* 
-# How they work
+# How it works
 
 Imagine you want to build an AI that helps you decide whether you should take an umbrella. First, you'll need to define what information you have access to and what actions you can take.
 
@@ -30,6 +30,53 @@ Finally, you pug the information from your journal into the decision tree. It wi
 3. if the classification is not satisfactory, add another condition on top
 
 Once it's done, you'll be able to go through the chain of `if-else` statements to determine if you should take your umbrella or not.
+
+# Tiny example
+
+In your [[How to DragonJump|Dragon Jump]] setup, each frame you feed the tree a **`state`** vector and it guesses an **`action`**. 
+
+That state vector is **57 inputs** total: 
+- **7×7** game grid flattened (49 numbers) 
+- plus **8** small extras (direction, velocity, floor/wall flags, progress to peak, power-up) 
+
+Below is an example of an AI using decision trees: each box is a question, **True** / **False** is left / right, and the `[a, b]` counts are how many training samples landed there for each action.
+
+```mermaid
+flowchart TD
+    R{"perc_to_peak <= 0.162<br/>gini 0.487 · samples 240 · [139, 101]<br/>class action_0"}
+    L1L{"grid[3][0] <= 0.5<br/>gini 0.402 · samples 183 · [132, 51]<br/>class action_0"}
+    L1R{"dir_y <= -0.923<br/>gini 0.215 · samples 57 · [7, 50]<br/>class action_1"}
+    L2LL{"grid[3][6] <= 0.5<br/>gini 0.358 · samples 167 · [128, 39]<br/>class action_0"}
+    L2LR{"dir_y <= -0.85<br/>gini 0.375 · samples 16 · [4, 12]<br/>class action_1"}
+    L2RL{"grid[6][0] <= 0.5<br/>gini 0.5 · samples 12 · [6, 6]<br/>class action_0"}
+    L2RR{"grid[5][4] <= 0.5<br/>gini 0.043 · samples 45 · [1, 44]<br/>class action_1"}
+
+    F1["Leaf · gini 0.275 · n=140<br/>[117, 23] → action_0"]
+    F2["Leaf · gini 0.483 · n=27<br/>[11, 16] → action_1"]
+    F3["Leaf · gini 0.0 · n=3<br/>[3, 0] → action_0"]
+    F4["Leaf · gini 0.142 · n=13<br/>[1, 12] → action_1"]
+    F5["Leaf · gini 0.49 · n=7<br/>[4, 3] → action_0"]
+    F6["Leaf · gini 0.48 · n=5<br/>[2, 3] → action_1"]
+    F7["Leaf · gini 0.0 · n=41<br/>[0, 41] → action_1"]
+    F8["Leaf · gini 0.375 · n=4<br/>[1, 3] → action_1"]
+
+    R -->|True| L1L
+    R -->|False| L1R
+    L1L -->|True| L2LL
+    L1L -->|False| L2LR
+    L1R -->|True| L2RL
+    L1R -->|False| L2RR
+    L2LL -->|True| F1
+    L2LL -->|False| F2
+    L2LR -->|True| F3
+    L2LR -->|False| F4
+    L2RL -->|True| F5
+    L2RL -->|False| F6
+    L2RR -->|True| F7
+    L2RR -->|False| F8
+```
+
+Not perfect. Still super useful, and you can inspect exactly why it picked each action.
 
 # What makes a "good split"
 
@@ -116,51 +163,4 @@ model.fit(X_train, y_train)
 accuracy = model.score(X_test, y_test)
 print(f"Accuracy: {accuracy:.2f}")
 ```
-
-# Tiny example
-
-In your [[How to DragonJump|Dragon Jump]] setup, each frame you feed the tree a **`state`** vector and it guesses an **`action`**. 
-
-That state vector is **57 inputs** total: 
-- **7×7** game grid flattened (49 numbers) 
-- plus **8** small extras (direction, velocity, floor/wall flags, progress to peak, power-up) 
-
-Below is an example of an AI using decision trees: each box is a question, **True** / **False** is left / right, and the `[a, b]` counts are how many training samples landed there for each action.
-
-```mermaid
-flowchart TD
-    R{"perc_to_peak <= 0.162<br/>gini 0.487 · samples 240 · [139, 101]<br/>class action_0"}
-    L1L{"grid[3][0] <= 0.5<br/>gini 0.402 · samples 183 · [132, 51]<br/>class action_0"}
-    L1R{"dir_y <= -0.923<br/>gini 0.215 · samples 57 · [7, 50]<br/>class action_1"}
-    L2LL{"grid[3][6] <= 0.5<br/>gini 0.358 · samples 167 · [128, 39]<br/>class action_0"}
-    L2LR{"dir_y <= -0.85<br/>gini 0.375 · samples 16 · [4, 12]<br/>class action_1"}
-    L2RL{"grid[6][0] <= 0.5<br/>gini 0.5 · samples 12 · [6, 6]<br/>class action_0"}
-    L2RR{"grid[5][4] <= 0.5<br/>gini 0.043 · samples 45 · [1, 44]<br/>class action_1"}
-
-    F1["Leaf · gini 0.275 · n=140<br/>[117, 23] → action_0"]
-    F2["Leaf · gini 0.483 · n=27<br/>[11, 16] → action_1"]
-    F3["Leaf · gini 0.0 · n=3<br/>[3, 0] → action_0"]
-    F4["Leaf · gini 0.142 · n=13<br/>[1, 12] → action_1"]
-    F5["Leaf · gini 0.49 · n=7<br/>[4, 3] → action_0"]
-    F6["Leaf · gini 0.48 · n=5<br/>[2, 3] → action_1"]
-    F7["Leaf · gini 0.0 · n=41<br/>[0, 41] → action_1"]
-    F8["Leaf · gini 0.375 · n=4<br/>[1, 3] → action_1"]
-
-    R -->|True| L1L
-    R -->|False| L1R
-    L1L -->|True| L2LL
-    L1L -->|False| L2LR
-    L1R -->|True| L2RL
-    L1R -->|False| L2RR
-    L2LL -->|True| F1
-    L2LL -->|False| F2
-    L2LR -->|True| F3
-    L2LR -->|False| F4
-    L2RL -->|True| F5
-    L2RL -->|False| F6
-    L2RR -->|True| F7
-    L2RR -->|False| F8
-```
-
-Not perfect. Still super useful, and you can inspect exactly why it picked each action.
 
