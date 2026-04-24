@@ -6,21 +6,12 @@ Usually people use [[Decision Tree|decision trees]] because they're easy to setu
 
 However, one thing decision trees fall short is when having to predict for [new examples](https://esl.hohoweiya.xyz/book/The%20Elements%20of%20Statistical%20Learning.pdf#page=371). Mainly because they tend to find the best way to fit the data you provide them with and are blind to small deviations from it.
 
-```mermaid
-flowchart LR
-    A[Same training dataset] --> B[Decision Tree]
-    A --> C[Random Forest]
-
-    B --> B1[One tree]
-    B --> B2[Very interpretable]
-    B --> B3[High variance]
-    B --> B4[Can overfit easily]
-
-    C --> C1[Many trees voting]
-    C --> C2[Harder to interpret]
-    C --> C3[Lower variance]
-    C --> C4[More robust on new data]
-```
+|  | Decision Tree | Random forest |
+| --- | --- | --- |
+| Structure | One tree | Many trees voting |
+| Readability | Very interpretable | Harder to interpret |
+| Variance | High | Lower |
+| Generalization | Can overfit easily | More robust on new data |
 
 # How it works
 A random forest is a bunch of decision trees that vote on the correct answer. The catch? No two trees are the same. 

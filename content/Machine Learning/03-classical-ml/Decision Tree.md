@@ -11,18 +11,18 @@ It's basically an algorithm that generates nested `if-else` statements based on 
 > **How hard can Machine Learning be?** *said that Mr. Bean-looking friend while watching you do if-else statements with extra steps* 
 # How it works
 
-Imagine you want to build an AI that helps you decide whether you should take an umbrella. First, you'll need to define what information you have access to and what actions you can take.
+Imagine you want to build an AI that helps you decide whether you should take an umbrella. First, you'll need to define what information you have access to and what you want to predict.
 
 Your features (things that help you take the decision) can be:
 - humidity 
 - chance of rain
 - wind
 
-The action (sometimes called prediction **target** or simply **y**) is: 
-- take 
-- don't take
+The prediction target (sometimes called **y**) is: 
+- it will rain
+- it will NOT rain
 
-Then, you'll then keep a journal of weather conditions and whether you took or left your umbrella.
+Then, you'll then keep a journal of weather conditions and what in fact happened that day.
 
 Finally, you pug the information from your journal into the decision tree. It will then:
 1. build multiple conditions for each feature
