@@ -88,5 +88,5 @@ Here are a few applications for tabular and time-series AIs
 | **algorithmic trading**      | using market history to trigger buys/sells (with lots of caveats)              |
 | **inventory / supply chain** | predicting stockouts and lead times so you can plan ahead                      |
 
-If you’re still deciding *how* to attack the problem once you know the data shape, [[Picking the right AI]] is the checklist I use.
+If you’re still deciding *how* to attack the problem once you know the data shape, [[Picking the Right AI]] is the checklist I use.
 

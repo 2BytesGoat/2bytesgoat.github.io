@@ -12,6 +12,8 @@ Think of it like this: your AI can either be **a nerd** or **a slacker**.
 
 A nerd is an AI that overfitted while the slacker represents an AI that underfitted.
 
+![img](Assets/LearnAI/underfit_right_overfit.webp)
+
 ## Overfitting
 
 The model **memorized the training set** - quirks, noise, weird one-offs - instead of learning something that generalizes.
