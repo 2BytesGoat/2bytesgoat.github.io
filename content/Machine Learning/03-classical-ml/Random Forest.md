@@ -1,3 +1,9 @@
+---
+tags:
+  - classical-ml
+draft: false
+date: 2026-04-23
+---
 > [!warning] Prerequisites
 > This post relies on you understanding [[Decision Tree|Decision Trees]]. You may want to make sure you understand the basics from there before continuing here.
 
