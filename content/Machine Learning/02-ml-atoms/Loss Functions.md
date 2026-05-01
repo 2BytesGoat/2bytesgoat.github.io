@@ -43,7 +43,7 @@ You start walking and, step by step, ask Roger how close you are. Eventually, wh
 
 In machine learning, a similar process happens. The AI is trying to learn, and **A** represents the AI's current behaviour (how it predicts something), while **B** is the behaviour you want it to have (the correct answer from your data). A **loss function** is one number that says how wrong you are—small is good, and training tries to push it down.
 
-Same picture as in [[The Perceptron]]: the model spits out a guess (often written \(\hat{y}\)), the data says the real answer \(y\), and you compare them. In the café story, **Xo** is your guess and **X** is the truth. Squaring or using `abs` is just so "how far off" is never negative.
+Same picture as in [[Linear Regression]]: the model spits out a guess (often written \(\hat{y}\)), the data says the real answer \(y\), and you compare them. In the café story, **Xo** is your guess and **X** is the truth. Squaring or using `abs` is just so "how far off" is never negative.
 
 # How to Calculate Squared Distance
 
@@ -134,7 +134,7 @@ Now imagine you ask Roger for feedback on every step you take. Each time, he say
 
 Instead, you could take several steps, gather all the feedback, and **average** (or take the **mean**) of what Roger told you. This helps you get a clearer idea of the general direction to take.
 
-In machine learning, **MSE** and **MAE** are that averaging trick on a chunk of data—one score for "how wrong are we right now," instead of zigzagging after every single row. Same spirit as [[The Perceptron]]: nudge **W** and **B** so guesses line up with the training answers overall.
+In machine learning, **MSE** and **MAE** are that averaging trick on a chunk of data—one score for "how wrong are we right now," instead of zigzagging after every single row. Same spirit as [[Linear Regression]]: nudge **W** and **B** so guesses line up with the training answers overall.
 
 How do those nudges get picked? Same world as [[Train vs Test vs Validation]] when it mentions gradients—you're basically sliding weights downhill on the loss. You don't need the full math class here; just know the loss is the score you're trying to shrink.
 

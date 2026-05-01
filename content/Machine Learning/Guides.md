@@ -31,7 +31,7 @@ Suitable for beginners with coding experience. A hands-on approach on how machin
 # **Phase 2** - Neural Networks
 ### **Session 4** - Intro to Deep Learning
 **Topics**
-- What's a perceptron - linear regression and the basis of Deep Learning
+- [[Linear Regression]] - predicting a number; same backbone as one neuron before activations
 - What are activation functions - nonlinearity to describe complex functions
 - What are [[Understanding Loss Functions|losses]] and optimisers - the things that make DL algorithms learn
 - Running a single-layer network - familiarising yourselves with Pytorch 
