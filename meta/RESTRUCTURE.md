@@ -30,6 +30,8 @@
   "the deep end" career story (anonymized), sentdex-revival aspirations
 - [ ] Fountain games added to INBOX: Chicken Protection Program; Shaman Arena (Nico, GGJ credit);
   Pimp your Grandma (childhood origin, Pungi) — origin stories belong in those future posts
+- [ ] **Fingerprint calibration**: run round 1 (agent ghostwrites a sample using only
+  `meta/FINGERPRINT.md`, Giani grades hold/miss); repeat until 9/10 lines hold
 - [ ] `[!todo]` Bites → posts: "How do I start ML in 2026", "is ChatGPT sentient", "do I need math"
 
 ### Original content cleanup (proposals — nothing in `content/` touched yet)

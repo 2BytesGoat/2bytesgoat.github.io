@@ -2,8 +2,9 @@
 
 > This folder (`meta/`) is **never built** by Quartz; it's not part of the site.
 > It exists so future-us writes posts that feel like one continuous course, not a pile of notes.
-> Companion files: `PERSONA.md` (who's writing + for whom), `POST-TEMPLATE.md` (copy-paste
-> skeleton), `IDEAS.md` (pipeline), `BITES.md` (reusable answers), `RESTRUCTURE.md` (cleanup log).
+> Companion files: `PERSONA.md` (who's writing + for whom), `FINGERPRINT.md` (how the sentences
+> are shaped), `POST-TEMPLATE.md` (copy-paste skeleton), `IDEAS.md` (pipeline), `BITES.md`
+> (reusable answers), `RESTRUCTURE.md` (cleanup log).
 > Raw voice reference: `../thoughts/interview-2026-08-29.md` (private — never quote directly).
 
 ## The deal

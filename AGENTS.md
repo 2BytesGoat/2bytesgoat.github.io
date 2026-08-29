@@ -28,6 +28,7 @@ Agents (opencode, Cline, anything that reads this file): follow the rules below 
 - One canonical wikilink target per concept, Title Case
 - Frontmatter: one canonical tag, deliberate `draft` flag, `date: YYYY-MM-DD`
 - Before writing any post: read `meta/VOICE.md` (how to write) and `meta/PERSONA.md` (who's writing, for whom)
+- When ghostwriting in Giani's voice (posts, bites, replies): also read `meta/FINGERPRINT.md` (sentence-level style spec) — never fake typos, respect the register table
 - Posts grow through the pipeline: `thoughts/INBOX.md` → `meta/IDEAS.md` → `draft: true` seed → definition-of-done → ship
 
 ## ⚠️ Personal-content routing rule (the important one)
