@@ -16,8 +16,9 @@
 - `Idea` [post] Modded Switch as the arcade brain — porting community games to a homebrew Switch; already has a Reddit post: https://www.reddit.com/r/godot/comments/1vsnjp0/this_is_the_most_overengineered_way_to_port_your/ → document properly on the blog
 - `Idea` [post] Gatchapon machine collab with the community's 3D artists
 - `Idea` [post] Dragon Jump 1.0 — deadline April 1 2027, on-and-off for 2 years, changelog journal already exists
-- `Idea` [post] Shaman Arena — game in the head that won't leave
-- `Idea` [post] Pimp your Grandma — same (title writes the post itself)
+- `Idea` [post] Shaman Arena — game in the head that won't leave (started with Nico at Global Game Jam, people loved it, arcade-game material)
+- `Idea` [post] Pimp your Grandma — childhood idea with Pungi, Wacky Races-style grandma racing; two spins on the table
+- `Idea` [post] Chicken Protection Program — tower-defense chicken-farm twist (from the fountain backlog)
 - `Read` [post] Books to actually read + take notes on: _AI for Games_, _The Hitchhiker's Guide to Machine Learning_, _Deep Learning_, + a few gamedev ones (titles TBD) — each note = potential post
 - `Cool` 2 Minute Papers — first channel that comes to mind for ML news; sentdex is quiet these days… "I'd love to revive a channel like that at some point"
 - `Asked` [post] (seed META/BITES.md entries from every one of these)

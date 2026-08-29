@@ -27,7 +27,9 @@
 - [ ] Book-notes lane: AI for Games / Hitchhiker's Guide to ML / Deep Learning / gamedev TBD —
       each read-through becomes a `Read:` dump then maybe a post
 - [ ] Interview-sourced post ideas (see `thoughts/INBOX.md`): genAI middle-stance essay,
-      "the deep end" career story (anonymized), sentdex-revival aspirations
+  "the deep end" career story (anonymized), sentdex-revival aspirations
+- [ ] Fountain games added to INBOX: Chicken Protection Program; Shaman Arena (Nico, GGJ credit);
+  Pimp your Grandma (childhood origin, Pungi) — origin stories belong in those future posts
 - [ ] `[!todo]` Bites → posts: "How do I start ML in 2026", "is ChatGPT sentient", "do I need math"
 
 ### Original content cleanup (proposals — nothing in `content/` touched yet)

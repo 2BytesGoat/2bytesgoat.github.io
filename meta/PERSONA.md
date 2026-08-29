@@ -8,9 +8,10 @@
 
 | Layer        | Statement                                                                                                                                                                          |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **What**     | "Hard shouldn't be this hard." Make hard things Giani deals with easy to understand for the curious.                                                                               |
-| **Why**      | "I want to be that friend that I needed when I was there." (School was hostile — ADHD, middle of the class, low self-esteem. Three people changed that. The blog pays it forward.) |
-| **Contract** | "I do it this way, may not be the best, but it should get you started." Never guru-mode. Practitioner, not prophet.                                                                |
+| **What** | "Hard shouldn't be this hard." Make hard things Giani deals with easy to understand for the curious. |
+| **Why** | "I want to be that friend that I needed when I was there." (School was hostile — ADHD, middle of the class, low self-esteem. Three people changed that. The blog pays it forward.) |
+| **Contract** | "I do it this way, may not be the best, but it should get you started." Never guru-mode. Practitioner, not prophet. |
+| **Deepest root** | The **facilitator calling**: "My calling is not to become the best at something — it is to facilitate others and make a fun place to be in." NGO = community container, arcade = physical container, **blog = knowledge container**. "Facilitator, not star — the place is the point, not me." |
 
 ## Origin story (the audience-builder throughline)
 
@@ -38,6 +39,34 @@ Every artifact since childhood had an **audience attached**:
 | 2026  | Arcade machine v2 in the room (v1 presented at Cluj conference); G-Retriever/GraphRAG on QIAGEN data w/ NVIDIA + Neo4j; day job "kinda chill", game = part-time job; wants an ML/gamedev initiative at work | now                                            |
 
 **The deep-end pattern** (name it when writing bio-ish posts): thrown in the water 3× with zero supervision, self-taught out via YouTube, delivered alone. The blog is him automating _being that_ for other people.
+
+## What Dragon Jump actually is (the convergence point)
+
+Not "a game with a TCP API." Three threads landing in one place:
+
+1. **The childhood games** — the dream that never had the skills to be built (tutorial hell, ~3 years, alone, Unity→Godot).
+2. **The 2020 AI-competition idea** — "train your own AI, head-to-head, on a leaderboard" — dismissed as childish where he worked. He kept it anyway. In 2026 it ran for real: workshop + in-person competition at Founder's Hive, prizes, ice cream, "everyone loved it."
+3. **The "mine" thing** — after years of building what became _theirs_ (work, credit elsewhere), this is craft pointed at himself.
+
+Writing implication: Dragon Jump content is never "yet another indie game log" — it's the convergence story being built in public. The blog's ML course, the tools, the tutorials are the reusable form of it. Deadline: **April 1, 2027**.
+
+## The end-state vision (why "build log" posts exist)
+
+A **physical community place**: pizza + arcade + conversation. Arcades running games made by local
+people, new games each month, parents bringing kids, wacky dreams taken seriously. He's the
+builder-host of it. Everything in the graveyard (arcade v2, Switch-arcade-brain, gatchapon collab,
+TAGAP meetups) is that place being assembled in public — treat those posts as chapters of one
+build, not one-off projects. Backlog games from the same fountain: **Shaman Arena** (started with
+Nico at Global Game Jam), **Pimp your Grandma** (childhood idea with Pungi — Wacky Races-style
+grandma racing), **Chicken Protection Program** (tower-defense chicken farm).
+
+## Honest identity (grounds the voice)
+
+- **Harsh self-critic, aims high, discouraged quickly** — the self-deprecation signature in posts
+  is _real_, not a bit. It's also why "may not be the best, but it should get you started" is a contract, not a humblebrag.
+- **Extremely resilient** — deep-end stories end with delivery, not exit.
+- **Deeply empathetic** — writes _for_ the struggling reader; ADHD solidarity, community-first.
+- **Values** (his own list): community, service, authenticity, creativity, fairness, resilience.
 
 ## ADHD
 
@@ -89,6 +118,11 @@ Dragon Jump (1.0 by **April 1, 2027** — the plAIground for the whole ML course
 - Mentor names: private (see above)
 - ADHD: public, solidarity framing
 - Dumps live in `thoughts/` — public on GitHub, never built into the site; raw interview never quoted
+- **Diary routing**: genuinely personal material (family/trauma, medical, finances, relationships,
+  workplace politics, emotional patterns) does NOT come into this repo at all — not even `thoughts/`.
+  It gets written as a diary entry in `../diary/` (private vault, separate repo); only the
+  public-safe redacted version may live here. Codified in `AGENTS.md` — agents draft in diary
+  first, then redact outward when in doubt.
 
 ## Open questions (refine when they come up)
 
