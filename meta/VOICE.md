@@ -80,8 +80,9 @@ brand. See `PERSONA.md` for the person and audiences behind this.
 - Formal-comedic disclaimers and hot-take labels (`Disclaimer:`, `Hot Take:`, "Stupid question /
   Stupid answer") are on-brand — the scientist costume over the joke.
 - Voice texture from the raw reference (interview file): rambling chains with `-` and `...`
-  that snap into a short punch; "freaking"/caps for emphasis; "cuz"/"tho"; "yep yep";
-  kaomoji sparingly (ᕕ( ᐛ )ᕗ tier, max 1 per post); sign-off "Peace 🐐" on story-style posts.
+  that snap into a short punch; "freaking" for emphasis (rare); "cuz"/"tho"; "yep yep";
+  **emoji/kaomoji are location-gated** (see FINGERPRINT.md rule 15): special pages + sign-offs
+  only — default ghostwritten prose carries none; sign-off "Peace 🐐" on story-style posts.
 - Meme literacy is assumed (Skynet, "one does not simply", honest work farm). The meme must _name
   a real thing in the example_, never decorate a formula.
 - Humor budget: 0–2 per course post; build-log/personal posts can be looser (3 max) —

@@ -76,8 +76,12 @@
 14. **Questions frame requests**: "does that make sense?", "do you have any questions regarding
     this?", "can you even do that? (curious)". He asks permission to be a lot. In posts:
     questions open sections — "But why tho?", "How hard can Machine Learning be?"
-15. **Kaomoji/emoji**: ᕕ( ᐛ )ᕗ (ideas/energy), 🥲 (pain-but-fine), 🍻 (cheers/victory),
-    🐐 (sign-off), 🧑‍🍳 (cooking ideas). Max ~1–2 per post; always load-bearing, never decorative.
+15. **Emoji/kaomoji are location-gated, not frequency-gated** (Giani-corrected): he rarely uses
+    them in conversation at all — they belong where they're *appropriate*: special pages
+    (About/profile), sign-offs, celebratory build-log moments. When they do appear they're
+    load-bearing, never decorative: ᕕ( ᐛ )ᕗ (ideas/energy), 🥲 (pain-but-fine), 🍻 (cheers/victory),
+    🐐 (sign-off), 🧑‍🍳 (cooking ideas). Default for ghostwritten prose: **zero emoji**; add one
+    only if the spot is special-page / sign-off tier.
 16. **Escalation-as-joke (hyperbole → deflate)**: inflate absurdly first, pop it after —
     "You just made the best AI the world has ever seen - the next Skynet" → "only to see that
     it was an impostor". Sibling of the undercut: undercut deflates a *real* win; escalation
@@ -123,8 +127,8 @@ Here's a summary / Here's a list of the most interesting things I've worked on:
 - ...
 ```
 
-Optional moves: "as per ChatGPT" attribution for AI-listed summaries; 🥲/🍻 inside the opener;
-cuz/Aaaany way free in this register.
+Optional moves: "as per ChatGPT" attribution for AI-listed summaries; 🥲/🍻 rare, only when the
+entry is a genuine victory/pain moment; cuz/Aaaany way free in this register.
 
 ## Calibration protocol
 
@@ -158,6 +162,9 @@ feel like i need to put emphasis on smt."*
 - [L7] NOT-fingerprint confirmed in the wild → real published typos exist (`pug`, `patters`,
   `Learderboard`, "there surveillance", `Pytorch`); all are edit-time fixes. Logged for the
   RESTRUCTURE cleanup pass. → conversion table updated
+- [L8] emoji rule corrected by Giani → NOT "1–2 per post"; conversation emoji usage is ~zero.
+  Emoji are **location-gated**: special pages (About), sign-offs, genuine victory/pain moments
+  in build logs. Ghostwritten prose defaults to zero. → rule 15 rewritten, VOICE.md synced
 
 **Score vs target:** 9/10 target — round 1 came in at 11/15 clean with all misses explainable.
 File is now corpus-validated; next calibration only when new corpus lands (new changelog,
