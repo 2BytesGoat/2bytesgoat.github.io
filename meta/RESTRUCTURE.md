@@ -36,6 +36,14 @@
 
 ### Original content cleanup (proposals — nothing in `content/` touched yet)
 
+- [ ] Typo sweep (found during FINGERPRINT round-1 audit, 2026-08-29):
+  - `Decision Tree.md` "you pug the information" → plug
+  - `Picking the right AI.md` "look for patters" → patterns
+  - `Changelog.md` "Learderboard improvements" (2025-04-28 header) → Leaderboard
+  - `Data Types for AI.md` "in China there surveillance systems" → there are
+  - `Guides.md` / `Linear Regression.md` "Pytorch" → PyTorch
+- [ ] Retrofit remaining ML posts to the standard (VOICE.md anatomy check):
+
 - [ ] Retrofit remaining ML posts to the standard:
   - [ ] Overfitting and Underfitting — needs TL;DR (top), Summary audit
   - [ ] Train vs Test vs Validation — needs TL;DR, Homework
