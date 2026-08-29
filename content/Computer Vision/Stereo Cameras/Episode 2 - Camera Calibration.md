@@ -5,6 +5,7 @@ tags:
   - python
 date: 2021-09-24
 ---
+
 In this blog post I will explain how to calibrate your stereo camera which will help us in obtaining accurate depth information.
 
 > [!info] The original blogpost was created on Sept 2021 and migrated to the new website, thus the code may need to be revised.
@@ -23,8 +24,8 @@ Throughout the rest of the tutorial, you will gain experience in using OpenCV an
 
 # Stereo cameras and how to get one
 
->[!tip] Fun fact
->The same way sound can be mono or stereo cameras can also be stereo by having two or more lenses which can view a scene from different angles.
+> [!tip] Fun fact
+> The same way sound can be mono or stereo cameras can also be stereo by having two or more lenses which can view a scene from different angles.
 
 **Stupid question:** Why aren’t there so many one eyed pirates?
 
@@ -47,6 +48,7 @@ find out what are the intrinsic parameters of the camera (optical center and foc
 find out what are the extrinsic parameters of the camera (distance between cameras and camera rotations) such that the disparity maps that we produce are accurate.
 
 ![[py-cs-sc-20.jpg]]
+
 > TDS - The Pinhole Camera Model
 
 In this blog post we will only focus on the steps and code which are needed for obtaining the intrinsic parameters.
@@ -76,7 +78,7 @@ python -m venv .env              # create an environment named .env
 pip install -r requirements.txt  # install the requirements
 ```
 
-> [!warning] 
+> [!warning]
 > We’ll be using the PS4DataSource class that I’ve created based on the previous blog post and which can be downloaded from the [GitHub repo](https://github.com/2BytesGoat/ps4-camera/blob/master/src/data_source/ps4_data_source.py).
 
 If you don’t have a PS4 camera, you will have to derive the class and make it work for your use case.
@@ -112,7 +114,7 @@ for frame_r, frame_l in self.data_source.stream():
     cntdwn_timer = int(time.time() - start)
 
     # If cowntdown is zero - let's record next image
-    if cntdwn_timer >= self.cnt_interval:            
+    if cntdwn_timer >= self.cnt_interval:
         self.counter += 1
 
         # Save the frames
@@ -149,15 +151,15 @@ Here we define the information which describes the calibration pattern and creat
 frame_path = './data/calibration/pairs'
 
 # Calibration image information
-calib_rows = 6 
-calib_columns = 9 
+calib_rows = 6
+calib_columns = 9
 calib_square_size = 2.5
 
 # Create a instance of the stereo calibrator
 frame_width, frame_height = self.data_source.get_frame_shape()
-calibrator = StereoCalibrator(calib_rows, 
-                              calib_columns, 
-                              calib_square_size, 
+calibrator = StereoCalibrator(calib_rows,
+                              calib_columns,
+                              calib_square_size,
                               (frame_width, frame_height))
 ```
 
@@ -207,6 +209,7 @@ rectified_pair = calibration.rectify((frame_r, frame_l))
 We can eyeball whether the image has distortions by choosing a landmark in the two frames (e.g. the sofa pillow) and see whether the red lines fall in the same place. In this case we can see that the pillow is a bit lower in the right frame than in the left one.
 
 ![[py-cv-sc-22.png]]
+
 >  Visualizing uncalibrated frames
 
 If we were to apply the correction on the frames, we see some black areas due to warping. The higher the black area, the more correction was done to the images.

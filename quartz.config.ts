@@ -16,6 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     baseUrl: "2bytesgoat.com",
+    locale: "en-US",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {

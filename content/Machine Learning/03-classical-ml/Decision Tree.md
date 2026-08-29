@@ -4,11 +4,12 @@ tags:
 draft: false
 date: 2026-04-23
 ---
+
 # What is it
 
 It's basically an algorithm that generates nested `if-else` statements based on the data you give it. So instead of you having to do hand-written rules, you plug them into this algorithm and it makes them from examples.
 
-> **How hard can Machine Learning be?** *said that Mr. Bean-looking friend while watching you do if-else statements with extra steps* 
+> **How hard can Machine Learning be?** _said that Mr. Bean-looking friend while watching you do if-else statements with extra steps_
 
 # How it works
 
@@ -16,11 +17,11 @@ Imagine you want to build an AI that helps you decide whether you should take an
 
 Your features (things that help you take the decision) can be:
 
-- humidity 
+- humidity
 - chance of rain
 - wind
 
-The prediction target (sometimes called **y**) is: 
+The prediction target (sometimes called **y**) is:
 
 - it will rain
 - it will NOT rain
@@ -37,11 +38,11 @@ Once it's done, you'll be able to go through the chain of `if-else` statements t
 
 # Tiny example
 
-In your [[How to DragonJump|Dragon Jump]] setup, each frame you feed the tree a `state` vector and it guesses an `action`. 
+In your [[How to DragonJump|Dragon Jump]] setup, each frame you feed the tree a `state` vector and it guesses an `action`.
 
-That state vector is **57 inputs** total: 
+That state vector is **57 inputs** total:
 
-- **7×7** game grid flattened (49 numbers) 
+- **7×7** game grid flattened (49 numbers)
 - plus **8** small extras (direction, velocity, floor/wall flags, progress to peak, power-up)
 
 Below is an example of an AI using decision trees: each box is a question, **True** / **False** is left / right, and the `[a, b]` counts are how many training samples landed there for each action.
@@ -80,8 +81,6 @@ flowchart TD
     L2RR -->|True| F7
     L2RR -->|False| F8
 ```
-
-
 
 Not perfect. Still super useful, and you can inspect exactly why it picked each action.
 
@@ -178,4 +177,3 @@ model.fit(X_train, y_train)
 accuracy = model.score(X_test, y_test)
 print(f"Accuracy: {accuracy:.2f}")
 ```
-

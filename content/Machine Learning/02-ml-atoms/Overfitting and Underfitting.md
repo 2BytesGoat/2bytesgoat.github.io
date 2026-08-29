@@ -4,9 +4,11 @@ tags:
 draft: false
 date: 2026-04-17
 ---
+
 # Overfitting and Underfitting
 
 Think of it like this: your AI can either be **a nerd** or **a slacker**.
+
 - **the nerd** learns his lessons by heart - but can't survive once he leaves school and meets the real world
 - **the slacker** says he's "done" way too soon - but can't figure anything out cuz he never paid attention in class
 
@@ -20,7 +22,7 @@ The model **memorized the training set** - quirks, noise, weird one-offs - inste
 
 Classic smell: **training looks amazing BUT test / validation looks sad.** It “knows” the examples you showed it and gets lost on anything new.
 
-> *“I can recite last year’s exam. Ask me a new question and I’m toast.”*
+> _“I can recite last year’s exam. Ask me a new question and I’m toast.”_
 
 **What people do about it:** more data (when you can), simpler models, regularization, early stopping, or knobs that stop the model from growing too greedy - like the depth / leaf limits on a [[Decision Tree]].
 

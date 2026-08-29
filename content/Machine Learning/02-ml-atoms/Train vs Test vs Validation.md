@@ -4,9 +4,10 @@ tags:
 draft: false
 date: 2026-04-17
 ---
+
 # Train vs Test vs Validation
 
-You just spent a few hours, days, months collecting your data. So you feed your data into your AI algorithm, look at the numbers and see 100% accuracy. You just made the best AI the world has ever seen - the next [Skynet](https://en.wikipedia.org/wiki/Skynet_(Terminator)).
+You just spent a few hours, days, months collecting your data. So you feed your data into your AI algorithm, look at the numbers and see 100% accuracy. You just made the best AI the world has ever seen - the next [Skynet](<https://en.wikipedia.org/wiki/Skynet_(Terminator)>).
 
 So naturally you put it out in the open to wreak havoc and make you millions, only to see that it was an impostor. It was the nerd from [[Overfitting and Underfitting]] that made a fool out of you.
 
@@ -22,7 +23,7 @@ This is the **practice exam** you use **while you're still building**.
 
 You peek at it to pick hyperparameters (learning rate, `max_depth` on a [[Decision Tree]], how long to train, which architecture wins). You also use it to notice [[Overfitting and Underfitting]] early - train great, validation meh is a classic smell.
 
-**Rule of thumb:** anything you change *because* you looked at validation counts as "using" it. If you loop on that feedback forever, you can still **overfit the validation set** in spirit - it stops being a fresh perspective.
+**Rule of thumb:** anything you change _because_ you looked at validation counts as "using" it. If you loop on that feedback forever, you can still **overfit the validation set** in spirit - it stops being a fresh perspective.
 
 ## Test set
 
@@ -34,9 +35,9 @@ If you keep "fixing" the model until the test score looks good, the test set is 
 
 ## TL;DR
 
-- **Train** → learn  
-- **Validation** → tune and sanity-check while you work  
-- **Split a test set and leave it alone** → one clean score when you're ready to be honest  
+- **Train** → learn
+- **Validation** → tune and sanity-check while you work
+- **Split a test set and leave it alone** → one clean score when you're ready to be honest
 
 > [!info] Tip
 > Use tiny split ratios - like 70% train / 15% val / 15% test, or 80/10/10

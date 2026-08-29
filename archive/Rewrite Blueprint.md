@@ -99,23 +99,29 @@ Suggested reuse map:
 # Page Title
 
 ## Why this matters
+
 (2-4 lines)
 
 ## Core idea
+
 (plain-language explanation)
 
 ## Practical example
+
 (real-world scenario, game/project tie-in if relevant)
 
 ## Common mistakes
+
 - ...
 - ...
 
 ## Quick checklist
+
 - ...
 - ...
 
 ## Next steps
+
 - [[Next Canonical Page]]
 ```
 
@@ -124,24 +130,29 @@ If every page follows this structure, the section feels coherent even with your 
 ## 7) Rewrite in phases (recommended order)
 
 ### Phase A - Skeleton (1 session)
+
 - Create all new folders/pages with empty scaffolds.
 - Add `Start Here.md` and `Learning Path.md`.
 - Add `_archive/2026-rewrite/`.
 
 ### Phase B - Foundations first (2-3 sessions)
+
 - Rewrite `01 Foundations` pages first.
 - Ensure terminology is stable before touching advanced pages.
 
 ### Phase C - Core concepts (2 sessions)
+
 - Rewrite `Models vs Algorithms`, `Loss Functions`, and `Evaluation`.
 - Keep examples concise and consistent in style.
 
 ### Phase D - Language models (2-3 sessions)
+
 - Build `Language Models Overview` first.
 - Then `Generative Language Models`.
 - Then finish `Prompting Fundamentals` and reliability page.
 
 ### Phase E - Projects integration (1-2 sessions)
+
 - Add project tracks showing "what to build after each section."
 - Keep this practical, with links and small milestones.
 
