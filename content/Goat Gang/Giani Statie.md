@@ -1,12 +1,13 @@
 ![[44785388.png]]
 
-* **Role:** Goat Herder
-* **Description:** A Software Engineer with TONS of ideas and a sweet spot for Video Games ᕕ( ᐛ )ᕗ
-* **Passions:** Game Development, Machine Learning, Making Pizza
+- **Role:** Goat Herder
+- **Description:** A Software Engineer with TONS of ideas and a sweet spot for Video Games ᕕ( ᐛ )ᕗ
+- **Passions:** Game Development, Machine Learning, Making Pizza
 
 # Other articles I've written
-* Feb 2025 - [From Hitchhikers to Seekers: ChatGPT vs DeepSeek](https://heits.digital/articles/chatgpt-vs-deepseek) - demystifying how DeepSeek works and why open-source reasoning models are cool
-* Feb 2022 -  [The Hitchhiker's Guide to GPT3](https://heits.digital/articles/gpt3-overview) - a rundown on LLMs and how things looked like before ChatGPT
+
+- Feb 2025 - [From Hitchhikers to Seekers: ChatGPT vs DeepSeek](https://heits.digital/articles/chatgpt-vs-deepseek) - demystifying how DeepSeek works and why open-source reasoning models are cool
+- Feb 2022 - [The Hitchhiker's Guide to GPT3](https://heits.digital/articles/gpt3-overview) - a rundown on LLMs and how things looked like before ChatGPT
 
 # Things I'm proud about
 
@@ -16,11 +17,11 @@
 
 ## 🐕 G-Retriever with NVIDIA
 
-**In 2026** I implemented a custom version of the [G-Retriever](https://arxiv.org/abs/2402.07630) approach on [QIAGEN's](https://www.qiagen.com/) data, in collaboration with [NVIDIA](https://www.nvidia.com/) and [Neo4j](https://neo4j.com/). 
+**In 2026** I implemented a custom version of the [G-Retriever](https://arxiv.org/abs/2402.07630) approach on [QIAGEN's](https://www.qiagen.com/) data, in collaboration with [NVIDIA](https://www.nvidia.com/) and [Neo4j](https://neo4j.com/).
 
 ## 🦇 Co-founding TAGAP
 
-**In 2025** I chose to become a co-founder of [TAGAP](https://tagap.ro/) (*Asociația Transilvană pentru Gaming și Proiecte Artistice*), an NGO in Cluj-Napoca focused on gaming and creative projects. My main role has been organising game development meetups and helping the gamedev community in Cluj come together.
+**In 2025** I chose to become a co-founder of [TAGAP](https://tagap.ro/) (_Asociația Transilvană pentru Gaming și Proiecte Artistice_), an NGO in Cluj-Napoca focused on gaming and creative projects. My main role has been organising game development meetups and helping the gamedev community in Cluj come together.
 
 ## 👾 Publishing my first game
 
@@ -32,7 +33,7 @@
 
 ## ⌨️ Re-designed a HUGE codebase
 
-**In 2022** me and a colleague had the task to re-write a huge Java [monolith application](https://en.wikipedia.org/wiki/Monolithic_application) into Python microservices. My colleague knew Java, I knew Python and we made it 4 times faster, made the app easier to scale and upgrade, and reduced monthly costs from 2000$ to around 100$. Did I mention we did it in less than 5 months? 
+**In 2022** me and a colleague had the task to re-write a huge Java [monolith application](https://en.wikipedia.org/wiki/Monolithic_application) into Python microservices. My colleague knew Java, I knew Python and we made it 4 times faster, made the app easier to scale and upgrade, and reduced monthly costs from 2000$ to around 100$. Did I mention we did it in less than 5 months?
 
 ## 📬 My first blogpost
 
@@ -44,12 +45,12 @@
 
 ## 📃 Publishing my first ever patent
 
-**In 2020** while working at Porsche, we came up with a cool idea to easily create [synthetic data](https://en.wikipedia.org/wiki/Synthetic_data) from real-life recordings to help us better train Machine Learning models. So we said why not, and [patented the idea](https://patents.google.com/patent/WO2022033652A1/en?inventor=statie+giani&patents=false&oq=inventor:(statie+giani)).
+**In 2020** while working at Porsche, we came up with a cool idea to easily create [synthetic data](https://en.wikipedia.org/wiki/Synthetic_data) from real-life recordings to help us better train Machine Learning models. So we said why not, and [patented the idea](<https://patents.google.com/patent/WO2022033652A1/en?inventor=statie+giani&patents=false&oq=inventor:(statie+giani)>).
 
 ## 🏎️ Had my ML Model drive a car
 
 **Around 2018** while working at Porsche Engineering Cluj, I've managed to deploy a Machine Learning based [Adaptive Cruise Controller](https://en.wikipedia.org/wiki/Adaptive_cruise_control) on a real Porsche car. The controller read the signals from the [Flexray](https://en.wikipedia.org/wiki/FlexRay#:~:text=FlexRay%20is%20a%20communication%20bus,triggered%20and%20time%2Dtriggered%20communications.) and [CAN busses](https://en.wikipedia.org/wiki/CAN_bus) and overwrote the original ACC outputs with the outputs of a Neural Network. The network was trained from scratch, first through [Supervised Learning](https://en.wikipedia.org/wiki/Supervised_learning) and [Reinforcement Learning](https://en.wikipedia.org/wiki/Reinforcement_learning).
 
-## 🐍 Using a spinning blade as a game display 
+## 🐍 Using a spinning blade as a game display
 
-**In 2017** me and a friend made the jankiest [Persistence of Vision](https://en.wikipedia.org/wiki/Persistence_of_vision) display for the [Digilent Design Contest](https://digilent.com/blog/digilent-design-contest-2017-finals-and-winners/). It was powered by an FPGA and you could play [Snake](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) on it. The POV was made from a CPU fan, a plastic bowl and 3D printed propeller (that we balanced using fishing weights). We got 4th place, but we felt like absolute legends.
+**In 2017** me and a friend made the jankiest [Persistence of Vision](https://en.wikipedia.org/wiki/Persistence_of_vision) display for the [Digilent Design Contest](https://digilent.com/blog/digilent-design-contest-2017-finals-and-winners/). It was powered by an FPGA and you could play [Snake](<https://en.wikipedia.org/wiki/Snake_(video_game_genre)>) on it. The POV was made from a CPU fan, a plastic bowl and 3D printed propeller (that we balanced using fishing weights). We got 4th place, but we felt like absolute legends.

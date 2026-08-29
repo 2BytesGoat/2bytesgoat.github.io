@@ -4,6 +4,7 @@ tags:
 draft: false
 date: 2024-09-03
 ---
+
 # TL;DR
 
 <details>
@@ -16,23 +17,23 @@ date: 2024-09-03
 Quests are here to provide some purpose for having to read through the theory. Read the quest and figure out how the information below can help you complete it.
 
 > [!warning] The Quest for the Wakewine
->Read the post to figure out what Error Functions are. You'll use error functions to find your way to the nearest _café_.
-> 
+> Read the post to figure out what Error Functions are. You'll use error functions to find your way to the nearest _café_.
+>
 > - Understand Mean Squared Error
-> - Understand Mean Absolute Error 
-> 
+> - Understand Mean Absolute Error
+>
 > <big>**Description**</big>
-> 
+>
 > **The Day of Conquest has arrived!** The long-awaited moment to master the arcane arts of machine learning is upon you. Yet, one important matter must be addressed.
 >
->With unwavering determination, you rush towards the kitchen. However, the sight that greets you is beyond belief. “Unacceptable!” you shout. “One does not simply acquire knowledge without caffeine!”
+> With unwavering determination, you rush towards the kitchen. However, the sight that greets you is beyond belief. “Unacceptable!” you shout. “One does not simply acquire knowledge without caffeine!”
 >
->You take a deep breath to steady yourself. "Luckily, there are two coffee shops nearby", you say to yourself. But now, you must decide: **Which one will you choose?**
-> 
+> You take a deep breath to steady yourself. "Luckily, there are two coffee shops nearby", you say to yourself. But now, you must decide: **Which one will you choose?**
+>
 > <big>**Rewards**</big>
-> 
-> You will receive: 
-> 
+>
+> You will receive:
+>
 > - 📜 **The Scroll of Loss Functions**
 
 # What are Loss Functions
@@ -50,12 +51,15 @@ Same picture as in [[Linear Regression]]: the model spits out a guess (often wri
 In the coffee shop example, let’s say you’re standing at point **Xo** (your current position), and you want to know how far you are from point **X** (the coffee shop). You wouldn’t say the distance is **-2 meters**, right? Even if you’re facing the wrong way, distance is always positive.
 
 To make sure the distance is always positive, we square the difference between your position (**Xo**) and the coffee shop (**X**).
+
 ## Formula
 
-$$ 
+$$
 distance = (X_O - X)^2
 $$
+
 This formula simply means: take the difference between where you are and where you want to be, and square it to get rid of any negative values.
+
 ## Visualisation
 
 ```mermaid
@@ -65,6 +69,7 @@ y-axis "Squared Distance" 0.1 --> 5
 bar [1, 0, 1, 4]
 line [1, 0, 1, 4]
 ```
+
 ## Python Code
 
 Here, the code calculates how far you are from the coffee shop, even if you’re going in the wrong direction.
@@ -88,16 +93,18 @@ Because of the square, **big** misses hurt the score more than small ones. Handy
 
 # Absolute Distance
 
-Previously, when discussing squared distance, we said that we need to square the difference such that the resulting number is always positive. However, a side effect is that now we're claiming we are **4 meters** away from our destination, when in fact we're just **2 meters** away. 
+Previously, when discussing squared distance, we said that we need to square the difference such that the resulting number is always positive. However, a side effect is that now we're claiming we are **4 meters** away from our destination, when in fact we're just **2 meters** away.
 
 A simpler way to calculate the actual distance without making it larger is by using **absolute distance**. This just means taking the difference between two points and ignoring the negative sign.
 
 ## Formula
 
-$$ 
+$$
 distance = |X_O - X|
 $$
+
 This formula means we take the absolute value of the difference between your current position (**Xo**) and your destination (**X**), which gives us the actual distance.
+
 ## Visualisation
 
 ```mermaid
@@ -107,6 +114,7 @@ y-axis "Absolute Distance" 0.1 --> 5
 bar [1, 0, 1, 2]
 line [1, 0, 1, 2]
 ```
+
 ## Python Code
 
 ```python

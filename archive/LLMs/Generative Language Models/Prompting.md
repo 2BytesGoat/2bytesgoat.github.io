@@ -1,7 +1,8 @@
 # Zero-shot
+
 # One-shot
 
-# Few-shot 
+# Few-shot
 
 # Giving Context
 

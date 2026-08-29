@@ -5,7 +5,8 @@ tags:
   - python
 date: 2021-08-16
 ---
-In this blog post I will explain how you can setup a PlayStation4 camera on a Windows machine and how to capture images from it for your personal projects. 
+
+In this blog post I will explain how you can setup a PlayStation4 camera on a Windows machine and how to capture images from it for your personal projects.
 
 > [!info] The original blogpost was created on Sept 2021 and migrated to the new website, thus the code may need to be revised.
 
@@ -30,16 +31,19 @@ Throughout the rest of the tutorial, you will gain experience in using OpenCV an
 The PS4 camera has the infamous proprietary connector which made you unable to plug the camera in regular USB ports. Due to this lot of people started creating [third party adapters](https://www.zhilingnetmail.xyz/ProductDetail.aspx?iid=81598222&pr=57.99) or even [soldering and rewiring](https://www.reddit.com/r/PSVRHack/comments/b7bxct/ps4_camera_hack_question/) the lines. But since somebody forgot to add the proprietary connector to PS5 version, there is still hope to get one for **FREE**.
 
 This leads us to...
+
 ## Obtaining a camera adaptor
 
 If you have a [PlayStation VR](https://www.amazon.com/PlayStation-VR-Marvels-Iron-Bundle-4/dp/B08CD34NZH/ref=sr_1_3?dchild=1&keywords=ps4%20vr&qid=1630992051&sr=8-3), Sony has created a program in which they ship you [a free adapter](https://camera-adaptor.support.playstation.com/en-gb) via mail (that’s how I got mine).
 
 Otherwise you will need to find a way to acquire or create an adapter for your camera (see the links above for third party adapters and soldering).
+
 ## Connecting the camera to your PC
 
 Neither Windows or Linux support the PS4 camera out of the box (and why would they since you should not be able to connect it to your PC) which means that we have to load our own firmware to be able to read camera feed.
 
 There are two types of drivers you can use:
+
 - PS4 Camera Windows drivers installation - [Tutorial](https://www.youtube.com/watch?v=xl7DQdApEW4&ab_channel=Hackinside) / [Firmware](https://github.com/2BytesGoat/ps4-camera/tree/master/dependencies/PS4-CAMERA-DRIVERS-master)
 - PS4 Camera Linux drivers - [Firmware](https://github.com/sieuwe1/PS4-eye-camera-for-linux-with-python-and-OpenCV/tree/main/Firmware_loader)
 
@@ -52,7 +56,7 @@ After setting up you should be able to open the Windows Camera app and have a vi
 
 If you went through all the previous steps and successfully saw yourself in the Windows Camera app it means that you should be able to follow up with the next steps.
 
-However, if at some point you want to remove the PS4 camera from your PC you will have to reload the firmware by running FirmwareLoader every time, which may seem tedious.  
+However, if at some point you want to remove the PS4 camera from your PC you will have to reload the firmware by running FirmwareLoader every time, which may seem tedious.
 
 To ease our work, you can use the code below to load the firmware from code and not think about whether you ran the script yourself or not.
 
@@ -95,6 +99,7 @@ cv2.destroyAllWindows()
 ```
 
 ![[py-cv-sc-12.png]]
+
 > Now we just have to fix image quality and infinite frames
 
 ## Video stream not working
@@ -129,6 +134,7 @@ for key, value in FRAME_INFO.items():
 ```
 
 ![[py-cv-sc-13.png]]
+
 > We still have to fix the infinite frame loop
 
 # Fixing camera infinite frame loop
@@ -136,7 +142,7 @@ for key, value in FRAME_INFO.items():
 It seems like we only need the first two images from the frame to make due, and also get rid of that ugly greed bar from the left. Again, I played a bit with the numbers, and it seems that after shifting 64 pixels to the right we can then extract two frames of 1264 by 800 pixels using the code below.
 
 ```python
-def _extract_stereo(frame, x_shift=64, y_shift=0, 
+def _extract_stereo(frame, x_shift=64, y_shift=0,
                     width=1264, height=800, frame_shape=None):
     frame_r = frame[y_shift : y_shift+height,
     x_shift : x_shift+width]
@@ -149,6 +155,7 @@ def _extract_stereo(frame, x_shift=64, y_shift=0,
 ```
 
 ![[py-cv-sc-14.png]]
+
 > Not too shabby if I do say so myself
 
 # Summary

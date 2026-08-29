@@ -16,7 +16,8 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     baseUrl: "2bytesgoat.com",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    locale: "en-US",
+    ignorePatterns: ["private", "templates", ".obsidian", "thoughts"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
@@ -89,6 +90,7 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
+      Plugin.Favicon(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),

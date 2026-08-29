@@ -1,7 +1,7 @@
 ```mermaid
 mindmap
 	root((Machine Learning Model))
-		1.Data Types 
+		1.Data Types
 			1.1.Instant
 				Signals and Features
 				Images
@@ -24,7 +24,3 @@ mindmap
 			Loss Functions
 			Optimisers
 ```
-
-
-
-

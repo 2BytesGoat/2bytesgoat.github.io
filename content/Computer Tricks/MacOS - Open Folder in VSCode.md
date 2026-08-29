@@ -1,4 +1,5 @@
 ## Intro
+
 When you install VSCode on MacOS you won't get the "Open Folder with" option. Instead, you'll need to create a **automation** where you add the functionality yourself to MacOS.
 
 ![[mac-vscode-000.png | 300]]
@@ -28,10 +29,11 @@ In the righthand side, where the window just got updated, beneath **Open Finder 
 
 > [!Observation]
 > If VSCode does not appear in the list you'll need to:
-> * scroll to the bottom of the list
-> * press Other... 
-> * scroll again to the bottom of the Applications list
-> * select Visual Studio Code
+>
+> - scroll to the bottom of the list
+> - press Other...
+> - scroll again to the bottom of the Applications list
+> - select Visual Studio Code
 
 ## Step 5 - Save Automation
 
