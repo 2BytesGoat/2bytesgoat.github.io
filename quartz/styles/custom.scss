@@ -1,3 +1,143 @@
 @use "./variables.scss" as *;
 
+$small: 500px;
+
 // put your custom CSS here!
+
+// Theme toggle: moon in light mode, sun in dark mode (stock Quartz is the reverse).
+// Overrides `quartz/components/styles/darkmode.scss` without editing that file.
+:root[saved-theme="dark"] .darkmode {
+  & > .dayIcon {
+    display: inline;
+  }
+  & > .nightIcon {
+    display: none;
+  }
+}
+
+:root .darkmode {
+  & > .dayIcon {
+    display: none;
+  }
+  & > .nightIcon {
+    display: inline;
+  }
+}
+
+// Links: internal (same site / SPA) vs external (opens in new tab when openLinksInNewTab is on).
+// Quartz adds `.internal` and `.external` in `plugins/transformers/links.ts`.
+a {
+  &.internal {
+    // Slightly clearer “stays on this site” chip vs body links.
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--secondary) 45%, transparent);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      border-bottom-color: color-mix(in srgb, var(--tertiary) 55%, transparent);
+    }
+  }
+
+  &.external {
+    // “Leaves the site” — underline + box icon (already injected) + new-tab behavior from config.
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, var(--secondary) 55%, transparent);
+    background: none;
+    padding: 0;
+    border-radius: 0;
+
+    &:hover {
+      text-decoration-color: var(--tertiary);
+    }
+  }
+
+  &.external .external-icon {
+    vertical-align: -0.12em;
+    opacity: 0.92;
+  }
+}
+
+// Inline `code` (backticks): base.scss uses color: --dark and background: --lightgray.
+// In this theme's dark palette those are magenta on teal, which is hard to read; body text
+// uses --darkgray. Match the surrounding text and use a soft chip instead.
+:not(pre) > code {
+  color: inherit;
+  background: var(--highlight);
+  border: 1px solid color-mix(in srgb, var(--gray) 25%, transparent);
+}
+
+@media all and ($mobile) {
+  // Explorer drawer: narrower than full viewport (readable floor, ~33vw target, hard cap).
+  .explorer > .explorer-content,
+  .mobile-only.explorer #explorer-content:not(.collapsed) {
+    width: min(max(14rem, 33vw), 85vw) !important;
+    max-width: min(max(14rem, 33vw), 85vw) !important;
+    border-right: 1px solid color-mix(in srgb, var(--gray) 40%, var(--lightgray));
+    box-shadow: 6px 0 28px -6px rgb(0 0 0 / 0.18);
+  }
+
+  :root[saved-theme="dark"] .explorer > .explorer-content,
+  :root[saved-theme="dark"] .mobile-only.explorer #explorer-content:not(.collapsed) {
+    border-right-color: color-mix(in srgb, var(--secondary) 35%, var(--lightgray));
+    box-shadow: 6px 0 32px -4px rgb(0 0 0 / 0.55);
+  }
+}
+
+img[alt$=">"] {
+  float: right;
+  width: 300px;
+  margin: 15px;
+
+  @media screen and (max-width: $small) {
+    float: none;
+    width: 350px;
+    display: block;
+    margin: auto;
+  }
+}
+
+img[alt$="<"] {
+  float: left;
+  width: 300px;
+  margin: 15px;
+
+  @media screen and (max-width: $small) {
+    float: none;
+    width: 350px;
+    display: block;
+    margin: auto;
+  }
+}
+
+img[alt$="><"] {
+  width: auto;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  margin: auto;
+  float: none !important;
+}
+
+img[alt="drawing"] {
+  max-width: 60%;
+  display: block;
+  margin: auto;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.external-embed.youtube,
+iframe.pdf {
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
