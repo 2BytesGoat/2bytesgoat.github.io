@@ -100,7 +100,7 @@ There are a lot of sliders to play with and you can spend hours trying to figure
 
 When you’ll press **“Save settings”** you will override the checkpoint and **“Load settings”** will only use the latest checkpoint.
 
-Also, pressing “Save settings” will create a more concise checkpoint which will be placed at _**src/data_source/calibration_params**_ and will be used by the disparity algorithm class (located at _src/depth/stereo_depth.py_).
+Also, pressing “Save settings” will create a more concise checkpoint which will be placed at ***src/data_source/calibration_params*** and will be used by the disparity algorithm class (located at *src/depth/stereo_depth.py*).
 
 # Switching between depth algorithms
 
