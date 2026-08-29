@@ -5,6 +5,7 @@ tags:
   - python
 date: 2021-11-14
 ---
+
 In this blog post I will show you how to use the calibration UI and how to obtain smooth disparity maps.
 
 > [!info] The original blogpost was created on Sept 2021 and migrated to the new website, thus the code may need to be revised.
@@ -12,6 +13,7 @@ In this blog post I will show you how to use the calibration UI and how to obtai
 ![[bm_algo_result.gif]]
 
 This blog post is part of a 3 part series on detecting depth using a PS4 camera:
+
 1. [[Episode 1 - PS4 Camera on Windows]]
 2. [[Episode 2 - Camera Calibration]]
 3. Episode 3 - Depth Estimation
@@ -98,7 +100,7 @@ There are a lot of sliders to play with and you can spend hours trying to figure
 
 When you’ll press **“Save settings”** you will override the checkpoint and **“Load settings”** will only use the latest checkpoint.
 
-Also, pressing “Save settings” will create a more concise checkpoint which will be placed at **_src/data_source/calibration_params_** and will be used by the disparity algorithm class (located at _src/depth/stereo_depth.py_).
+Also, pressing “Save settings” will create a more concise checkpoint which will be placed at ***src/data_source/calibration_params*** and will be used by the disparity algorithm class (located at *src/depth/stereo_depth.py*).
 
 # Switching between depth algorithms
 
@@ -126,10 +128,11 @@ depth_algo = get_stereo_depth_algo('sgbm', smoothen=True)
 Here are a some visual comparisons between the two algorithms
 
 ![[algo_input.gif|250]]![[bm_algo_result.gif|250]]
+
 > BM algorithm - fast but noisy
 
-
 ![[algo_input.gif|250]]![[sgbm_algo_result.gif|250]]
+
 > SGBM algorithm - slower but less bleeding
 
 # Summary

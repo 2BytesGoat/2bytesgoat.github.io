@@ -23,11 +23,18 @@ let currentExplorerState: Array<FolderState>
 function toggleExplorer(this: HTMLElement) {
   const nearestExplorer = this.closest(".explorer") as HTMLElement
   if (!nearestExplorer) return
-  nearestExplorer.classList.toggle("collapsed")
+  const explorerCollapsed = nearestExplorer.classList.toggle("collapsed")
   nearestExplorer.setAttribute(
     "aria-expanded",
     nearestExplorer.getAttribute("aria-expanded") === "true" ? "false" : "true",
   )
+
+  if (!explorerCollapsed) {
+    // Stop <html> from being scrollable when mobile explorer is open
+    document.documentElement.classList.add("mobile-no-scroll")
+  } else {
+    document.documentElement.classList.remove("mobile-no-scroll")
+  }
 }
 
 function toggleFolder(evt: MouseEvent) {
@@ -103,6 +110,10 @@ function createFolderNode(
 
   const folderPath = node.slug
   folderContainer.dataset.folderpath = folderPath
+
+  if (currentSlug === folderPath) {
+    folderContainer.classList.add("active")
+  }
 
   if (opts.folderClickBehavior === "link") {
     // Replace button with link for link behavior
@@ -271,6 +282,9 @@ function collapseMobileExplorerDrawer() {
     mobileExplorer.classList.remove("hide-until-loaded")
     explorer.classList.add("collapsed")
     explorer.setAttribute("aria-expanded", "false")
+
+    // Allow <html> to be scrollable when mobile explorer is collapsed (upstream #2323)
+    document.documentElement.classList.remove("mobile-no-scroll")
   }
 }
 
@@ -284,6 +298,16 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 window.addEventListener("pageshow", (event) => {
   if (event.persisted) {
     collapseMobileExplorerDrawer()
+  }
+})
+
+window.addEventListener("resize", function () {
+  // Desktop explorer opens by default, and it stays open when the window is resized
+  // to mobile screen size. Applies `no-scroll` to <html> in this edge case.
+  const explorer = document.querySelector(".explorer")
+  if (explorer && !explorer.classList.contains("collapsed")) {
+    document.documentElement.classList.add("mobile-no-scroll")
+    return
   }
 })
 

@@ -1,4 +1,13 @@
 /**
+ * [ARCHIVED 2026-08-30 — upstream explorer rewrite]
+ * Unported: upstream v4 removed `ExplorerNode.tsx` (perf(explorer) #1810) and rewrote the
+ * explorer around `FileTrieNode` + template cloning. This burger override targets the old
+ * API and is NOT wired into quartz.layout.ts (Component.Explorer() is used instead).
+ * Kept for reference — port to the new explorer API before re-enabling.
+ */
+// @ts-nocheck
+
+/**
  * Allow to set a burger Menu for the explorer
  * Need to totally override the Explorer component as it change the script and the css
  */
@@ -111,7 +120,7 @@ export default ((userOpts?: Partial<Options>) => {
           </svg>
         </button>
       )
-    } else if ((opts.title ?? '').trim().length > 0) {
+    } else if ((opts.title ?? "").trim().length > 0) {
       collapseExplorer = (
         <button
           type="button"

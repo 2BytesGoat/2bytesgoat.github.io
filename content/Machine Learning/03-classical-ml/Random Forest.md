@@ -4,34 +4,40 @@ tags:
 draft: false
 date: 2026-04-23
 ---
+
 > [!warning] Prerequisites
 > This post relies on you understanding [[Decision Tree|Decision Trees]]. You may want to make sure you understand the basics from there before continuing here.
 
 # What is it
-Usually people use [[Decision Tree|decision trees]] because they're easy to setup and understand. They're practically just if-else statements that get generated automatically. 
+
+Usually people use [[Decision Tree|decision trees]] because they're easy to setup and understand. They're practically just if-else statements that get generated automatically.
 
 However, one thing decision trees fall short is when having to predict for [new examples](https://esl.hohoweiya.xyz/book/The%20Elements%20of%20Statistical%20Learning.pdf#page=371). Mainly because they tend to find the best way to fit the data you provide them with and are blind to small deviations from it.
 
-|  | Decision Tree | Random forest |
-| --- | --- | --- |
-| Structure | One tree | Many trees voting |
-| Readability | Very interpretable | Harder to interpret |
-| Variance | High | Lower |
+|                | Decision Tree      | Random forest           |
+| -------------- | ------------------ | ----------------------- |
+| Structure      | One tree           | Many trees voting       |
+| Readability    | Very interpretable | Harder to interpret     |
+| Variance       | High               | Lower                   |
 | Generalization | Can overfit easily | More robust on new data |
 
 # How it works
-A random forest is a bunch of decision trees that vote on the correct answer. The catch? No two trees are the same. 
+
+A random forest is a bunch of decision trees that vote on the correct answer. The catch? No two trees are the same.
 
 You randomly debuff (inhibit) your decision trees by:
-- not showing them your entire dataset 
-- not giving them access to all the variables when building them
-to introduce some variability in your system. This way you're making your model less categorical. 
 
-> [!example] 
+- not showing them your entire dataset
+- not giving them access to all the variables when building them
+  to introduce some variability in your system. This way you're making your model less categorical.
+
+> [!example]
 > Imagine wanting to go on a rollercoaster, and they have some strict threshold where if you're 2 cm shorter, you can't ride. Maybe in cases like these, they also measure your grip strength. That way if you're below the minimum threshold, but do bouldering as a hobby, maybe they'll let you pass.
 
 # Where else can I use them
+
 I saw a [StatQuest](https://www.youtube.com/watch?v=sQ870aTKqiM) on how you can use random forests to:
+
 - fill in missing data - say something messed up during recording and a sensor got corrupted
 - clustering - you may want to group your data to be able to see emerging patterns
 
@@ -40,6 +46,7 @@ I saw a [StatQuest](https://www.youtube.com/watch?v=sQ870aTKqiM) on how you can 
 Since a random forest is made out of multiple decision trees, you'll have access to the same variables you did when training trees.
 
 Common control knobs:
+
 - `n_estimators` - how many trees get to vote (more trees usually = more stable predictions)
 - `max_depth` - limits the number of branches a tree can have
 - `min_samples_split` - minimum samples to create a new split
@@ -48,7 +55,8 @@ Common control knobs:
 - `max_features` - how many features each tree can consider at each split
 
 # Downsides
-Random forests are cool and all, but they can still struggle with very complex patterns, while also becoming a bit harder to read compared to decision trees. 
+
+Random forests are cool and all, but they can still struggle with very complex patterns, while also becoming a bit harder to read compared to decision trees.
 
 In my opinion, if you get to the point where you need 20+ trees that are more than 10 layers deep to predict something and it still has low accuracy, you may want to start looking into neural networks.
 
@@ -79,4 +87,5 @@ print(f"Accuracy: {accuracy:.2f}")
 ```
 
 # Additional Resources
+
 - StatQuest: Random Forests - [YouTube Part1](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ), [YouTube Part2](https://www.youtube.com/watch?v=sQ870aTKqiM)

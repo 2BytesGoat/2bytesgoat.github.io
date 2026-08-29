@@ -12,6 +12,7 @@ Are you tired of painstakingly having to draw new assets every time your develop
 Pixel-Magic is a software tool that works its enchantment on your 3D characters, turning them into pixelated spritesheets fit for any old-school game. With this wizardry at your fingertips, you can bring a touch of nostalgia to your modern creations.
 
 [![image alt ><](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dez4lOfKzFbA)](https://www.youtube.com/watch?v=ez4lOfKzFbA)
+
 ## How Does It Work?
 
 1. **Import Your 3D Model:** Begin by importing your 3D character model into Pixelize3D. The software supports `.glb` file formats, ensuring compatibility with most 3D software.
@@ -28,7 +29,7 @@ Pixel-Magic is a software tool that works its enchantment on your 3D characters,
 
 ## Don't Wait, Start Conjuring Pixelated Masterpieces Today!
 
-* Download the Pixelize3D project locally for FREE - [git link](https://github.com/GianiStatie/pixelize3d)
+- Download the Pixelize3D project locally for FREE - [git link](https://github.com/GianiStatie/pixelize3d)
 
 ## Assets made with Pixelize3D
 

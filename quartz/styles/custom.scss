@@ -90,55 +90,55 @@ a {
 }
 
 img[alt$=">"] {
-    float: right;
-    width: 300px;
-    margin: 15px;
+  float: right;
+  width: 300px;
+  margin: 15px;
 
-    @media screen and (max-width: $small) {
-        float: none;
-        width: 350px;
-        display: block;
-        margin: auto;
-    }
+  @media screen and (max-width: $small) {
+    float: none;
+    width: 350px;
+    display: block;
+    margin: auto;
+  }
 }
 
 img[alt$="<"] {
-    float: left;
-    width: 300px;
-    margin: 15px;
+  float: left;
+  width: 300px;
+  margin: 15px;
 
-    @media screen and (max-width: $small) {
-        float: none;
-        width: 350px;
-        display: block;
-        margin: auto;
-    }
+  @media screen and (max-width: $small) {
+    float: none;
+    width: 350px;
+    display: block;
+    margin: auto;
+  }
 }
 
 img[alt$="><"] {
-    width: auto;
-    height: auto;
-    display: block;
-    max-width: 100%;
-    margin: auto;
-    float: none !important;
+  width: auto;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  margin: auto;
+  float: none !important;
 }
 
-img[alt=drawing] {
-    max-width: 60%;
-    display: block;
-    margin: auto;
+img[alt="drawing"] {
+  max-width: 60%;
+  display: block;
+  margin: auto;
 }
 
 .katex-display {
-    overflow-x: auto;
-    overflow-y: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .external-embed.youtube,
 iframe.pdf {
-    aspect-ratio: 16 / 9;
-    height: 100%;
-    width: 100%;
-    border-radius: 5px;
+  aspect-ratio: 16 / 9;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
 }

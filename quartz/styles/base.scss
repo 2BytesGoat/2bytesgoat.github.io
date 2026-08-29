@@ -9,10 +9,13 @@ html {
   text-size-adjust: none;
   overflow-x: hidden;
   width: 100vw;
+
+  @media all and ($mobile) {
+    scroll-padding-top: 4rem;
+  }
 }
 
-body,
-section {
+body {
   margin: 0;
   box-sizing: border-box;
   background-color: var(--light);
@@ -41,23 +44,17 @@ li,
 ol,
 ul,
 .katex,
-.math {
+.math,
+.typst-doc,
+g[class~="typst-text"] {
   color: var(--darkgray);
   fill: var(--darkgray);
-  hyphens: auto;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
-p,
-ul,
-text,
-a,
-li,
-ol,
-ul,
-.katex,
-.math {
-  overflow-wrap: anywhere;
-  /* tr and td removed from list of selectors for overflow-wrap, allowing them to use default 'normal' property value */
+path[class~="typst-shape"] {
+  stroke: var(--darkgray);
 }
 
 .math {
@@ -92,7 +89,7 @@ a {
   color: var(--secondary);
 
   &:hover {
-    color: var(--tertiary) !important;
+    color: var(--tertiary);
   }
 
   &.internal {
@@ -101,6 +98,15 @@ a {
     padding: 0 0.1rem;
     border-radius: 5px;
     line-height: 1.4rem;
+
+    &.broken {
+      color: var(--secondary);
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
 
     &:has(> img) {
       background-color: transparent;
@@ -119,22 +125,38 @@ a {
     height: 1ex;
     margin: 0 0.15em;
 
-    >path {
+    > path {
       fill: var(--dark);
     }
   }
 }
 
+.flex-component {
+  display: flex;
+}
+
 .desktop-only {
   display: initial;
+  &.flex-component {
+    display: flex;
+  }
   @media all and ($mobile) {
+    &.flex-component {
+      display: none;
+    }
     display: none;
   }
 }
 
 .mobile-only {
   display: none;
+  &.flex-component {
+    display: none;
+  }
   @media all and ($mobile) {
+    &.flex-component {
+      display: flex;
+    }
     display: initial;
   }
 }
@@ -143,7 +165,7 @@ a {
   max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
   margin: 0 auto;
   & article {
-    &>h1 {
+    & > h1 {
       font-size: 2rem;
     }
 
@@ -158,12 +180,12 @@ a {
       color: var(--gray);
     }
 
-    & li>* {
+    & li > * {
       margin-top: 0;
       margin-bottom: 0;
     }
 
-    p>strong {
+    p > strong {
       color: var(--dark);
     }
   }
@@ -199,7 +221,7 @@ a {
     }
 
     & .sidebar {
-      gap: 2rem;
+      gap: 1.2rem;
       top: 0;
       box-sizing: border-box;
       padding: $topSpacing 2rem 2rem 2rem;
@@ -240,6 +262,7 @@ a {
         padding: 0;
         & > * {
           flex: 1;
+          max-height: 24rem;
         }
         & > .toc {
           display: none;
@@ -344,7 +367,7 @@ thead {
   font-weight: revert;
   margin-bottom: 0;
 
-  article>&>a[role="anchor"] {
+  article > & > a[role="anchor"] {
     color: var(--dark);
     background-color: transparent;
   }
@@ -356,7 +379,7 @@ h3,
 h4,
 h5,
 h6 {
-  &[id]>a[href^="#"] {
+  &[id] > a[href^="#"] {
     margin: 0 0.5rem;
     opacity: 0;
     transition: opacity 0.2s ease;
@@ -365,7 +388,7 @@ h6 {
     user-select: none;
   }
 
-  &[id]:hover>a {
+  &[id]:hover > a {
     opacity: 1;
   }
 
@@ -407,7 +430,7 @@ figure[data-rehype-pretty-code-figure] {
   line-height: 1.6rem;
   position: relative;
 
-  &>[data-rehype-pretty-code-title] {
+  & > [data-rehype-pretty-code-title] {
     font-family: var(--codeFont);
     font-size: 0.9rem;
     padding: 0.1rem 0.5rem;
@@ -418,7 +441,7 @@ figure[data-rehype-pretty-code-figure] {
     color: var(--darkgray);
   }
 
-  &>pre {
+  & > pre {
     padding: 0;
   }
 }
@@ -435,7 +458,7 @@ pre {
     border: none;
   }
 
-  &>code {
+  & > code {
     background: none;
     padding: 0;
     font-size: 0.85rem;
@@ -450,7 +473,7 @@ pre {
       border-radius: 5px;
     }
 
-    &>[data-line] {
+    & > [data-line] {
       padding: 0 0.25rem;
       box-sizing: border-box;
       border-left: 3px solid transparent;
@@ -471,11 +494,11 @@ pre {
       }
     }
 
-    &[data-line-numbers-max-digits="2"]>[data-line]::before {
+    &[data-line-numbers-max-digits="2"] > [data-line]::before {
       width: 2rem;
     }
 
-    &[data-line-numbers-max-digits="3"]>[data-line]::before {
+    &[data-line-numbers-max-digits="3"] > [data-line]::before {
       width: 3rem;
     }
   }
@@ -499,7 +522,7 @@ p {
 .table-container {
   overflow-x: auto;
 
-  &>table {
+  & > table {
     margin: 1rem;
     padding: 1.5rem;
     border-collapse: collapse;
@@ -509,7 +532,7 @@ p {
       min-width: 75px;
     }
 
-    &>* {
+    & > * {
       line-height: 2rem;
     }
   }
@@ -540,7 +563,7 @@ img {
   content-visibility: auto;
 }
 
-p>img+em {
+p > img + em {
   display: block;
   transform: translateY(-1rem);
 }
@@ -580,7 +603,7 @@ ol.overflow {
   clear: both;
 
   & > li.overflow-end {
-    height: 1rem;
+    height: 0.5rem;
     margin: 0;
   }
 
@@ -596,6 +619,7 @@ ol.overflow {
 }
 
 .katex-display {
+  display: initial;
   overflow-x: auto;
   overflow-y: hidden;
 }

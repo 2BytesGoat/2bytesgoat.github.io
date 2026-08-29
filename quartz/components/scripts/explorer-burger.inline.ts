@@ -1,3 +1,9 @@
+/**
+ * [ARCHIVED 2026-08-30 — upstream explorer rewrite]
+ * Inline script for the archived ExplorerBurger component. Targets the pre-#1810 explorer
+ * DOM (FolderState from ../ExplorerNode, no templates). Not wired into any layout.
+ */
+// @ts-nocheck
 import exp from "constants"
 import { FolderState } from "../ExplorerNode"
 
