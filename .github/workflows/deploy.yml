@@ -1,9 +1,9 @@
 name: Deploy Quartz site to GitHub Pages
 
+# Retired: production deploys now run from the `v5` branch (see deploy.yml on v5).
+# Kept trigger-free so accidental pushes to v4 can never overwrite the live v5 site.
 on:
-  push:
-    branches:
-      - v4
+  workflow_dispatch:
 
 permissions:
   contents: read
