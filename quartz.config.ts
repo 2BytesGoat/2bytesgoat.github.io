@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     baseUrl: "2bytesgoat.com",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian", "thoughts"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
