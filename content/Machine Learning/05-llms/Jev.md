@@ -4,6 +4,7 @@ tags:
 draft: true
 date: 2026-10-03
 ---
+There's a lot of hype cuz the CEO of TypeSafe AI (the company that made Jev) is ex-OpenAI | co-inventor of ChatGPT, so they tried focusing on a way to do cheap, type-safe explainable AI; he also wanted his company to be highly valued when going public, so he put a lot of money into marketing.
 
 # TL;DR
 
@@ -37,12 +38,11 @@ Jev was developed for cases where you don't think, don't talk, just act - based 
 
 Since there was no paper published, weights uploaded and the only way to interact with it was via API, people started reverse engineering it, and the conclusion they came up with was:
 - you train an LLM the ol' fashion way for next token prediction
+...
 
 # Why the hype isn't just hype
 
-There's a lot of hype cuz the CEO of TypeSafe AI (the company that made Jev) is ex-OpenAI | co-inventor of ChatGPT and wanted his company to be highly valued when going public.
-
-But hate aside, Jev promises a few things that the market was missing:
+Jev promises a few things that the market was missing:
 - **fast inference time** - they claim 70 to 500 milliseconds end-to-end 
 - **the model not hallucinating responses** - by predicting a single token instead of a sequence (this way error from the first token doesn't propagate)
 - **it has explainability** - in the sense that each answer comes with an attached confidence score
@@ -50,7 +50,9 @@ But hate aside, Jev promises a few things that the market was missing:
 - **typed outputs** - by focusing only on the value of the outputs, all responses are correct JSONs and correctly typed
 - **"free" outputs** - TypeSafe only charges your $0.042 per million input tokens, while **output tokens are completely free**
 
-# Gotcha: the confidence is manufactured
+So far the promises hold up, with a bunch of tech YouTubers stapling Jev on all kind of wacky projects just to limit test it ([YouTube link](https://www.youtube.com/watch?v=X4Lqj54sw4I)). But it ain't no Swiss army knife, and it has it's flaws.
+
+# The good, the bad and Jev
 
 > [!warning] Manufactured confidence
 > {Masked-logits renormalization: a confused model + your candidate mask = confident-looking posterior. p ≠ truth. Gate on p AND quality; treat invalid as an error.}
@@ -77,4 +79,6 @@ But hate aside, Jev promises a few things that the market was missing:
 # Where next
 
 - Forward: [[TrolleyProblem-Jev]] — the same trick running as a real game judge, with the full measured ladder
-- Deeper: [{Latent Space episode with Diogo Almeida}](https://www.latent.space/p/jev) · [{InsiderLLM's measured local write-up}](https://insiderllm.com/guides/what-is-jev-typesafe-explained-local/)
+
+# References
+- What is Jev? - IBM Technology - [YouTube](https://www.youtube.com/watch?v=YGgNBcIgI4s) 

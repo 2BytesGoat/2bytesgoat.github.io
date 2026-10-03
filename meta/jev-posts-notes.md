@@ -145,6 +145,10 @@ distribution at the answer position. Single request = a full posterior. That's t
 
 ### A7. Post A anatomy (VOICE.md, fixed order)
 
+> **SUPERSEDED 2026-10-03** — Giani's first prose pass diverged from this anatomy and the fixed
+> POST-TEMPLATE framing doesn't fit his style for this post. Structure re-opened for ideation →
+> see the end-of-file section. The content notes above (A1–A6) still stand.
+
 - TL;DR (details block, ≤3 sentences)
 - Hook: bubble sheet vs essay analogy; running example introduced = the trolley conductor (kept
   light here, full treatment in Post B)
@@ -278,3 +282,80 @@ Post B:
 - [ ] Calibration section: buckets + raw-mass-vs-margin + gate-math doctrine
 - [ ] Code paths listed (`judge.py`, `persona_eval.py`, `persona_expectations.json`, compare logs)
 - [ ] Secondhand external numbers flagged where kept (21/47 27B benchmark)
+
+---
+
+## 2026-10-03 — Giani's first pass on `Jev.md`: review + how to proceed next
+
+Context: Giani rewrote the backbone his way (structure below is HIS, not the template's). This
+section = the review I gave + agreed/flagged items, so the next session can pick up without
+re-reading the diff. **Structure is now ideate-together territory** — his style doesn't fit the
+fixed template framing for this post; don't re-impose the old anatomy.
+
+### His current structure (from the draft)
+
+1. pre-TL;DR hype paragraph → 2. TL;DR → meme (`my-name-is-jev.jpg`, exists in Assets/LLMs) →
+3. `# What's a Jev` (NOT an acronym; attention-based / zero-shot / System 1 broken down term-by-
+term, Kahneman) → 4. `# How it works under the hood` (reverse-engineering story, `...` stub —
+not written yet) → 5. `# Why the hype isn't just hype` (6 marketing claims as bullets) →
+6. `# The good, the bad and Jev` (gotcha slot + arch notes still placeholders) → 7. Summary /
+Homework / Where next (kept from backbone, but Homework references a snippet that no longer
+exists) → 8. `# References` (IBM YouTube).
+
+### What's landing (keep these)
+
+- Term-by-term unpacking of "attention-based, zero-shot, System 1" + Kahneman framing — genuinely
+  good teaching move; matches the product's own branding. Keep as written (fix format bugs).
+- Claims-first hype section (6 promises as bullets) — honest framing. The `$0.042/M input,
+  outputs free` pricing line checks out against RESEARCH_MODELS.md. Keeper.
+- Meme asset resolves fine (Obsidian embed against `content/Assets/`).
+- "What's a Jev / NOT an acronym" opener is a good hook.
+
+### What's broken (fix before structure ideation, or fix during)
+
+1. **The post lost its reason to exist** — the mechanic is gone: no primitives (Choice/Noul/Score),
+   no one-request recipe, no code block, no mermaid. Post B's TL;DR assumes the reader knows the
+   mechanism; Homework line references "the snippet" that no longer exists; POST-TEMPLATE floor
+   requires ≥1 runnable code block. Somewhere the post must teach: options in → one-token frame
+   → top-K window → renormalize → `{value, p, margin, quality}`.
+2. **Pre-TL;DR paragraph**: (a) TL;DR must come first (anatomy floor), currently two hooks;
+   (b) "he wanted his company to be highly valued when going public" = unsourced motive
+   attribution — persona rule: punch at hype culture, never at people. Checkable replacement with
+   same cynicism: the business model IS the pitch — they give writes away, charge for reads
+   ($0.042/M), and the model structurally can't write. (c) "co-inventor of ChatGPT" needs a
+   source or a hedge ("reportedly", LinkedIn bio).
+3. **Fact-check flags in the promises list**: "70 to 500 milliseconds" appears nowhere in
+   CLOUD-JEV/BENCH docs — cite the marketing page or cut; "error from the first token doesn't
+   propagate" conflates two mechanisms — the real no-propagation reason is fields-are-independent-
+   by-design, not single-token-ness.
+4. **Format bugs**: `**Reflexes & Instincts` unclosed bold; `System 2-` missing space + mangled
+   bold; "it's flaws" → "its flaws"; Kahneman book title should be italic/linked consistently.
+5. **"So far the promises hold up"** — own bench half-contradicts (writing beat jev 87 vs 80 on
+   strong cloud models; confidence is manufactured). Sweeter: "the speed and typed-output
+   promises hold; the confidence one wobbles" → perfect segue into the gotcha.
+6. **"The good, the bad and Jev"** duplicates the gotcha's job — fold into one section or make it
+   the gotcha section's new title (title is good, Giani-style).
+
+### Structural open questions (ideate together, next session)
+
+- Where does the mechanic live now? Options: (a) inside `# How it works under the hood` (merge
+  with the reverse-engineering story — my recommendation: the `...` stub is where it naturally
+  goes); (b) its own `# Pick, don't write` section; (c) pushed entirely to Post B (weakest —
+  Post A loses the teach + the code block floor breaks).
+- Keep bubble-sheet analogy at all? Kahneman answers WHEN (system 1), bubble sheet answers HOW.
+  If it clashes with his voice, drop it — one metaphor per post, his choice which.
+- Does the template's Concept/Gotcha/Homework skeleton survive in any form, or does the LLM track
+  get its own looser anatomy? (IDEAS.md tag-consolidation open question extends to this.)
+- `# References` section at the end — not in current template; fine if it's a Giani-ism, then add
+  to template or note as intentional deviation.
+- Pre-TL;DR hot-take paragraph — if it's a style signature he wants, the template needs a "cold
+  open" slot; if not, fold the business-model version into the hype section.
+
+### Next actions
+
+- [ ] Ideate new Post A structure together (don't impose A7) — start from HIS skeleton, patch the
+      6 broken items above into it
+- [ ] Decide where mechanic + code block land
+- [ ] Re-check Post B TL;DR assumption (reader knows the mechanism) once Post A structure settles
+- [ ] Then review pass against this file's checklists (Post A list needs adapting to the new
+      structure — the "one code block", "mermaid", "primitives named once" floors stay)
