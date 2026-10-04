@@ -17,6 +17,8 @@
 
 ## LLM track (resurrected from archive/LLMs)
 
+- seeded → [[Jev]] — JEV-style picking (structured outputs + confidence from logprobs); backbone at `content/Machine Learning/05-llms/Jev.md`, notes at `meta/jev-posts-notes.md`
+- seeded → [[TrolleyProblem-Jev]] — companion experiment post: the game judge, serving ladder, measured results; backbone at `content/Experiments/TrolleyProblem-Jev.md`
 - seed — Language Models Overview (from archive: Large Language Models.md)
 - seed — Generative Language Models
 - seed — Prompting Fundamentals (from archive: Prompting.md — stub, worth expanding)
