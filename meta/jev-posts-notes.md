@@ -754,3 +754,19 @@ for path in ("llm-writes.gif", "jev-picks.gif"):
 ```
 
 Still open (structure ideation): `???` step-4 gap, "pappaya" typo question, §2.1/2.2 placement.
+
+---
+
+## 2026-10-04 — gotcha: `$` pairs in prose get eaten as KaTeX math
+
+Site-wide sweep: the only live breakage was Jev.md's hype line — `raised $40M at a $200M` has
+two `$` → @quartz-community/latex (remark-math, `singleDollarTextMath` defaults true) paired them
+as inline math: "40M at a" rendered as KaTeX glyphs, "200M valuation…" left plain. Fixed by
+escaping both: `\$40M` / `\$200M`. (The `<span style="font-size: 12px">` wrapper was never the
+problem — it round-trips fine.)
+
+**Rule for all future posts**: one `$` per line is safe (e.g. `$0.042` in §3); two+ unescaped
+`$` on adjacent prose positions become a math pair. Escape every literal dollar in money
+mentions (`\$40M`, `\$200M`) — expect this on Post B's cost claims (40–400× cheaper). Do NOT
+disable `singleDollarTextMath` site-wide: Linear Regression.md / Loss Functions.md use
+intentional inline `$W_1$` math.
