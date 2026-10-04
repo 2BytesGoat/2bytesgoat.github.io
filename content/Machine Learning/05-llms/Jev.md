@@ -43,7 +43,10 @@ Daniel Kahneman defines two ways of thinking in his book Thinking, Fast and Slow
 
 # 2. How it works under the hood
 
-TODO: add gif of how LLMs generate one word at a time vs Jev that populates fields
+<p>
+	<img src="llm-writes.gif" width="48%" alt="an LLM writing a JSON answer one token at a time">
+	<img src="jev-picks.gif" width="48%" alt="Jev picking from options with probabilities in one pass">
+</p>
 
 Jev is closed-source and only accessible via API, but people started digging and here's the homebrew recipe on how it works:
 

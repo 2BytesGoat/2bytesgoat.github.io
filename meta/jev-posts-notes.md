@@ -392,3 +392,365 @@ outputs free` pricing line checks out against RESEARCH_MODELS.md. Keeper.
   propagation", fine-print list softened (thinking models poison the token, MoE eats batching
   upside), typo sweep done. Still open: TODO gif line 40, `???` step-4 gap, "pappaya" typo in
   fruit example (deliberate? left as-is), structure ideation.
+
+---
+
+## 2026-10-04 — Jev vs LLM gifs (TODO line replaced) + reusable generator
+
+Giani remembered using a "2green1brown" (= 3blue1brown/manim) python lib for blog gifs —
+**searched everywhere, nothing found**: no `.py` ever committed on any blog branch, no manim/3b1b
+mention in trolley-problem docs, bits/, diary/, opencode config. The old genai post's gif
+(`transformers-wordgen.gif`, 800×450, ~100 ms/frame) is from
+`https://prvnsmpth.github.io/animated-transformer/` — externally sourced, not self-made.
+So the gifs were reimplemented from scratch.
+
+### Design spec
+
+- **Two synced gifs, displayed side-by-side** in `Jev.md` §2 (replaced the TODO):
+  `<p><img src="llm-writes.gif" width="48%"> <img src="jev-picks.gif" width="48%"></p>`
+  (HTML img, not wikilinks — two wikilinks stack vertically; src resolves against Assets/LLMs
+  because Obsidian-style resolve takes the file next to sibling assets in Quartz/ofm)
+- `llm-writes.gif` — "LLM: writes an essay": recipe prompt box → JSON streams token-by-token
+  with blinking cursor → counter chip ticks to 47 tokens (red while counting) →
+  "parse at your own risk"
+- `jev-picks.gif` — **v3, JSON-centric** (v1's A/B/C chips didn't show that a JSON is being
+  filled; v2's shared 2-col pill grid interleaved fields — uranium next to 1 tsp):
+  same prompt → JSON schema strip with dashed slots for BOTH fields (`"ingredient"` +
+  `"quantity"` — multi-field parallelism) → per-field GROUPED pill rows with headers
+  `options for "ingredient":` / `options for "quantity":` — letters A→B→C in order inside each
+  group (Giani pick: reinforces "options are arbitrary, probabilities decide"; winners marked
+  green at stamp wherever they sit), mini-prob-bars count up (72/21/7 · 61/24/15; uranium joke
+  survives; losers grayed) → **one frame** stamps BOTH winners green into the JSON
+  (`"bell peppers" · A · 72%`, `"2 cups" · B · 61%`) → counter chip slams to **2**
+  (one token per field — Giani's correction, matches CLOUD-JEV "1 token per field") →
+  footer "one request per field — in parallel". Header: "the schema is YOURS — two fields,
+  filled in one pass"
+- Both: 720×540, white bg (`#FFFFFF`), ink `#1F2430`, soft gray `#6B7280`, green `#2FA34C`,
+  blue `#3B82F6`, red `#D64545`, boxes `#EEF1F6`/`#C9D2E0`; Noto Sans (system font path:
+  `/usr/share/fonts/google-noto/`); 60 source frames @ 100 ms, identical neighbors merged →
+  llm 22 real frames / jev 6 real frames (v3), **both exactly 6000 ms per loop** (browser keeps
+  them in step); palette = ADAPTIVE 32 colors shared across frames → ~17–23 KB each
+- Pillow gotchas baked in: `optimize=True` collapses identical frames AND mangles per-frame
+  durations → merge identicals manually and pass explicit `duration=[...]` list
+
+### Generator (re-runnable; needs Pillow ≥ 9, no other deps)
+
+```python
+"""Generate two synced GIFs for the Jev post: how LLMs write vs how Jev picks.
+
+Pure Pillow (no numpy/manim). 720x540, 60 frames @ 100ms = 6s loop, white bg.
+Outputs: /tmp/opencode/llm-writes.gif and /tmp/opencode/jev-picks.gif
+"""
+
+from PIL import Image, ImageDraw, ImageFont
+
+W, H = 720, 540
+FPS_MS = 100
+FRAMES = 60
+OUT_LLM = "/tmp/opencode/llm-writes.gif"
+OUT_JEV = "/tmp/opencode/jev-picks.gif"
+
+BG = "#FFFFFF"
+INK = "#1F2430"
+INK_SOFT = "#6B7280"
+GREEN = "#2FA34C"
+BLUE = "#3B82F6"
+RED = "#D64545"
+BOX = "#EEF1F6"
+BOX_EDGE = "#C9D2E0"
+GRAY_ROW = "#F3F4F6"
+
+FONT_REG = "/usr/share/fonts/google-noto/NotoSans-Regular.ttf"
+FONT_BOLD = "/usr/share/fonts/google-noto/NotoSans-Bold.ttf"
+F_TITLE = ImageFont.truetype(FONT_BOLD, 22)
+F_H2 = ImageFont.truetype(FONT_BOLD, 17)
+F_TXT = ImageFont.truetype(FONT_REG, 15)
+F_SMALL = ImageFont.truetype(FONT_REG, 13)
+F_MONO_HINT = ImageFont.truetype(FONT_BOLD, 14)
+
+PROMPT = "given this recipe, list the first ingredient + quantity:"
+JSON_KEY = '"ingredient": "bell  '
+JSON_VAL = 'peppers",  '
+JSON_Q = '"quantity": "2 cups"'
+
+OPTION_LABELS = ["A", "B", "C"]
+OPTION_NAMES = ["bell peppers", "onions", "uranium"]
+OPTION_PROBS = [0.72, 0.21, 0.07]
+
+# JSON-centric v2: schema slots first, option pills per slot, simultaneous stamp
+FIELDS = [
+    # (key, winner_value, winner_label, winner_p, loser_options [(label, value, p)])
+    ("ingredient", "bell peppers", "A", 0.72,
+     [("B", "onions", 0.21), ("C", "uranium", 0.07)]),
+    ("quantity", "2 cups", "B", 0.61,
+     [("A", "1 tsp", 0.24), ("C", "1 liter", 0.15)]),
+]
+SLOT_DASH = "— — — —"  # placeholder drawn as strokes, text fallback in quotes
+
+# token reveal ticks for the LLM panel: one json chunk per `tok_step` frames
+WRITE_TICKS = [(4, JSON_KEY), (10, JSON_VAL), (14, JSON_Q), (16, '}')]
+
+
+def ease(t):
+    return t * t * (3 - 2 * t)
+
+
+def lerp(a, b, t):
+    return a + (b - a) * t
+
+
+def blend(c1, c2, t):
+    return tuple(int(round(lerp(c1[i], c2[i], t))) for i in range(3))
+
+
+def hx(h):
+    h = h.lstrip('#')
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+BG_C, INK_C, SOFT_C, GREEN_C, BLUE_C, RED_C, BOX_C, EDGE_C, ROW_C = (
+    hx(BG), hx(INK), hx(INK_SOFT), hx(GREEN), hx(BLUE), hx(RED), hx(BOX), hx(BOX_EDGE), hx(GRAY_ROW))
+
+
+def draw_text_rtl_width(d, xy, text, font, anchor="la"):
+    d.text(xy, text, font=font, fill=INK_C, anchor=anchor)
+
+
+def panel_scaffold(title):
+    im = Image.new("RGB", (W, H), BG_C)
+    d = ImageDraw.Draw(im)
+    d.rectangle([0, 0, W, 52], fill=BOX_C)
+    d.line([0, 52, W, 52], fill=EDGE_C, width=2)
+    d.text((W // 2, 26), title, font=F_TITLE, fill=INK_C, anchor="mm")
+    return im, d
+
+
+def prompt_box(d, y):
+    d.rounded_rectangle([24, y, W - 24, y + 64], 10, fill=BOX_C, outline=EDGE_C, width=2)
+    d.text((40, y + 12), 'prompt (same for both):', font=F_SMALL, fill=SOFT_C)
+    d.text((40, y + 32), PROMPT, font=F_TXT, fill=INK_C)
+
+
+def counter_chip(d, x, y, label, value, color):
+    d.rounded_rectangle([x, y, x + 260, y + 34], 8, fill=BG_C, outline=color, width=2)
+    d.text((x + 12, y + 8), label, font=F_SMALL, fill=SOFT_C)
+    d.text((x + 248, y + 7), value, font=F_H2, fill=color, anchor="ra")
+
+
+def json_tokens_at(tick):
+    parts = ['{']
+    for t_tick, chunk in WRITE_TICKS:
+        if tick >= t_tick:
+            parts.append(chunk)
+    return ''.join(parts), tick in (5, 11, 15, 17)  # blink cursor on gap frames
+
+
+def make_llm_frame(f):
+    tick = f // 2  # reveal pace: chunk every 200ms
+    im, d = panel_scaffold("LLM: writes an essay")
+    prompt_box(d, 68)
+
+    body_y = 152
+    d.rounded_rectangle([24, body_y, W - 24, H - 76], 10, fill=BG_C, outline=EDGE_C, width=2)
+    visible, blink = json_tokens_at(tick)
+
+    d.text((40, body_y + 14), 'answer (streams JSON, token by token):', font=F_SMALL, fill=SOFT_C)
+    # wrap visible text into simple lines
+    words = visible.split('  ')
+    lines, cur = [], ''
+    for w_ in words:
+        trial = (cur + ' ' + w_).strip()
+        if d.textlength(trial, font=F_TXT) > W - 110:
+            lines.append(cur)
+            cur = w_
+        else:
+            cur = trial
+    lines.append(cur)
+    ty = body_y + 42
+    for ln in lines[:5]:
+        d.text((44, ty), ln, font=F_TXT, fill=INK_C)
+        ty += 24
+    if blink or (tick >= 18 and f % 14 < 7):
+        cx = 44 + d.textlength(lines[-1], font=F_TXT) + 3
+        d.rectangle([cx, ty - 20, cx + 9, ty + 2], fill=INK_C)
+
+    n_tok = min(47, 3 + tick * 3)
+    counter_chip(d, 40, H - 58, 'tokens written:', str(n_tok), RED_C if n_tok < 47 else INK_C)
+    d.text((W - 40, H - 44), 'parse at your own risk', font=F_SMALL, fill=SOFT_C, anchor="ra")
+    return im
+
+
+def bar(d, x, y, w, h, frac, color, t):
+    # grows over t (0..1)
+    wf = int((w - 8) * (frac * t))
+    d.rounded_rectangle([x + 4, y + 4, x + 4 + max(wf, 2), y + h - 4], 4, fill=color)
+
+
+def draw_slot_placeholder(d, x, y, w, h):
+    # hand-drawn dashes (no glyph dependency), centered in the slot rect
+    dash_w, gap = 14, 8
+    n = max(1, int((w - 8) // (dash_w + gap)))
+    total = n * dash_w + (n - 1) * gap
+    sx = x + (w - total) // 2
+    cy = y + h // 2
+    for i in range(n):
+        x0 = sx + i * (dash_w + gap)
+        d.rounded_rectangle([x0, cy - 2, x0 + dash_w, cy + 2], 2, fill=hx("#B7C0CE"))
+
+
+def pill(d, x, y, w, h, label, value, p, fill_t, dead=False, winner=False):
+    # option pill: [A bell peppers  ████████ 72%]
+    edge = GREEN_C if winner else (EDGE_C if not dead else hx("#D9DDE3"))
+    bg = hx("#E9F7EE") if winner else (ROW_C if not dead else BG_C)
+    d.rounded_rectangle([x, y, x + w, y + h], 8, fill=bg, outline=edge, width=2)
+    d.ellipse([x + 6, y + 7, x + 26, y + 27], fill=GREEN_C if winner else BG_C,
+              outline=edge, width=2)
+    d.text((x + 16, y + 17), label, font=F_SMALL, fill=BG_C if winner else INK_C, anchor="mm")
+    txt = value
+    d.text((x + 34, y + 9), txt, font=F_SMALL, fill=INK_C if not dead else SOFT_C)
+    tw = d.textlength(txt, font=F_SMALL)
+    # mini bar
+    bar_w = w - 34 - tw - 58
+    if bar_w > 30 and fill_t > 0:
+        wf = int(bar_w * p * fill_t)
+        color = GREEN_C if winner else (BLUE_C if not dead else hx("#C4CBD6"))
+        d.rounded_rectangle([x + 34 + tw + 8, y + 12, x + 34 + tw + 8 + wf, y + 21], 3, fill=color)
+        pct = int(round(p * 100 * fill_t))
+        d.text((x + w - 8, y + 16), f'{pct}%', font=F_SMALL,
+               fill=GREEN_C if winner else (INK_C if not dead else SOFT_C), anchor="rm")
+    else:
+        d.text((x + w - 8, y + 16), '', font=F_SMALL, fill=SOFT_C, anchor="rm")
+
+
+def make_jev_frame(f):
+    tick = f // 2
+    im, d = panel_scaffold("Jev: fills the bubbles")
+    prompt_box(d, 68)
+
+    body_y = 148
+    d.rounded_rectangle([24, body_y, W - 24, H - 76], 10, fill=BG_C, outline=EDGE_C, width=2)
+    d.text((40, body_y + 12), 'answer (the schema is YOURS — two fields, filled in one pass):',
+           font=F_SMALL, fill=SOFT_C)
+
+    winner_stamp = tick >= 6
+    slots_ready = tick >= 1          # schema skeleton with dashed slots
+    pills_ready = tick >= 3          # option pills visible
+    fill_t = ease(min(1.0, max(0.0, (tick - 3) / 2)))  # bars/percent count-up pace
+
+    # --- schema strip: two json lines with slot areas ---
+    json_x = 44
+    y0 = body_y + 40
+    line_h = 46
+
+    d.text((json_x, y0), '{', font=F_TXT, fill=INK_C)
+    for i, (key, wval, wlab, wp, losers) in enumerate(FIELDS):
+        ly = y0 + 8 + i * line_h
+        key_txt = f'"{key}": '
+        d.text((json_x + 18, ly), key_txt, font=F_TXT, fill=INK_C)
+        kx = json_x + 18 + d.textlength(key_txt, font=F_TXT)
+
+        if winner_stamp:
+            val_txt = f'"{wval}"'
+            d.text((kx, ly), val_txt, font=F_TXT, fill=GREEN_C)
+            vx = kx + d.textlength(val_txt, font=F_TXT) + 10
+            d.text((vx, ly + 2), f'· {wlab} · {int(round(wp * 100))}%', font=F_SMALL,
+                   fill=GREEN_C)
+            comma = ',' if i < len(FIELDS) - 1 else ''
+            d.text((vx + d.textlength(f'· {wlab} · {int(round(wp * 100))}%', font=F_SMALL) + 8,
+                    ly), comma, font=F_TXT, fill=INK_C)
+        else:
+            slot_w, slot_h = 210, 28
+            sy = ly - 2
+            d.rounded_rectangle([kx, sy, kx + slot_w, sy + slot_h], 6,
+                                fill=BG_C, outline=EDGE_C, width=2)
+            if slots_ready:
+                draw_slot_placeholder(d, kx + 6, sy, slot_w - 12, slot_h)
+            comma = ',' if i < len(FIELDS) - 1 else ''
+            d.text((kx + slot_w + 8, ly), comma, font=F_TXT, fill=INK_C)
+    d.text((json_x + 2, y0 + 8 + len(FIELDS) * line_h - 8), '}', font=F_TXT, fill=INK_C)
+
+    # --- option pills per slot: one grouped row per field, letters A→B→C in order ---
+    pills_y = y0 + 10 + (len(FIELDS) + 1) * line_h + 18
+    if pills_ready:
+        pw, ph = 200, 34
+        gap = 16
+        for i, (key, wval, wlab, wp, losers) in enumerate(FIELDS):
+            row_y = pills_y + i * (ph + 12 + 18)  # group label + pill row per field
+            d.text((40, row_y - 16), f'options for "{key}":', font=F_SMALL, fill=SOFT_C)
+            # letters in order; winner marked at stamp time
+            opts = [(wlab, wval, wp, False)] + [(l, v, p, True) for l, v, p in losers]
+            opts.sort(key=lambda o: o[0])  # A, B, C
+            for j, (lab, val, p, dead) in enumerate(opts):
+                winner_j = winner_stamp and lab == wlab
+                pill(d, 40 + j * (pw + gap), row_y, pw, ph, lab, val, p, fill_t,
+                     dead and not winner_j, winner=winner_j)
+
+    # --- counter chip ---
+    locked = winner_stamp
+    n_tok = str(len(FIELDS)) if locked else '...'  # one token per field
+    counter_chip(d, 40, H - 58, 'tokens written:', n_tok, GREEN_C if locked else SOFT_C)
+    msg = 'one request per field — in parallel' if locked else (
+        'options in — probabilities out' if pills_ready else 'scoring all options...')
+    d.text((W - 40, H - 44), msg, font=F_SMALL, fill=GREEN_C if locked else SOFT_C, anchor="ra")
+    return im
+
+
+RGB_WHITE = (255, 255, 255)
+
+
+def save_gif(frames, path):
+    # The drawings only change every 2 source frames, so merge identical
+    # neighbors ourselves and carry an explicit per-frame duration. Pillow's
+    # optimize pass mangles timings when left to do this itself.
+    from PIL import ImageChops
+
+    seq = []  # [image, duration_ms]
+    prev = None
+    for im in frames:
+        if prev is not None and ImageChops.difference(prev, im).getbbox() is None:
+            seq[-1][1] += FPS_MS
+        else:
+            seq.append([im, FPS_MS])
+        prev = im
+
+    pal = seq[0][0].convert("P", palette=Image.ADAPTIVE, colors=32)
+    out = [(im.quantize(palette=pal, dither=Image.NONE), dur) for im, dur in seq]
+    out[0][0].save(
+        path, save_all=True,
+        append_images=[fr for fr, _ in out[1:]],
+        duration=[dur for _, dur in out],
+        loop=0)
+    print(f'wrote {path}: {len(out)} frames, {sum(d for _, d in out)} ms total')
+
+
+def main():
+    llm_frames = [make_llm_frame(f) for f in range(FRAMES)]
+    jev_frames = [make_jev_frame(f) for f in range(FRAMES)]
+    save_gif(llm_frames, OUT_LLM)
+    save_gif(jev_frames, OUT_JEV)
+
+
+if __name__ == '__main__':
+    main()
+```
+
+Verification recipe (programmatic only — gifs can't be visually previewed in this session):
+
+```python
+from PIL import Image, ImageChops
+import os
+for path in ("llm-writes.gif", "jev-picks.gif"):
+    im = Image.open(path)
+    durs, prev, diffs = [], None, 0
+    for i in range(im.n_frames):
+        im.seek(i); durs.append(im.info["duration"])
+        cur = im.convert("RGB")
+        if prev is not None and ImageChops.difference(prev, cur).getbbox() is not None:
+            diffs += 1
+        prev = cur
+    print(f"{path}: {im.n_frames} frames, total {sum(durs)} ms, diffs {diffs}, "
+          f"{os.path.getsize(path)/1024:.0f} KB")
+# acceptance: totals equal 6000 ms on both (sync), diffs > 0 (animated), < 50 KB
+```
+
+Still open (structure ideation): `???` step-4 gap, "pappaya" typo question, §2.1/2.2 placement.
