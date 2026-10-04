@@ -14,9 +14,12 @@ date: 2026-10-03
 
 ![[my-name-is-jev.jpg]]
 
+> [!info] Side note
+> At the time of writing (Oct 2026), TypeSafe AI hasn't disclosed any paper, so a few things here are hand-wavy and unverified.
+
 There's a lot of hype cuz the [CEO of TypeSafe AI](https://www.linkedin.com/in/diogomda/?isSelfProfile=false) (the company that made Jev) is ex-OpenAI | co-inventor of ChatGPT, so they tried focusing on a way to do cheap, type-safe explainable AI.
 
-<span style="font-size: 12px">He also raised $40M at a $200M valuation pre-launch (Forbes), so a lot of money also went into marketing.</span>
+<span style="font-size: 12px">He also raised \$40M at a \$200M valuation pre-launch (Forbes), so a lot of money also went into marketing.</span>
 
 # 1. What's a Jev
 
@@ -39,7 +42,8 @@ Daniel Kahneman defines two ways of thinking in his book Thinking, Fast and Slow
 
 - System 1 - **Reflexes & Instincts**
 - System 2 - **Deliberate Thinking**
-  Jev was developed for cases where you don't think, don't talk, just act - based on the current state (context) and your prior experience.
+
+Jev was developed for cases where you don't think, don't talk, just act - based on the current state (context) and your prior experience.
 
 # 2. How it works under the hood
 
@@ -77,7 +81,7 @@ LLMs are trained in two steps:
 1. next-token prediction - predict the next token in a sequence
 2. [RLHF](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback) (Reinforcement Learning with Human Feedback) - answer me like a human would, not like google search's autocomplete
 
-> [!warning] Disclaimer
+> [!info] Hunch
 > I think you can even skip RLHF since we're doing RLCD in the next step. Though if you're using an off the shelve LLM, those probably went through RLHF.
 
 ## 2.3. What's RLCD
@@ -161,9 +165,9 @@ Here's a dumb example, say you want to populate this JSON:
 }
 ```
 
-And you tell it to
+And you tell it to:
 
-"Select a random fruit from this list: strawberry, pineapple, pappaya and count the number of occurrences of the letter 'p' in the selected word"
+> *Select a random fruit from this list: strawberry, pineapple, pappaya and count the number of occurrences of the letter **p** in the selected word*
 
 The fields are dependent, and since populating the fields is done in parallel (so kinda like the LLM has split personalities), it will pretty much guess the number instead of actually counting it.
 
