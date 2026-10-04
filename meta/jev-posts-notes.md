@@ -295,19 +295,19 @@ fixed template framing for this post; don't re-impose the old anatomy.
 ### His current structure (from the draft)
 
 1. pre-TL;DR hype paragraph → 2. TL;DR → meme (`my-name-is-jev.jpg`, exists in Assets/LLMs) →
-3. `# What's a Jev` (NOT an acronym; attention-based / zero-shot / System 1 broken down term-by-
-term, Kahneman) → 4. `# How it works under the hood` (reverse-engineering story, `...` stub —
-not written yet) → 5. `# Why the hype isn't just hype` (6 marketing claims as bullets) →
-6. `# The good, the bad and Jev` (gotcha slot + arch notes still placeholders) → 7. Summary /
-Homework / Where next (kept from backbone, but Homework references a snippet that no longer
-exists) → 8. `# References` (IBM YouTube).
+2. `# What's a Jev` (NOT an acronym; attention-based / zero-shot / System 1 broken down term-by-
+   term, Kahneman) → 4. `# How it works under the hood` (reverse-engineering story, `...` stub —
+   not written yet) → 5. `# Why the hype isn't just hype` (6 marketing claims as bullets) →
+3. `# The good, the bad and Jev` (gotcha slot + arch notes still placeholders) → 7. Summary /
+   Homework / Where next (kept from backbone, but Homework references a snippet that no longer
+   exists) → 8. `# References` (IBM YouTube).
 
 ### What's landing (keep these)
 
 - Term-by-term unpacking of "attention-based, zero-shot, System 1" + Kahneman framing — genuinely
   good teaching move; matches the product's own branding. Keep as written (fix format bugs).
 - Claims-first hype section (6 promises as bullets) — honest framing. The `$0.042/M input,
-  outputs free` pricing line checks out against RESEARCH_MODELS.md. Keeper.
+outputs free` pricing line checks out against RESEARCH_MODELS.md. Keeper.
 - Meme asset resolves fine (Obsidian embed against `content/Assets/`).
 - "What's a Jev / NOT an acronym" opener is a good hook.
 
@@ -359,3 +359,36 @@ exists) → 8. `# References` (IBM YouTube).
 - [ ] Re-check Post B TL;DR assumption (reader knows the mechanism) once Post A structure settles
 - [ ] Then review pass against this file's checklists (Post A list needs adapting to the new
       structure — the "one code block", "mermaid", "primitives named once" floors stay)
+
+### Fact-check pass 2 (2026-10-03, after Giani's second draft — verified against Wikipedia's
+
+"Jev (AI model)" article + Forbes/TechCrunch/The Register refs — use in BOTH posts)
+
+- **Name**: NOT random — named after economist **William Stanley Jevons** (Jevons paradox:
+  cheaper resource → more consumption). Almeida's on-record thesis: cheaper machine intelligence
+  → far wider deployment. The name IS the marketing thesis — better story than "random name".
+  https://en.wikipedia.org/wiki/Jevons_paradox
+- **Founders**: Diogo Almeida (CEO), Erik Gafni, Sasha Sheng; founded SF 2024; ~2 years stealth.
+  Almeida: ~4 yrs OpenAI on RLHF/InstructGPT/ChatGPT/GPT-4 → "co-inventor of ChatGPT" is
+  headline-defensible (TechCrunch: "a ChatGPT inventor"; The Rundown: "ChatGPT co-creator").
+- **Money**: $40M seed led by DCVC at **$200M valuation** (Forbes, 2026-09-15) — NOT an IPO
+  ("going public" was unsourced; use these numbers instead).
+- **RLCD confirmed** (Reinforcement Learning for Calibrated Decisions): trained on synthetic
+  data, probabilities optimized against _outcomes_, not human-rater preference; also described as
+  discriminative model, transformer-based, possibly built on an open-weight LLM (observers).
+- **Latency/cost claims**: 70–500 ms end-to-end; 40–200× faster / 40–400× cheaper than frontier
+  LLMs (peak 193.6×/444.6×). **Self-tested** on in-house workflows; TypeSafe's own notes admit
+  likely high-end bias → ts2.tech critique:
+  https://ts2.tech/en/typesafe-ai-raises-40-million-for-jev-but-its-445x-cost-claim-is-still-self-tested/
+  (qualify any latency claim as self-reported in Post A; Post A currently does).
+- **Calibration**: Typesafe pitch = calibrated confidence ("says 90% → right 90% of the time");
+  Forbes framing = "fixing AI's overconfidence problem".
+  https://www.forbes.com/sites/the-prompt/2026/09/15/this-200-million-startup-wants-to-fix-ais-overconfidence-problem/
+- **Kahneman**: System One name explicitly from _Thinking, Fast and Slow_ (company's own
+  attribution) — Giani's §1.3 framing matches the product's branding.
+- Applied to draft (mechanical, voice kept): Jevons name fix, $200M valuation line, masked-
+  renormalization one-liner in 4.1, low-grade affiliate calibration source swapped for
+  Forbes+ts2.tech, "won't hallucinate" bullet re-worded to "option-set guarantee + no first-token
+  propagation", fine-print list softened (thinking models poison the token, MoE eats batching
+  upside), typo sweep done. Still open: TODO gif line 40, `???` step-4 gap, "pappaya" typo in
+  fruit example (deliberate? left as-is), structure ideation.
