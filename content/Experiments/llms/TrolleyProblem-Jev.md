@@ -103,19 +103,18 @@ A few caveats:
 
 Same weights - different ways of serving them. Every arm runs the same 15-row litmus fixture, same boards, temp 0.
 
-| Model                           | How it answers                         | Reads/ answer      | Writes/ answer | Time/ answer | Whole sweep | Sanity  | Trust flag                    |
-| ------------------------------- | -------------------------------------- | ------------------ | -------------- | ------------ | ----------- | ------- | ----------------------------- |
-| **gemma4:31b** (ollama-cloud)   | writes the board (4 calls)             | n/aⁱ               | n/aⁱ           | 0.11 s       | 3.4 s       | **87%** | -                             |
-|                                 | picks per field, 8 draws ᐟ (243 calls) | n/aⁱ               | 0              | 1.40 s       | 42.0 s ᐟ    | 80%     | ✓ conf 1.00 on a *wrong* pick |
-| **gpt-5.4-mini** (azure-cloud)  | writes per card (15 calls)             | n/aⁱ               | n/aⁱ           | 0.47 s       | 14.2 s      | 73%     | -                             |
-|                                 | picks per field (31 calls)             | n/aⁱ               | 0              | 0.62 s       | 18.5 s      | 60%     | ✓ conf 0.15-0.67              |
-| **Bonsai 2 27B** (laptop, free) | writes the board (4 calls)             | 122 tok            | ~19 tok        | 1.58 s       | 47.4 s      | 80%     | -                             |
-|                                 | picks per field (31 calls)             | **394 tok - 3.2×** | 0              | 3.34 s       | 100.1 s     | 80%     | ✓ conf 0.11-0.51              |
-| **Llama-3.2-1B** (laptop, free) | writes per card (60 calls)             | -                  | ~30 tok        | 0.86 s       | 25.7 s      | 47%     | -                             |
-|                                 | **picks from cache** (3 calls)         | **~30 tok**        | 0              | **0.03 s**   | 0.9 s       | 47%     | ✓ true probabilities          |
+| Model                           | How it answers                         | Time/ answer | Whole sweep | Sanity  |
+| ------------------------------- | -------------------------------------- | ------------ | ----------- | ------- |
+| **gemma4:31b** (ollama-cloud)   | writes the board (4 calls)             | 0.11 s       | 3.4 s       | **87%** |
+|                                 | picks per field, 8 draws ᐟ (243 calls) | 1.40 s       | 42.0 s ᐟ    | 80%     |
+| **gpt-5.4-mini** (azure-cloud)  | writes per card (15 calls)             | 0.47 s       | 14.2 s      | 73%     |
+|                                 | picks per field (31 calls)             | 0.62 s       | 18.5 s      | 60%     |
+| **Bonsai 2 27B** (laptop, free) | writes the board (4 calls)             | 1.58 s       | 47.4 s      | 80%     |
+|                                 | picks per field (31 calls)             | 3.34 s       | 100.1 s     | 80%     |
+| **Llama-3.2-1B** (laptop, free) | writes per card (60 calls)             | 0.86 s       | 25.7 s      | 47%     |
+|                                 | **picks from cache** (3 calls)         | **0.03 s**   | 0.9 s       | 47%     |
 
 > ᐟ = sampled, not exact: ollama-cloud strips logits (that's the whole gemma disclaimer)
-> ⁱ = gateway doesn't report prompt tokens
 
 Same answers under both modes - the difference is the shape: picking re-reads the whole instruction sheet per answer (394 vs 122 tok) but writes nothing. Unless the prompt is cached - then it's 30 tok and 0.03 s.
 
