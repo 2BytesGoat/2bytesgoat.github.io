@@ -141,3 +141,11 @@ iframe.pdf {
   width: 100%;
   border-radius: 5px;
 }
+
+// Hide the collapsible "Properties" panel rendered above the body by the
+// @quartz-community/note-properties plugin. Frontmatter is still parsed
+// (title/tags/description keep working); we only suppress the UI.
+// Selector matches the plugin's root element: details.note-properties.
+details.note-properties {
+  display: none;
+}
