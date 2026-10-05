@@ -10,6 +10,7 @@ Agents (opencode, Cline, anything that reads this file): follow the rules below 
 | `content/` | The actual site. Course posts, projects, CV series. | ✅ built by Quartz |
 | `content/Assets/` | Images/gifs — **never move or delete**, Obsidian embeds (`![[file]]`) resolve against it | ✅ |
 | `meta/` | Writing standard docs (for agents + Giani, never published) | ❌ not in `content/` |
+| `manim/` | Manim scenes + venv for course animations (GIFs render into `content/Assets/LLMs/`) | ❌ never built |
 | `thoughts/` | Brain dump: `INBOX.md`, interview transcripts. **Public on GitHub** (repo is public!), just not built into the site | ❌ in `ignorePatterns` |
 | `archive/` | Old content kept for reference, never built | ❌ |
 | `docs/`, `quartz/` | Upstream Quartz docs + engine | don't touch unless asked |
@@ -29,6 +30,7 @@ Agents (opencode, Cline, anything that reads this file): follow the rules below 
 - Frontmatter: one canonical tag, deliberate `draft` flag, `date: YYYY-MM-DD`
 - Before writing any post: read `meta/VOICE.md` (how to write) and `meta/PERSONA.md` (who's writing, for whom)
 - When ghostwriting in Giani's voice (posts, bites, replies): also read `meta/FINGERPRINT.md` (sentence-level style spec) — never fake typos, respect the register table
+- LLM course (and any capture-driven posts): raw discussion transcripts live in `meta/captures/` (Giani's words verbatim, gaps marked `TODO: ask Giani` — never filled by agents). Sessions run as podcast episodes via `/discuss` (Billy the noob asks, Goat the expert fact-checks) and get dumped via `/capture` — see `meta/captures/README.md`. Posts get assembled from captures with typos + arrangement only
 - Posts grow through the pipeline: `thoughts/INBOX.md` → `meta/IDEAS.md` → `draft: true` seed → definition-of-done → ship
 
 ## ⚠️ Personal-content routing rule (the important one)

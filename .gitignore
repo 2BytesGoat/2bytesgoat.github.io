@@ -12,3 +12,8 @@ replit.nix
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
+manim/.venv/
+manim/media/
+manim/output/
+__pycache__/
+*.pyc

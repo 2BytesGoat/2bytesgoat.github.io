@@ -17,6 +17,7 @@
 
 ## LLM track (resurrected from archive/LLMs)
 
+- seeded — What Are LLMs (podcast capture 2026-09-18) → `content/LLMs/What Are LLMs.md` (draft)
 - seed — Language Models Overview (from archive: Large Language Models.md)
 - seed — Generative Language Models
 - seed — Prompting Fundamentals (from archive: Prompting.md — stub, worth expanding)
