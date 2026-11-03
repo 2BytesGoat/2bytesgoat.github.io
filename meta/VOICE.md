@@ -1,142 +1,136 @@
-# The Goat Standard — how 2BytesGoat posts are written
+# Voice — what's actually true
 
-> This folder (`meta/`) is **never built** by Quartz; it's not part of the site.
-> It exists so future-us writes posts that feel like one continuous course, not a pile of notes.
-> Companion files: `PERSONA.md` (who's writing + for whom), `FINGERPRINT.md` (how the sentences
-> are shaped), `POST-TEMPLATE.md` (copy-paste skeleton), `IDEAS.md` (pipeline), `BITES.md`
-> (reusable answers), `RESTRUCTURE.md` (cleanup log).
-> Raw voice reference: `../thoughts/interview-2026-08-29.md` (private — never quote directly).
+> Never built by Quartz. Rebuilt 2026-11-02 from the unguarded corpus (diary + 25k DM lines),
+> replacing the spec that was derived from the self-interview and from already-published posts.
+> The evidence file is private and does not live in this repo. What follows is the description,
+> stripped of anything that can't be published.
+>
+> Companion: `PERSONA.md` (who + why + boundaries — facts), `POST-TEMPLATE.md` (course skeleton).
+> `FINGERPRINT.md` is superseded by this file.
 
-## The deal
+## The one rule
 
-Readers come here for two reasons: they're **studying** and want the full path, or they want the
-**fast answer** without ads or fluff. Every post serves both, which is why every post has a
-30-second exit ramp (TL;DR) _and_ a walkable path forward (Where next).
+**Tighten, never translate.**
 
-Structure makes heavy information predictable. Predictable structure is the feature —
-the reader always knows where the next concept, the joke, and the exit are.
+His sentence goes in. A shorter version of his sentence comes out. Not a more respectable
+sentence — the same sentence with the fat removed. Every time a draft sounds like a good essay
+and not like him, a sentence got translated.
 
-## Page anatomy (fixed order, every course post)
+The tell: if the edit added a metaphor *about* the feeling instead of the feeling, it's a
+translation. Revert it.
 
-```md
-# TL;DR ← <details><summary> block, ≤3 sentences. The 30-second version.
+## The moves
 
-# {Hook} ← one physical-world analogy + the ONE running example. 0–2 jokes.
+These come first. All the sentence-level tics below are downstream of them.
 
-# {Concept 1..n} ← 2–4 H1 sections. Rhythm per concept:
+**1. Start mid-thought.** The thought was already running. Open with the connective, not the
+setup. "So," "But," "Well," "And then." Never "In this post we will."
 
-# story → diagram → math → code / project tie-in
+**2. Report, don't claim.** "I think", "I feel like", "as far as I know", "I'm not sure but",
+"probably". Not hedging as weakness — hedging because it's exact. He does not claim more than he
+knows, and a post that claims cleanly is not him.
 
-# {Gotcha} ← [!warning] callout: the #1 mistake readers will make
+Banned register: the aphorism. "The fast pass feels like progress. The slow pass *is* progress."
+Reads great, isn't true to him — he doesn't talk in balanced pairs.
 
-# Summary ← 3–5 bullets, no new information
+**3. Feeling first, argument second.** The emotion is the opening condition, stated plainly, then
+he thinks. Not the elegant landing at the end. If a draft saves the vulnerable line for the
+conclusion, it's the wrong shape.
 
-# Homework ← [!todo] callout with checkboxes (see below)
+**4. Analogies are physical, domestic, and disproportionate.** Wood vs chisel. Two flavours, one
+scoop, can't mix. Not driving for three years. A parking lot as a boss fight. A Scooby Doo monster
+that turns out to be a random dude. Two patterns: **cost** — effort, constraint, what something
+takes from you — and **scale mismatch** — a huge fear with a ridiculous cause. Analogies about
+*how a mechanism works* are a teaching convention, not his voice — allowed in course posts, never
+in essays.
 
-# Going deeper ← OPTIONAL, only if needed. External links, side-quests, math rabbit holes.
+**5. Show the second thought.** He puts the first analogy down, immediately finds a better one, and
+doesn't delete the first. The search is part of the writing. Drafts that present only the finished
+thought are smoother and less him.
 
-# Where next ← [[prev]] · [[next]] + one external deep-dive link
-```
+Exception: if the first thought was *wrong*, delete it and keep the correction. Showing a false
+start is only honest when it was true at the time. ("Before AI my code was shit and I was tired
+all the time" replaced "3 months ago I became too reliant" — the second was a misreading, not a
+draft.)
 
-## Hard rules
+**6. Give advice, then open a door.** "This might help — but I don't want you to feel like you owe
+me the change." Every directive gets a release valve. This is the real mechanism the old spec
+called *self-deprecation*. It isn't comedy; it's not letting his opinion become an obligation.
 
-1. **TL;DR and Summary both exist, always.** TL;DR is for speed, Summary is for consolidation.
-2. **One analogy, one running example, one gotcha per post.** The analogy is the motif: pick a
-   physical thing (lego brick, walking to a café, checking weather) and ride it through every
-   concept in the post instead of introducing new metaphors.
-3. **Practical posts require runnable code.** If the topic is an algorithm/tool ("Decision Tree"),
-   include a small scikit-learn/Python block that actually runs. If the topic is conceptual
-   ("Train vs Test"), include a _grounding artifact_ instead: a diagram, a DragonJump tie-in, or
-   pseudo-code. A practical post with no code and no artifact is unfinished.
-4. **Escalate the same example.** Don't switch domains mid-post. One input → n inputs →
-   categorical inputs; simple → spicy. (See Linear Regression: weather stays weather in every
-   section.)
-5. **Jokes live outside math, code, and diagrams.** Humor budget: 0–2 per post, aimed at
-   setup/punchlines around concepts — never inside a formula block, a code block, or a chart.
-6. **Quests evolved into Homework.** No narrative quest needed. A `[!todo]` callout with 2–3
-   checkboxes: one concrete 15–30 min task, optional _Stretch_, one escape-hatch backlink.
-   The analogy _is_ the quest.
-7. **Deep dives go last.** Optional material lives in `# Going deeper` at the bottom, never
-   interrupting the main flow mid-post.
-8. **Path integrity.** Every course post links backward and forward (`Where next` prev/next).
-   A reader must never dead-end.
-9. **Canonical naming.** One term per concept, used everywhere. Algorithm = learning procedure,
-   model = trained artifact. Wiki-links point at one canonical page title. Title Case page names.
-10. **Word budget.** 800–1200 words for core content. `Going deeper` doesn't count.
+**7. Drop the joke flat.** No setup, no beat, no underline. The joke is that he said the absurd
+thing straight and kept walking. "It's not much, but it's honest work." "We got 4th place, but we
+felt like absolute legends." If a line is doing a *bit*, cut the bit.
 
-## Voice
+**8. Soften with a comma.** A joke at his own expense gets a comma or a short dry clause, not a
+kaomoji. `:))` is the real mark and it means *deflating my own seriousness*, but in English prose
+it becomes punctuation.
 
-Canonical voice is **goofy-first**: 2024 energy (memes, kaomoji, goat herd) riding on 2026
-structure (TL;DR → anatomy → Homework). The structure is the discipline; the goofiness is the
-brand. See `PERSONA.md` for the person and audiences behind this.
+**9. Never end on a lesson.** An open ending is often right — "We'll see." But it is not a law. A
+position can close harder: "at least we could just use it and try to make good with it" landed
+better than any shrug, and it is a claim. End on a fact, a position, or an honest question. Never
+on a moral, and never on a summary of what the reader just read.
 
-- Second person ("you"), contractions, part of the joke without trying too hard.
-- "But why tho?" is a legitimate section-opening move. Curiosity-first ordering: show _why you
-  care_ before _how it works_.
-- Callouts are pressure valves: `[!warning]` for the one real gotcha, `[!info]` for asides and
-  self-aware flexes, `[!todo]` for homework.
-- **Self-deprecation is the signature move.** Praise lands, then gets undercut immediately
-  (trophy → "it was jank", demo → "and I was left jobless"). Never brag straight; brag through a meme caption.
-- Formal-comedic disclaimers and hot-take labels (`Disclaimer:`, `Hot Take:`, "Stupid question /
-  Stupid answer") are on-brand — the scientist costume over the joke.
-- Voice texture from the raw reference (interview file): rambling chains with `-` and `...`
-  that snap into a short punch; "freaking" for emphasis (rare); "cuz"/"tho"; "yep yep";
-  **emoji/kaomoji are location-gated** (see FINGERPRINT.md rule 15): special pages + sign-offs
-  only — default ghostwritten prose carries none; sign-off "Peace 🐐" on story-style posts.
-- Meme literacy is assumed (Skynet, "one does not simply", honest work farm). The meme must _name
-  a real thing in the example_, never decorate a formula.
-- Humor budget: 0–2 per course post; build-log/personal posts can be looser (3 max) —
-  quests/scrolls stay retired: the analogy _is_ the quest, rewards are implicit.
-- GenAI jokes: punch at the hype culture ("AI in their freaking coffee", hive-mind CEOs),
-  never at people exploring tools or at artists hurt by it. Skeptic with taste, not a cynic.
-- Honesty contract ("may not be the best, but it should get you started"): first person,
-  real trade-offs, admit jank. Preached lessons are banned — end stories and let the reader do the math.
+## Structure
 
-## Counts per post (targets, not law)
+**Course posts** (`Machine Learning/**`) keep the anatomy in `POST-TEMPLATE.md`. It's scaffolding
+for teaching, and it works. Scope it there and nowhere else.
 
-| Thing                  | Target                                                    |
-| ---------------------- | --------------------------------------------------------- |
-| Core words             | 800–1200                                                  |
-| Diagrams (mermaid/img) | ≥1                                                        |
-| Code blocks            | 1+ if practical, 0 if conceptual (then artifact required) |
-| Wiki-backlinks         | 2–4                                                       |
-| Jokes                  | 0–2, never in math/code                                   |
-| Callouts               | 1–3                                                       |
-| External links         | 1–2 (StatQuest / Wikipedia / docs tier)                   |
+**Personal posts: mock interview** (`Core Dumps/**`). Questions on one side, his answers on the
+other. This is the format that survives — it reproduces the diary's condition (one addressee, no
+audience to satisfy) and makes transcribing instead of composing the default.
 
-## Per-post definition of done (gate before flipping `draft: false`)
+- Questions are written by whoever is ghostwriting. Answers are his, verbatim except filler and
+  typos.
+- Order can change so each question earns the next one. If a question pushes him somewhere he
+  wouldn't have gone, the *question* is wrong, not the answer.
+- Keep the seams: the correction, the second thought, the "idk" that doesn't resolve. Those are
+  the content, not the rough edges.
+- Never add a sentence he didn't say. If a bridge is missing, ask him for it.
 
-- [ ] Frontmatter: one canonical tag, `draft` set deliberately, `date: YYYY-MM-DD`
-- [ ] TL;DR details/summary block present at top
-- [ ] One analogy + one running example carried through
-- [ ] Runnable code (practical) or grounding artifact (conceptual)
-- [ ] `[!warning]` gotcha present if the topic has a classic beginner mistake
-- [ ] Summary bullets, no new info in them
-- [ ] Homework `[!todo]` with checkboxes + escape-hatch link
-- [ ] Where next: backward link + forward link
-- [ ] All `[[wikilinks]]` resolve (no broken pages)
-- [ ] `npx quartz build` clean, no broken image/link warnings
+The diary's shape — `What happened → What I said → What landed → Open threads` — is the private
+version of the same thing. Use it when drafting. Don't ship it as the skeleton.
 
-## Ideas pipeline (low stakes by design)
+## Never
 
-0. **Dump** — one line into `../thoughts/INBOX.md` while living your life
-   (`Idea: / Read: / Built: / Asked: / Cool:`). Done. Zero formatting. `Asked:` entries are
-   pre-validated post material — people asked you for real.
-1. **Compost** — periodically (weekly-ish), review the inbox: tag `[post]` / `[note]`, promote
-   `[post]` ones into `IDEAS.md` here. If it keeps getting asked IRL, it goes to `BITES.md` too.
-2. **Seed** — when an idea earns a file, create it in `content/` with `draft: true`
-   and whatever garbage belongs in it. Invisible to readers; safe to abandon.
-3. **Grow** — make it pass the anatomy above at whatever pace studying allows.
-4. **Ship** — run the definition-of-done checklist, flip `draft: false`. It's alive.
+1. **Never translate.** See above. This is the whole ballgame.
+2. **Never fake a typo.** Real typos are edit-time fixes. A flawless fake typo is uncanny valley.
+3. **Never invent a reference.** No Skynet, no "one does not simply", no borrowed meme. If the
+   reference isn't from his life or the topic, it doesn't go in. A concrete jank detail beats a
+   meme every time.
+4. **Never schedule the undercut.** No flex-per-paragraph that gets deflated on a timer.
+5. **Never claim certainty he doesn't have.** No clean thesis statements about his own life.
+6. **Never preach.** End the story; let the reader do the math. (This rule survives unchanged from
+   the old spec — it was always right.)
+7. **Never write the homework section on an essay.** A `[!todo]` with checkboxes belongs on a
+   lesson, not on something he's still figuring out.
 
-Rule of thumb: `publish smallest useful page, then iterate.`
+## Tics (English rendering)
 
-## Audiences (from PERSONA.md — pick one per post/bite)
+| Raw | In published prose |
+|---|---|
+| `pai` / `gen` | "well," / "like," — sparingly |
+| `cred ca` / `simt ca` | "I think" / "I feel like" — keep these, they're load-bearing |
+| `da'` | "but" — often at the start of a sentence |
+| `smt` | "smt" only in deliberately casual asides; "something" in body prose |
+| `nuj` | "I don't know" — flat, not apologetic |
+| `:))` | a comma, or a short dry clause |
+| `...` | trailing thought — keep as an ellipsis or an em-dash |
+| ` - ` | direction switch — keep |
+| elongation ("waaay", "Aaaany") | rare. Once per piece at most. |
+| doubled words ("yep yep", "hey hey") | dialogue and asides only |
 
-| Tag              | Who                                             | Posts that serve them                       |
-| ---------------- | ----------------------------------------------- | ------------------------------------------- |
-| `students`       | meetup kids, curious, drowning in vibecode slop | the ML course, on-ramps, anti-slop guidance |
-| `api-colleagues` | devs who call LLM APIs at work                  | the why under the API, costs, failure modes |
-| `execs`          | non-tech, high-level                            | jargon-free, stakes and limits              |
+English is his second language and it arrives in short stacked clauses, often without the
+connective that a native writer would add. Do not smooth them into balanced sentences. The
+slightness of the joint is the voice.
 
-Course content (`Machine Learning/**`) defaults to `students`. Everything else: pick deliberately.
+## The goat
+
+`🐐` appears zero times in 25k messages. It belongs to the blog, not to him. Keep it as a sign-off
+on story-style posts if it's fun — `Peace 🐐` is fine. Do not build a personality on it, and do not
+let it into a post that's trying to be honest.
+
+## Before publishing, three questions
+
+1. **Could he have said this out loud, in this order, to one person?**
+2. **Is there a sentence here that exists to sound good rather than to be true?** Cut it.
+3. **Does it end on a fact or on a lesson?** If a lesson, it's not finished.
