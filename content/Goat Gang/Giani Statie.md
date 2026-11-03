@@ -11,17 +11,37 @@
 
 # Things I'm proud about
 
+## 🎪 Games of Transylvania
+
+**In 2026** I put together the Cluj booth at the first edition of [Games of Transylvania](https://gamesoftransylvania.com/) in Brașov. We made a dedicated booth for games made by our community — the arcade with the Arcade Game Jam games, Dragon Jump, and games and board games from other devs in Cluj. TAGAP came on as a partner of the event.
+
+## 🎨 The Second Artsy Arcade
+
+**In 2026** I finished the second cabinet, this time with the community. Painted the body white so people could draw on it, and had two artists break the ice with their awesome drawings. 
+
 ## 🕹️ My First DIY Arcade
 
-**In 2026** I also built a freaking arcade machine that we ended up presenting at a huge conference in Cluj.
+**In 2026** I built a freaking arcade machine that we ended up presenting at a huge conference in Cluj.
 
 ## 🐕 G-Retriever with NVIDIA
 
 **In 2026** I implemented a custom version of the [G-Retriever](https://arxiv.org/abs/2402.07630) approach on [QIAGEN's](https://www.qiagen.com/) data, in collaboration with [NVIDIA](https://www.nvidia.com/) and [Neo4j](https://neo4j.com/).
 
+## 🧪 Shaman Arena
+
+**In 2026** I built Shaman Arena over a game jam weekend — literally only used AI instead of googling, but implemented everything from scratch, day and night, 2 days straight. The code was jank af but the product was golden.
+
 ## 🦇 Co-founding TAGAP
 
 **In 2025** I chose to become a co-founder of [TAGAP](https://tagap.ro/) (_Asociația Transilvană pentru Gaming și Proiecte Artistice_), an NGO in Cluj-Napoca focused on gaming and creative projects. My main role has been organising game development meetups and helping the gamedev community in Cluj come together.
+
+## 💬 Transylvania Game Dev
+
+**In 2025** I started a Discord server for the game dev community in Cluj and the wider region — organization, help, showcases, resources, progress clubs, events. TAGAP is the NGO; this is the server where the ML workshop and the Cluj meetups actually get organized.
+
+## 🐲 Dragon Jump — a game you can plug an AI into
+
+**In 2024** I started [Dragon Jump](https://store.steampowered.com/app/2471710/Dragon_Jump/), a 2D one-button precision platformer inspired by _Super Meat Boy_ and _Geometry Dash_. It's also a plAIground: connect to the game with Python, write your own AI, and watch it learn to play. On and off for 2 years now.
 
 ## 👾 Publishing my first game
 
